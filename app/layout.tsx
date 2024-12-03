@@ -2,7 +2,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Montserrat } from "next/font/google";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import "./globals.css";
+import { ButtonVariant, IconPosition } from "@/types/button";
 
 // Proxima Nova for headings
 const proximaNova = localFont({
@@ -54,6 +57,148 @@ export const metadata: Metadata = {
   description: "Global Transition, Expert CAMO & Next-Gen Digital solutions",
 };
 
+// Sample common data structure matching Strapi
+const commonData = {
+  data: {
+    attributes: {
+      logoSmall: {
+        data: {
+          attributes: {
+            url: "/api/placeholder/40/40",
+            width: 40,
+            height: 40,
+            alt: "Aviation Solutions Small Logo",
+          },
+        },
+      },
+      logoLarge: {
+        data: {
+          attributes: {
+            url: "/api/placeholder/120/40",
+            width: 120,
+            height: 40,
+            alt: "Aviation Solutions Large Logo",
+          },
+        },
+      },
+      headerLogoType: "small",
+      headerMenu: {
+        data: {
+          attributes: {
+            items: [
+              { title: "About us", href: "/about" },
+              {
+                title: "Services",
+                items: [
+                  {
+                    title: "CAMO Services",
+                    href: "/services/camo",
+                    description:
+                      "Continuing Airworthiness Management Organization services",
+                  },
+                  {
+                    title: "Digital Solutions",
+                    href: "/services/digital",
+                    description: "Next-gen aviation digital solutions",
+                  },
+                ],
+              },
+              { title: "Products", href: "/products" },
+              { title: "Team", href: "/team" },
+              { title: "Clients", href: "/clients" },
+              { title: "Contact", href: "/contact" },
+            ],
+          },
+        },
+      },
+      footerLogoType: "large",
+      footerDescription:
+        "AeroConsultant is a global leader in aviation consulting, providing expert solutions in aircraft transition services, CAMO support, and innovative digital tools. With a presence in 155 countries and a commitment to excellence, we help aviation operators streamline operations and ensure compliance. ",
+      footerHeading: "Get in Touch",
+      footerMenu: {
+        data: {
+          attributes: {
+            items: [
+              { title: "About Us", href: "/about" },
+              { title: "Services", href: "/services" },
+              { title: "Products", href: "/products" },
+              { title: "Contact", href: "/contact" },
+            ],
+          },
+        },
+      },
+      contactList: [
+        {
+          title: "Email",
+          link: "mailto:info@aviationsolutions.com",
+          icon: {
+            data: {
+              attributes: {
+                url: "/api/placeholder/24/24",
+                width: 24,
+                height: 24,
+                alt: "Email Icon",
+              },
+            },
+          },
+          iconPosition: "left" as IconPosition,
+          variant: "text" as ButtonVariant,
+        },
+        {
+          title: "+1 234 567 890",
+          link: "tel:+1234567890",
+          icon: {
+            data: {
+              attributes: {
+                url: "/api/placeholder/24/24",
+                width: 24,
+                height: 24,
+                alt: "Phone Icon",
+              },
+            },
+          },
+          iconPosition: "left" as IconPosition,
+          variant: "text" as ButtonVariant,
+        },
+      ],
+      socialLinks: [
+        {
+          title: "LinkedIn",
+          link: "https://linkedin.com",
+          icon: {
+            data: {
+              attributes: {
+                url: "/api/placeholder/24/24",
+                width: 24,
+                height: 24,
+                alt: "LinkedIn Icon",
+              },
+            },
+          },
+          iconPosition: "left" as IconPosition,
+          variant: "text" as ButtonVariant,
+        },
+        {
+          title: "Twitter",
+          link: "https://twitter.com",
+          icon: {
+            data: {
+              attributes: {
+                url: "/api/placeholder/24/24",
+                width: 24,
+                height: 24,
+                alt: "Twitter Icon",
+              },
+            },
+          },
+          iconPosition: "left" as IconPosition,
+          variant: "text" as ButtonVariant,
+        },
+      ],
+    },
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -64,7 +209,27 @@ export default function RootLayout({
       <body
         className={`${proximaNova.variable} ${helveticaNow.variable} ${montserrat.variable} font-body antialiased`}
       >
-        {children}
+        <Header
+          logo={
+            commonData.data.attributes.headerLogoType === "small"
+              ? commonData.data.attributes.logoSmall
+              : commonData.data.attributes.logoLarge
+          }
+          menu={commonData.data.attributes.headerMenu}
+        />
+        <main>{children}</main>
+        <Footer
+          logo={
+            commonData.data.attributes.footerLogoType === "small"
+              ? commonData.data.attributes.logoSmall
+              : commonData.data.attributes.logoLarge
+          }
+          description={commonData.data.attributes.footerDescription}
+          heading={commonData.data.attributes.footerHeading}
+          menu={commonData.data.attributes.footerMenu}
+          contactList={commonData.data.attributes.contactList}
+          socialLinks={commonData.data.attributes.socialLinks}
+        />
       </body>
     </html>
   );

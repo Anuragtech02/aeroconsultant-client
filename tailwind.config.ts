@@ -53,6 +53,9 @@ export default {
         brown: {
           900: "#3D2B1F",
         },
+        purple: {
+          900: "#9900B7",
+        },
       },
       container: {
         center: true,
@@ -67,9 +70,23 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        heading: ["var(--font-proxima)", "sans-serif"],
-        body: ["var(--font-helvetica)", "sans-serif"],
-        button: ["var(--font-montserrat)", "sans-serif"],
+        heading: ["Proxima Nova", "system-ui", "sans-serif"],
+        body: ["Helvetica Now", "system-ui", "sans-serif"],
+        button: ["Montserrat", "system-ui", "sans-serif"],
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },

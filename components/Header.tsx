@@ -1,8 +1,8 @@
-// components/navbar.tsx
 "use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import {
@@ -13,37 +13,18 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import type { NavItem } from "@/types/nav";
+import type { Logo, Menu } from "@/types/common";
 
-const navigationItems: NavItem[] = [
-  { title: "About us", href: "/about" },
-  {
-    title: "Services",
-    items: [
-      {
-        title: "CAMO Services",
-        href: "/services/camo",
-        description:
-          "Continuing Airworthiness Management Organization services",
-      },
-      {
-        title: "Digital Solutions",
-        href: "/services/digital",
-        description: "Next-gen aviation digital solutions",
-      },
-    ],
-  },
-  { title: "Products", href: "/products" },
-  { title: "Team", href: "/team" },
-  { title: "Clients", href: "/clients" },
-  { title: "Contact", href: "/contact" },
-];
+interface HeaderProps {
+  logo: Logo;
+  menu: Menu;
+}
 
-export function Navbar() {
+export function Header({ logo, menu }: HeaderProps) {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
+  const isHomePage = pathname === "/";
 
-  // Handle navbar background change on scroll
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -61,48 +42,58 @@ export function Navbar() {
     <header
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300",
-        isScrolled ? "bg-white/90 backdrop-blur-sm shadow-sm" : "bg-transparent"
+        isScrolled
+          ? "bg-white/90 backdrop-blur-sm shadow-sm"
+          : isHomePage
+          ? "bg-transparent"
+          : "bg-white"
       )}
     >
-      <div className="container px-4 mx-auto">
+      <div className="container mx-auto px-4">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <img
-              src="/api/placeholder/40/40"
-              alt="Logo"
-              className="w-10 h-10 object-contain"
+          <Link href="/" className="relative z-10">
+            <Image
+              src={logo.data.attributes.url}
+              alt={logo.data.attributes.alt}
+              width={logo.data.attributes.width}
+              height={logo.data.attributes.height}
+              className="w-auto h-10 object-contain"
+              priority
             />
           </Link>
 
           {/* Main Navigation */}
           <NavigationMenu className="hidden md:flex">
-            <NavigationMenuList>
-              {navigationItems.map((item) => (
+            <NavigationMenuList className="gap-2">
+              {menu.data.attributes.items.map((item) => (
                 <NavigationMenuItem key={item.title}>
                   {item.items ? (
                     <>
                       <NavigationMenuTrigger
                         className={cn(
-                          "text-sm font-medium",
-                          isScrolled ? "text-gray-900" : "text-white"
+                          "text-base transition-all duration-200 bg-transparent h-auto rounded-full",
+                          "px-4 py-2",
+                          isScrolled || !isHomePage
+                            ? "text-gray-900 hover:text-gray-900 hover:bg-gray-100"
+                            : "text-white hover:text-white hover:bg-white/10"
                         )}
                       >
                         {item.title}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
-                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
+                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 bg-white shadow-lg rounded-md">
                           {item.items.map((subItem) => (
                             <li key={subItem.title}>
                               <NavigationMenuLink asChild>
                                 <Link
                                   href={subItem.href}
-                                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-100"
                                 >
-                                  <div className="text-sm font-medium leading-none">
+                                  <div className="text-base font-medium leading-none text-gray-900 mb-2">
                                     {subItem.title}
                                   </div>
-                                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                                  <p className="line-clamp-2 text-sm leading-snug text-gray-600">
                                     {subItem.description}
                                   </p>
                                 </Link>
@@ -116,9 +107,15 @@ export function Navbar() {
                     <Link
                       href={item.href || "#"}
                       className={cn(
-                        "text-sm font-medium transition-colors hover:text-gray-900/90 px-4 py-2",
-                        isScrolled ? "text-gray-900" : "text-white",
-                        pathname === item.href ? "text-primary" : ""
+                        "text-base transition-all duration-200 px-4 py-2 block rounded-full",
+                        isScrolled || !isHomePage
+                          ? "text-gray-900 hover:text-gray-900 hover:bg-gray-100"
+                          : "text-white hover:text-white hover:bg-white/10",
+                        pathname === item.href
+                          ? isHomePage && !isScrolled
+                            ? "text-white font-medium"
+                            : "text-primary font-medium"
+                          : ""
                       )}
                     >
                       {item.title}
@@ -128,8 +125,12 @@ export function Navbar() {
               ))}
             </NavigationMenuList>
           </NavigationMenu>
+
+          {/* TODO: Add mobile menu */}
         </div>
       </div>
     </header>
   );
 }
+
+export default Header;
