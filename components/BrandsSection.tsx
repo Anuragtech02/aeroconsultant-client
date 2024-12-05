@@ -39,7 +39,7 @@ const BrandsSection = ({
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-16">
-            <h2 className="text-3xl font-normal">
+            <h2 className="text-3xl font-normal text-center sm:text-left">
               Entrusted by <br />
               <span className="font-bold block md:inline">
                 Global Aviation
