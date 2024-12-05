@@ -19,7 +19,10 @@ const ServiceCard = ({
   return (
     <Link
       href={href}
-      className={cn("group relative aspect-[3/4] overflow-hidden", className)}
+      className={cn(
+        "group relative aspect-square sm:aspect-[3/4] overflow-hidden",
+        className
+      )}
     >
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent from-19% to-black/65 to-65% z-10" />

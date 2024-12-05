@@ -13,8 +13,8 @@ const ServicesSection = ({ className }: ServicesSectionProps) => {
     >
       <div className="flex flex-col lg:flex-row">
         {/* Left Column - Title and Description */}
-        <div className="w-full lg:w-[40%] p-8 flex flex-col justify-end">
-          <h2 className="font-regular mb-8">
+        <div className="w-full lg:w-[40%] p-4 sm:p-8 flex flex-col justify-end">
+          <h2 className="font-normal mb-8">
             We manage your
             <br />
             <span className="font-bold">Aircraft Assets</span>
