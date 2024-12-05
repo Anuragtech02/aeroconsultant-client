@@ -17,7 +17,7 @@ const SupportCard = ({ title, icon }: SupportCardProps) => {
 
 const SupportSection = () => {
   return (
-    <section className="py-24">
+    <section className="py-16 border-b border-black/30">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-start justify-between gap-16">
           <div className="w-full sm:text-right">

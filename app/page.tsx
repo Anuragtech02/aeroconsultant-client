@@ -7,6 +7,7 @@ import Stats from "@/components/Home/Stats";
 import AboutSection from "@/components/Home/AboutSection";
 import ServicesSection from "@/components/Home/ServicesSection";
 import SupportSection from "@/components/Home/SupportServicesSection";
+import SliderSection from "@/components/Home/SliderSection";
 
 // async function getHomeData() {
 //   // Fetch from Strapi
@@ -28,6 +29,7 @@ export default async function HomePage() {
       <AboutSection />
       <ServicesSection />
       <SupportSection />
+      <SliderSection />
     </>
   );
 }
