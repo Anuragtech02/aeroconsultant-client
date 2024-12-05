@@ -64,7 +64,7 @@ const commonData = {
       logoSmall: {
         data: {
           attributes: {
-            url: "/api/placeholder/40/40",
+            url: "/logo-small.png",
             width: 40,
             height: 40,
             alt: "Aviation Solutions Small Logo",
@@ -74,7 +74,7 @@ const commonData = {
       logoLarge: {
         data: {
           attributes: {
-            url: "/api/placeholder/120/40",
+            url: "/logo-large.png",
             width: 120,
             height: 40,
             alt: "Aviation Solutions Large Logo",

@@ -58,7 +58,10 @@ export function Header({ logo, menu }: HeaderProps) {
               alt={logo.data.attributes.alt}
               width={logo.data.attributes.width}
               height={logo.data.attributes.height}
-              className="w-auto h-10 object-contain"
+              className={cn(
+                "w-auto h-10 object-contain",
+                isScrolled ? "invert" : ""
+              )}
               priority
             />
           </Link>
