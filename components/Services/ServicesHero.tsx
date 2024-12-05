@@ -50,7 +50,7 @@ export default function ServicesHero() {
               <h1 className="font-bold text-white mb-12 font-heading leading-tight">
                 Providing solutions your aircrafts need
               </h1>
-              <div className="flex gap-4">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Button variant="primary" title="Let's Talk" size="lg" />
                 <Button variant="outline" title="Know our services" size="lg" />
               </div>
@@ -74,7 +74,7 @@ export default function ServicesHero() {
 
                   {/* Contained content */}
                   <div className="relative h-full px-4">
-                    <div className="h-full p-6 flex items-end justify-between gap-6">
+                    <div className="h-full p-6 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">
                       <div className="flex flex-col gap-2">
                         {service.icon ? (
                           <img src={service.icon} alt="" className="w-12" />
