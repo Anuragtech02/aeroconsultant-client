@@ -8,7 +8,7 @@ interface AboutSectionProps {
 
 const AboutSection = ({ className }: AboutSectionProps) => {
   return (
-    <section className={cn("relative w-full py-20", className)}>
+    <section className={cn("relative w-full pt-20", className)}>
       <div className="flex flex-col lg:flex-row">
         {/* Left Column - Image with gradient overlay */}
         <div className="relative w-full lg:w-[40%] aspect-[4/3]">
