@@ -6,6 +6,7 @@ import { homeData } from "@/mocks/homeData";
 import Stats from "@/components/Home/Stats";
 import AboutSection from "@/components/Home/AboutSection";
 import ServicesSection from "@/components/Home/ServicesSection";
+import SupportSection from "@/components/Home/SupportServicesSection";
 
 // async function getHomeData() {
 //   // Fetch from Strapi
@@ -26,6 +27,7 @@ export default async function HomePage() {
       <Stats />
       <AboutSection />
       <ServicesSection />
+      <SupportSection />
     </>
   );
 }
