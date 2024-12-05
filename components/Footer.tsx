@@ -43,14 +43,7 @@ interface FooterProps {
   }>;
 }
 
-const Footer = ({
-  logo,
-  description,
-  heading,
-  menu,
-  contactList,
-  socialLinks,
-}: FooterProps) => {
+const Footer = ({ logo, description, menu, socialLinks }: FooterProps) => {
   return (
     <footer className="bg-white py-16">
       <div className="container mx-auto px-4">

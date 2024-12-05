@@ -7,7 +7,7 @@ interface HeroProps {
   data: HeroSection;
 }
 
-const Hero = ({ data }: HeroProps) => {
+const Hero = ({}: HeroProps) => {
   return (
     <section className="relative w-full h-screen flex items-center">
       {/* Background Image */}
