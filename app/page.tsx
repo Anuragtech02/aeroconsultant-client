@@ -33,7 +33,52 @@ export default async function HomePage() {
       <ServicesSection />
       <SupportSection />
       <SliderSection />
-      <TeamSection />
+      <TeamSection
+        title="Meet our Team"
+        description="Bringing together a diverse set of voices with new technology, we collaborate closely, ideate freely and swiftly apply breakthrough innovations that drive big impact."
+        members={[
+          {
+            name: "Neha Mishra",
+            role: "CEO/CTO",
+            image: {
+              url: "/neha.jpg",
+              alt: "Neha Mishra",
+            },
+          },
+          {
+            name: "Rohit Kumar",
+            role: "CCO",
+            image: {
+              url: "/rohit.jpg",
+              alt: "Rohit Kumar",
+            },
+          },
+          {
+            name: "Kunal Sabharwal",
+            role: "COO",
+            image: {
+              url: "/kunal.jpg",
+              alt: "Kunal Sabharwal",
+            },
+          },
+          {
+            name: "Akash Mishra",
+            role: "CMO",
+            image: {
+              url: "/akash.jpg",
+              alt: "Akash Mishra",
+            },
+          },
+          {
+            name: "Lakshya Mishra",
+            role: "COS",
+            image: {
+              url: "/lakshya.jpg",
+              alt: "Lakshya Mishra",
+            },
+          },
+        ]}
+      />
       <BrandsSection />
       <BlogSection />
     </>
