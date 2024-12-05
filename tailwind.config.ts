@@ -56,6 +56,9 @@ export default {
         purple: {
           900: "#9900B7",
         },
+        "txt-body": {
+          DEFAULT: "#020407",
+        },
       },
       container: {
         center: true,
