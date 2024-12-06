@@ -67,10 +67,10 @@ const SliderSection = () => {
             Hassle-free aircraft requirements
           </h2>
           <Button
-            variant="secondary"
+            variant="outline"
             title="Get Your Demo Now"
-            size="lg"
-            className="[&>span]:!text-gray-900"
+            link="/contact"
+            className="[&>span]:!text-gray-900 !border-black"
           />
         </div>
       </div>
