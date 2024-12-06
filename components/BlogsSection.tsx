@@ -23,14 +23,14 @@ const BlogSection = () => {
         <div className="grid grid-cols-12 h-[700px]">
           {/* Left Column - Featured Blog */}
           <div className="col-span-7 relative h-full">
-            <div className="absolute top-0 right-0 h-full w-[calc(100%+((100vw-1280px)/2))] -left-[calc((100vw-1280px)/2)]">
+            <div className="absolute top-0 right-0 h-full w-[calc(100%+var(--max-layout-ml))] -left-[var(--max-layout-ml)]">
               <img
                 src="/aero-inside.jpg"
                 alt="Aircraft cockpit"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              <div className="absolute bottom-0 left-[calc((100vw-1280px)/2)] py-8 text-white">
+              <div className="absolute bottom-0 left-[var(--max-layout-ml)] pl-4 xl:pl-6 py-8 text-white">
                 <h2 className="font-normal mb-4">
                   5 tips to digitalize your aircraft documents
                 </h2>
@@ -76,7 +76,7 @@ const BlogSection = () => {
 
             {/* AeroTalks Section - Exactly half height */}
             <div className="relative h-1/2">
-              <div className="absolute inset-0 right-[calc(-1*(100vw-1280px)/2)] bg-purple-600 text-white p-8 flex justify-between items-end">
+              <div className="absolute inset-0 w-[calc(100%+var(--max-layout-ml))] pr-[var(--max-layout-ml)] bg-purple-600 text-white p-8 flex justify-between items-end">
                 <div>
                   <span className="font-bold block text-6xl font-proxima">
                     AeroTalks

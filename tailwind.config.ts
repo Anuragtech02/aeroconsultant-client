@@ -64,7 +64,13 @@ export default {
         center: true,
         padding: "2rem",
         screens: {
-          "2xl": "1400px",
+          xxs: "100%",
+          xs: "100%",
+          xsm: "100%",
+          sm: "100%",
+          md: "100%",
+          lg: "100%",
+          xl: "1280px",
         },
       },
       borderRadius: {
