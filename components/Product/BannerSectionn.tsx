@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-const ServiceItem = ({ icon, title }) => (
+const ServiceItem = ({ icon, title }: { icon: string; title: string }) => (
   <div className="flex flex-col items-center gap-3">
     <Image
       src={icon}
