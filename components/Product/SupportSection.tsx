@@ -1,5 +1,5 @@
 import React from "react";
-import { Laptop, Search, FolderOpen } from "lucide-react";
+import { Search, FolderOpen } from "lucide-react";
 
 interface SupportCardProps {
   title: string;
@@ -30,7 +30,11 @@ const ProductsSupportSection = () => {
               title="Camo Services"
               description="Corem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis"
               icon={
-                <img src="/camo-service.png" className="w-30 object-contain" />
+                <img
+                  alt="camo-service"
+                  src="/camo-service.png"
+                  className="w-30 object-contain"
+                />
               }
             />
             <SupportCard
