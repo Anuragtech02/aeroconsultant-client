@@ -86,7 +86,7 @@ const commonData = {
         data: {
           attributes: {
             items: [
-              { title: "About us", href: "/about" },
+              { title: "About us", href: "/#about" },
               {
                 title: "Services",
                 items: [
@@ -103,9 +103,9 @@ const commonData = {
                   },
                 ],
               },
-              { title: "Products", href: "/products" },
-              { title: "Team", href: "/team" },
-              { title: "Clients", href: "/clients" },
+              { title: "Products", href: "/#products" },
+              { title: "Team", href: "/#team" },
+              { title: "Clients", href: "/#clients" },
               { title: "Contact", href: "/contact" },
             ],
           },
@@ -119,9 +119,9 @@ const commonData = {
         data: {
           attributes: {
             items: [
-              { title: "About Us", href: "/about" },
+              { title: "About Us", href: "/#about" },
               { title: "Services", href: "/services" },
-              { title: "Products", href: "/products" },
+              { title: "Products", href: "/#products" },
               { title: "Contact", href: "/contact" },
             ],
           },
@@ -168,7 +168,7 @@ const commonData = {
           icon: {
             data: {
               attributes: {
-                url: "/api/placeholder/24/24",
+                url: "/LinkedInCircle.svg",
                 width: 24,
                 height: 24,
                 alt: "LinkedIn Icon",
@@ -178,22 +178,22 @@ const commonData = {
           iconPosition: "left" as IconPosition,
           variant: "text" as ButtonVariant,
         },
-        {
-          title: "Twitter",
-          link: "https://twitter.com",
-          icon: {
-            data: {
-              attributes: {
-                url: "/api/placeholder/24/24",
-                width: 24,
-                height: 24,
-                alt: "Twitter Icon",
-              },
-            },
-          },
-          iconPosition: "left" as IconPosition,
-          variant: "text" as ButtonVariant,
-        },
+        // {
+        //   title: "Twitter",
+        //   link: "https://twitter.com",
+        //   icon: {
+        //     data: {
+        //       attributes: {
+        //         url: "/api/placeholder/24/24",
+        //         width: 24,
+        //         height: 24,
+        //         alt: "Twitter Icon",
+        //       },
+        //     },
+        //   },
+        //   iconPosition: "left" as IconPosition,
+        //   variant: "text" as ButtonVariant,
+        // },
       ],
     },
   },

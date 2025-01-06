@@ -51,8 +51,10 @@ export default function ServicesHero() {
                 Providing solutions your aircrafts need
               </h1>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="primary" title="Let's Talk" size="lg" />
-                <Button variant="outline" title="Know our services" size="lg" />
+                <Link href={"/contact"}>
+                  <Button variant="primary" title="Let's Talk" size="lg" />
+                </Link>
+                {/* <Button variant="outline" title="Know our services" size="lg" /> */}
               </div>
             </div>
           </div>

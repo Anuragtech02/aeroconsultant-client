@@ -117,7 +117,7 @@ const Footer = ({ logo, description, menu, socialLinks }: FooterProps) => {
                   <div className="flex items-center space-x-3 text-gray-500">
                     <div className="w-6 flex items-center justify-center">
                       <Image
-                        src="/api/placeholder/24/24"
+                        src="/CallIcon.svg"
                         alt="Phone Icon"
                         width={24}
                         height={24}
@@ -131,7 +131,7 @@ const Footer = ({ logo, description, menu, socialLinks }: FooterProps) => {
                   <div className="flex items-start space-x-3 text-gray-500">
                     <div className="w-6 flex items-center justify-center mt-1">
                       <Image
-                        src="/api/placeholder/24/24"
+                        src="/EmailIcon.svg"
                         alt="Email Icon"
                         width={24}
                         height={24}
@@ -158,7 +158,7 @@ const Footer = ({ logo, description, menu, socialLinks }: FooterProps) => {
                   <div className="flex items-start space-x-3 text-gray-500">
                     <div className="w-6 flex items-center justify-center mt-1">
                       <Image
-                        src="/api/placeholder/24/24"
+                        src="/PinIcon.svg"
                         alt="Location Icon"
                         width={24}
                         height={24}

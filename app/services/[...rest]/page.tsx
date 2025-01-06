@@ -1,7 +1,7 @@
 // app/page.tsx
 import BrandsSection from "@/components/BrandsSection";
 import ServicesHero from "@/components/Services/ServicesHero";
-import ServicesToggle from "@/components/Services/ServiceToggle";
+// import ServicesToggle from "@/components/Services/ServiceToggle";
 import React from "react";
 
 export default async function ServicesPage() {
@@ -9,7 +9,7 @@ export default async function ServicesPage() {
     <>
       <ServicesHero />
       <BrandsSection variant="v2" />
-      <ServicesToggle />
+      {/* <ServicesToggle /> */}
     </>
   );
 }
