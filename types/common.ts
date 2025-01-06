@@ -1,51 +1,47 @@
-// types/common.ts
-
-import { ButtonProps } from "./button";
-
-export type LogoType = "small" | "large";
+import { StrapiImage } from "./strapi";
 
 export interface MenuItem {
+  id: string;
+  url: string;
   title: string;
-  href?: string;
-  items?: {
-    title: string;
-    href: string;
-    description: string;
-  }[];
+  target: string;
+  children: unknown[];
+  isProtected: boolean;
+  collapsed?: boolean;
 }
 
 export interface Menu {
-  data: {
-    attributes: {
-      items: MenuItem[];
-    };
-  };
+  id: number;
+  documentId: string;
+  title: string;
+  slug: string;
+  items: MenuItem[];
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  locale: string;
 }
 
-export interface Logo {
-  data: {
-    attributes: {
-      url: string;
-      width: number;
-      height: number;
-      alt: string;
-    };
-  };
+interface HeaderMenu {
+  id: number;
+  items: MenuItem[];
 }
 
-export interface CommonData {
-  data: {
-    attributes: {
-      logoSmall: Logo;
-      logoLarge: Logo;
-      headerLogoType: LogoType;
-      headerMenu: Menu;
-      footerLogoType: LogoType;
-      footerDescription: string;
-      footerHeading: string;
-      footerMenu: Menu;
-      contactList: ButtonProps[];
-      socialLinks: ButtonProps[];
-    };
-  };
+// Props type for the Header component
+export interface HeaderProps {
+  logo: StrapiImage;
+  menu: HeaderMenu;
+}
+
+export interface FooterMenu {
+  id: number;
+  items: MenuItem[];
+}
+
+export interface ContactLink {
+  id: number;
+  title: string;
+  link: string;
+  iconPosition?: "left" | "right";
+  variant?: "primary" | "secondary" | "outline" | "text";
 }
