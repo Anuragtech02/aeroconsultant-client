@@ -36,7 +36,7 @@ const BrandsSection = ({
 
   if (variant === "v2") {
     return (
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white" id="clients">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-16">
             <h2 className="text-3xl font-normal text-center sm:text-left">

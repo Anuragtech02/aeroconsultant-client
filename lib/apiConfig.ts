@@ -1,7 +1,7 @@
 // src/api/apiConfig.ts
 
 const API_BASE_URL: string =
-  process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337/api";
+  process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://127.0.0.1:1337/api";
 
 interface FetchOptions extends RequestInit {
   headers?: Record<string, string>;

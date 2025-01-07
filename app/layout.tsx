@@ -59,6 +59,7 @@ export const metadata: Metadata = {
   description: "Global Transition, Expert CAMO & Next-Gen Digital solutions",
 };
 
+const contactUrl = process.env.NEXT_PUBLIC_CONTACT_URL;
 // Sample common data structure matching Strapi
 // const commonData = {
 //   data: {
@@ -207,6 +208,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const commonData = await getCommonData();
+
+  console.log(commonData);
 
   return (
     <html lang="en">

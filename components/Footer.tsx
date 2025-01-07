@@ -89,43 +89,64 @@ const Footer = ({
                   Contact
                 </h3>
                 <div className="space-y-4">
-                  {contactList.map((contact) => (
-                    <div
-                      key={contact.id}
-                      className="flex items-start space-x-3 text-gray-500"
-                    >
-                      <div className="w-6 flex items-center justify-center mt-1">
-                        <Image
-                          src="/api/placeholder/24/24"
-                          alt={`${contact.title} Icon`}
-                          width={24}
-                          height={24}
-                          className="w-5 h-5"
-                        />
-                      </div>
-                      {contact.title.includes("@") ? (
-                        // Handle email links
-                        <div className="flex flex-col space-y-1">
-                          {contact.title.split(",").map((email, index) => (
-                            <Link
-                              key={index}
-                              href={`mailto:${email.trim()}`}
-                              className="hover:text-gray-900 transition-colors"
-                            >
-                              {email.trim()}
-                            </Link>
-                          ))}
-                        </div>
-                      ) : (
-                        // Handle other contact info
-                        <div
-                          className={contact.title.includes(",") ? "" : "mt-1"}
-                        >
-                          {contact.title}
-                        </div>
-                      )}
+                  {/* Phone */}
+                  <div className="flex items-center space-x-3 text-gray-500">
+                    <div className="w-6 flex items-center justify-center">
+                      <Image
+                        src="/CallIcon.svg"
+                        alt="Phone Icon"
+                        width={24}
+                        height={24}
+                        className="w-5 h-5"
+                      />
                     </div>
-                  ))}
+                    <span>(+33) 67836684</span>
+                  </div>
+
+                  {/* Email */}
+                  <div className="flex items-start space-x-3 text-gray-500">
+                    <div className="w-6 flex items-center justify-center mt-1">
+                      <Image
+                        src="/EmailIcon.svg"
+                        alt="Email Icon"
+                        width={24}
+                        height={24}
+                        className="w-5 h-5"
+                      />
+                    </div>
+                    <div className="flex flex-col space-y-1">
+                      <Link
+                        href="mailto:sales@aeroconsultant.fr"
+                        className="hover:text-gray-900 transition-colors"
+                      >
+                        sales@aeroconsultant.fr
+                      </Link>
+                      <Link
+                        href="mailto:consultant@aeroconsultant.fr"
+                        className="hover:text-gray-900 transition-colors"
+                      >
+                        consultant@aeroconsultant.fr
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* Address */}
+                  <div className="flex items-start space-x-3 text-gray-500">
+                    <div className="w-6 flex items-center justify-center mt-1">
+                      <Image
+                        src="/PinIcon.svg"
+                        alt="Location Icon"
+                        width={24}
+                        height={24}
+                        className="w-5 h-5"
+                      />
+                    </div>
+                    <div>
+                      16 Avenue Du Parc, 31700,
+                      <br />
+                      Blagnac, France
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

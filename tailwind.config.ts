@@ -51,10 +51,10 @@ export default {
           "5": "hsl(var(--chart-5))",
         },
         brown: {
-          900: "#3D2B1F",
+          "900": "#3D2B1F",
         },
         purple: {
-          900: "#9900B7",
+          "900": "#9900B7",
         },
         "txt-body": {
           DEFAULT: "#020407",
@@ -85,12 +85,20 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
+          from: {
+            height: "0",
+          },
+          to: {
+            height: "var(--radix-accordion-content-height)",
+          },
         },
         "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
+          from: {
+            height: "var(--radix-accordion-content-height)",
+          },
+          to: {
+            height: "0",
+          },
         },
       },
       animation: {

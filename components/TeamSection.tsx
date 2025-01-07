@@ -63,7 +63,7 @@ const TeamSection = ({
   ],
 }: TeamSectionProps) => {
   return (
-    <section className="pt-24 bg-white">
+    <section className="pt-24 bg-white" id="team">
       <div className="container mx-auto px-4 mb-16">
         {/* Header */}
         <div className="flex justify-between items-center flex-wrap gap-8">
