@@ -57,6 +57,7 @@ export const metadata: Metadata = {
   description: "Global Transition, Expert CAMO & Next-Gen Digital solutions",
 };
 
+const contactUrl = process.env.NEXT_PUBLIC_CONTACT_URL;
 // Sample common data structure matching Strapi
 const commonData = {
   data: {
@@ -106,7 +107,7 @@ const commonData = {
               { title: "Products", href: "/#products" },
               { title: "Team", href: "/#team" },
               { title: "Clients", href: "/#clients" },
-              { title: "Contact", href: "/contact" },
+              { title: "Contact", href: contactUrl },
             ],
           },
         },
@@ -122,7 +123,7 @@ const commonData = {
               { title: "About Us", href: "/#about" },
               { title: "Services", href: "/services" },
               { title: "Products", href: "/#products" },
-              { title: "Contact", href: "/contact" },
+              { title: "Contact", href: contactUrl },
             ],
           },
         },
