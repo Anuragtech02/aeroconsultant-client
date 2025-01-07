@@ -3,7 +3,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   output: "standalone",
-  domains: ["aero-cms.s3.ap-south-1.amazonaws.com"],
+  images: {
+    domains: ["aero-cms.s3.ap-south-1.amazonaws.com"],
+  },
   remotePatterns: [
     {
       protocol: "https",
