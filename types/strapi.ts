@@ -91,6 +91,24 @@ export interface StrapiHomeResponse {
       iconPosition: string | null;
       variant: "primary" | "outline";
     }>;
+    statisticsCounters: Array<{
+      id: number;
+      title: string;
+      countStart: number;
+      countEnd: number;
+      symbol: string;
+      symbolPosition: "left" | "right";
+    }>;
+    sliderTabs: Array<{
+      id: number;
+      title: string;
+      description: string;
+      image: StrapiImage;
+    }>;
+    aboutSectionHeading: string;
+    aboutSectionDescription: string;
+    aboutSectionImage: StrapiImage;
+    clientsLogoList: Array<StrapiImage>;
   };
   meta: Record<string, unknown>;
 }

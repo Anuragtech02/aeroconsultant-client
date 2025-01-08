@@ -36,10 +36,17 @@ export default async function HomePage() {
         heroCTAList={home.data.heroCTAList}
       />
       <Stats statisticsCounters={home.data.statisticsCounters} />
-      <AboutSection />
+      <AboutSection
+        aboutSectionHeading={home.data.aboutSectionHeading}
+        aboutSectionDescription={home.data.aboutSectionDescription}
+        aboutSectionImage={home.data.aboutSectionImage}
+      />
       <ServicesSection />
       <SupportSection />
-      <SliderSection />
+      <SliderSection
+        sliderSectionTitle={home.data.sliderSectionTitle}
+        sliderTabs={home.data.sliderTabs}
+      />
       <TeamSection
         title="Meet our Team"
         description="Bringing together a diverse set of voices with new technology, we collaborate closely, ideate freely and swiftly apply breakthrough innovations that drive big impact."
