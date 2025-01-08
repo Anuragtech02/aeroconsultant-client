@@ -107,7 +107,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="relative py-24 bg-gray-50">
+    <section className="relative py-24 bg-gray-50" id="contact">
       {/* Background pattern */}
       <div className="absolute inset-0 bg-white/50 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]" />
 
