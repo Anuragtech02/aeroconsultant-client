@@ -16,3 +16,20 @@ export async function getCommonData() {
 
   return apiFetch<StrapiCommonResponse>(`/common?${populateFields}`);
 }
+
+export async function getHomePage() {
+  const populateFields = [
+    "heroBGVideo",
+    "heroCTAList",
+    "statisticsCounters",
+    "sliderTabs",
+    "aboutSectionImage",
+    "clientsLogoList",
+  ]
+    .map((field, index) => `populate[${index}]=${field}`)
+    .join("&");
+
+  console.log(populateFields);
+
+  return apiFetch<StrapiCommonResponse>(`/home?${populateFields}`);
+}

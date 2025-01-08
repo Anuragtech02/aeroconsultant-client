@@ -1,7 +1,7 @@
 // app/page.tsx
 import React from "react";
 import { HeroSection } from "@/types/home";
-import Hero from "@/components/Home/Hero";
+import { Hero } from "@/components/Home/Hero";
 import { homeData } from "@/mocks/homeData";
 import Stats from "@/components/Home/Stats";
 import AboutSection from "@/components/Home/AboutSection";
@@ -10,6 +10,7 @@ import SupportSection from "@/components/Home/SupportServicesSection";
 import SliderSection from "@/components/Home/SliderSection";
 import TeamSection from "@/components/TeamSection";
 import BrandsSection from "@/components/BrandsSection";
+import { getHomePage } from "@/lib/services";
 // import BlogSection from "@/components/BlogsSection";
 
 // async function getHomeData() {
@@ -22,12 +23,18 @@ import BrandsSection from "@/components/BrandsSection";
 // }
 
 export default async function HomePage() {
+  const home = await getHomePage();
   // @ts-expect-error - data is not defined
   const hero: HeroSection = homeData.data.attributes.hero;
 
   return (
     <>
-      <Hero data={hero} />
+      <Hero
+        heroHeading={home.data.heroHeading}
+        heroDescription={home.data.heroDescription}
+        heroBGVideo={home.data.heroBGVideo}
+        heroCTAList={home.data.heroCTAList}
+      />
       <Stats />
       <AboutSection />
       <ServicesSection />
