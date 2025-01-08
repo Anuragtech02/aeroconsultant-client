@@ -48,7 +48,7 @@ const Footer = ({
                 aria-label={social.title}
               >
                 <Image
-                  src="/api/placeholder/24/24"
+                  src={social.icon.url}
                   alt={`${social.title} Icon`}
                   width={24}
                   height={24}
@@ -89,64 +89,53 @@ const Footer = ({
                   Contact
                 </h3>
                 <div className="space-y-4">
-                  {/* Phone */}
-                  <div className="flex items-center space-x-3 text-gray-500">
-                    <div className="w-6 flex items-center justify-center">
-                      <Image
-                        src="/CallIcon.svg"
-                        alt="Phone Icon"
-                        width={24}
-                        height={24}
-                        className="w-5 h-5"
-                      />
-                    </div>
-                    <span>(+33) 67836684</span>
-                  </div>
-
-                  {/* Email */}
-                  <div className="flex items-start space-x-3 text-gray-500">
-                    <div className="w-6 flex items-center justify-center mt-1">
-                      <Image
-                        src="/EmailIcon.svg"
-                        alt="Email Icon"
-                        width={24}
-                        height={24}
-                        className="w-5 h-5"
-                      />
-                    </div>
-                    <div className="flex flex-col space-y-1">
-                      <Link
-                        href="mailto:sales@aeroconsultant.fr"
-                        className="hover:text-gray-900 transition-colors"
+                  {contactList.map((contact) => (
+                    <div
+                      key={contact.id}
+                      className={`flex items-${
+                        contact.title.includes("<br>") ? "start" : "center"
+                      } space-x-3 text-gray-500`}
+                    >
+                      <div
+                        className={`w-6 flex items-center justify-center ${
+                          contact.title.includes(",") ? "mt-1" : ""
+                        }`}
                       >
-                        sales@aeroconsultant.fr
-                      </Link>
-                      <Link
-                        href="mailto:consultant@aeroconsultant.fr"
-                        className="hover:text-gray-900 transition-colors"
-                      >
-                        consultant@aeroconsultant.fr
-                      </Link>
+                        <Image
+                          src={contact.icon.url}
+                          alt={contact.icon.name}
+                          width={contact.icon.width}
+                          height={contact.icon.height}
+                          className="w-5 h-5"
+                        />
+                      </div>
+                      {contact.link.startsWith("mailto:") ? (
+                        <div className="flex flex-col space-y-1">
+                          {contact.title.split("<br>").map((email, index) => (
+                            <Link
+                              key={index}
+                              href={`mailto:${email.trim()}`}
+                              className="hover:text-gray-900 transition-colors"
+                            >
+                              {email.trim()}
+                            </Link>
+                          ))}
+                        </div>
+                      ) : (
+                        <div>
+                          {contact.title.split("<br>").map((line, index) => (
+                            <React.Fragment key={index}>
+                              {line.trim()}
+                              {index <
+                                contact.title.split("<br>").length - 1 && (
+                                <br />
+                              )}
+                            </React.Fragment>
+                          ))}
+                        </div>
+                      )}
                     </div>
-                  </div>
-
-                  {/* Address */}
-                  <div className="flex items-start space-x-3 text-gray-500">
-                    <div className="w-6 flex items-center justify-center mt-1">
-                      <Image
-                        src="/PinIcon.svg"
-                        alt="Location Icon"
-                        width={24}
-                        height={24}
-                        className="w-5 h-5"
-                      />
-                    </div>
-                    <div>
-                      16 Avenue Du Parc, 31700,
-                      <br />
-                      Blagnac, France
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>

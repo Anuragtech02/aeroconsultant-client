@@ -209,7 +209,7 @@ export default async function RootLayout({
 }>) {
   const commonData = await getCommonData();
 
-  console.log(commonData);
+  console.log(commonData.data.contactList);
 
   return (
     <html lang="en">

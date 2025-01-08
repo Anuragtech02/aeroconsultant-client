@@ -42,6 +42,7 @@ export interface ContactLink {
   id: number;
   title: string;
   link: string;
+  icon: StrapiImage;
   iconPosition: "left" | "right" | null;
   variant: "primary" | "secondary" | "outline" | "text" | null;
 }
