@@ -104,7 +104,7 @@ const commonData = {
                   },
                 ],
               },
-              { title: "Products", href: "/#products" },
+              { title: "Products", href: "/products" },
               { title: "Team", href: "/#team" },
               { title: "Clients", href: "/#clients" },
               { title: "Contact", href: contactUrl },
@@ -122,7 +122,7 @@ const commonData = {
             items: [
               { title: "About Us", href: "/#about" },
               { title: "Services", href: "/services" },
-              { title: "Products", href: "/#products" },
+              { title: "Products", href: "/products" },
               { title: "Contact", href: contactUrl },
             ],
           },
