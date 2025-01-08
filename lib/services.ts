@@ -1,5 +1,5 @@
 // src/api/services.ts
-import { StrapiCommonResponse } from "@/types/strapi";
+import { StrapiCommonResponse, StrapiHomeResponse } from "@/types/strapi";
 import { apiFetch } from "./apiConfig";
 
 export async function getCommonData() {
@@ -31,5 +31,5 @@ export async function getHomePage() {
 
   console.log(populateFields);
 
-  return apiFetch<StrapiCommonResponse>(`/home?${populateFields}`);
+  return apiFetch<StrapiHomeResponse>(`/home?${populateFields}`);
 }

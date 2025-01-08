@@ -71,3 +71,26 @@ export interface StrapiCommonResponse {
   };
   meta: Record<string, unknown>;
 }
+
+export interface StrapiHomeResponse {
+  data: {
+    id: number;
+    documentId: string;
+    heroHeading: string;
+    heroDescription: string;
+    heroBGVideo: {
+      url: string;
+    };
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+    heroCTAList: Array<{
+      id: number;
+      title: string;
+      link: string;
+      iconPosition: string | null;
+      variant: "primary" | "outline";
+    }>;
+  };
+  meta: Record<string, unknown>;
+}

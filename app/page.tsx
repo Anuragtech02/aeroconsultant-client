@@ -35,7 +35,7 @@ export default async function HomePage() {
         heroBGVideo={home.data.heroBGVideo}
         heroCTAList={home.data.heroCTAList}
       />
-      <Stats />
+      <Stats statisticsCounters={home.data.statisticsCounters} />
       <AboutSection />
       <ServicesSection />
       <SupportSection />
