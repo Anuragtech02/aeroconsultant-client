@@ -1,33 +1,15 @@
+// components/Services/ServicesHero.tsx
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../Button";
+import { Service } from "@/types/services";
 
-const services = [
-  {
-    icon: "/airplane.png",
-    title: "Aircraft Asset Management",
-    description:
-      "Simplify your operations with our seamless management services",
-    href: "/services/asset-management",
-  },
-  {
-    icon: "/report.png",
-    title: "Record Digitalization",
-    description:
-      "Simplify your operations with our seamless management services",
-    href: "/services/record-digitalization",
-  },
-  {
-    icon: "",
-    title: "Digital Solutions",
-    description:
-      "Simplify your operations with our seamless management services",
-    href: "/services/digital-solutions",
-  },
-];
+interface ServicesHeroProps {
+  services: Service[];
+}
 
-export default function ServicesHero() {
+export default function ServicesHero({ services }: ServicesHeroProps) {
   return (
     <div className="relative lg:h-[600px] mt-24">
       {/* Left column background image wrapper */}
@@ -51,10 +33,9 @@ export default function ServicesHero() {
                 Providing solutions your aircrafts need
               </h1>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href={"/contact"}>
+                <Link href={"/#contact"}>
                   <Button variant="primary" title="Let's Talk" size="lg" />
                 </Link>
-                {/* <Button variant="outline" title="Know our services" size="lg" /> */}
               </div>
             </div>
           </div>
@@ -67,8 +48,8 @@ export default function ServicesHero() {
             <div className="relative grid grid-rows-3 h-full">
               {services.map((service) => (
                 <Link
-                  key={service.title}
-                  href={service.href}
+                  key={service.id}
+                  href={`/services/${service.slug}`}
                   className="relative bg-white hover:bg-gray-50 transition-colors"
                 >
                   {/* Extended background */}
@@ -78,12 +59,16 @@ export default function ServicesHero() {
                   <div className="relative h-full px-4">
                     <div className="h-full p-6 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">
                       <div className="flex flex-col gap-2">
-                        {service.icon ? (
-                          <img src={service.icon} alt="" className="w-12" />
-                        ) : (
-                          <div></div>
-                        )}
-                        <p className="text-txt-body">{service.description}</p>
+                        <Image
+                          src={service.icon.url}
+                          alt={service.icon.alternativeText || ""}
+                          width={service.icon.width}
+                          height={service.icon.height}
+                          className="w-12 h-12 object-contain"
+                        />
+                        <p className="text-txt-body">
+                          {service.shortDescription}
+                        </p>
                       </div>
 
                       <h3 className="font-normal underline text-purple-600 text-right">

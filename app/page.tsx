@@ -10,7 +10,8 @@ import SupportSection from "@/components/Home/SupportServicesSection";
 import SliderSection from "@/components/Home/SliderSection";
 import TeamSection from "@/components/TeamSection";
 import BrandsSection from "@/components/BrandsSection";
-import { getHomePage } from "@/lib/services";
+import { getHomePage, getServices, getTeamMembers } from "@/lib/services";
+import ContactSection from "@/components/Home/ContactSection";
 // import BlogSection from "@/components/BlogsSection";
 
 // async function getHomeData() {
@@ -24,6 +25,8 @@ import { getHomePage } from "@/lib/services";
 
 export default async function HomePage() {
   const home = await getHomePage();
+  const teamData = await getTeamMembers();
+  const servicesData = await getServices();
   // @ts-expect-error - data is not defined
   const hero: HeroSection = homeData.data.attributes.hero;
 
@@ -41,7 +44,11 @@ export default async function HomePage() {
         aboutSectionDescription={home.data.aboutSectionDescription}
         aboutSectionImage={home.data.aboutSectionImage}
       />
-      <ServicesSection />
+      <ServicesSection
+        services={servicesData.data}
+        heading={home.data.serviceSectionHeading}
+        description={home.data.teamSectionDescription}
+      />
       <SupportSection />
       <SliderSection
         sliderSectionTitle={home.data.sliderSectionTitle}
@@ -50,50 +57,14 @@ export default async function HomePage() {
       <TeamSection
         title="Meet our Team"
         description="Bringing together a diverse set of voices with new technology, we collaborate closely, ideate freely and swiftly apply breakthrough innovations that drive big impact."
-        members={[
-          {
-            name: "Neha Mishra",
-            role: "CEO/CTO",
-            image: {
-              url: "/neha.jpg",
-              alt: "Neha Mishra",
-            },
-          },
-          {
-            name: "Rohit Kumar",
-            role: "CCO",
-            image: {
-              url: "/rohit.jpg",
-              alt: "Rohit Kumar",
-            },
-          },
-          {
-            name: "Kunal Sabharwal",
-            role: "COO",
-            image: {
-              url: "/kunal.jpg",
-              alt: "Kunal Sabharwal",
-            },
-          },
-          {
-            name: "Akash Mishra",
-            role: "CMO",
-            image: {
-              url: "/akash.jpg",
-              alt: "Akash Mishra",
-            },
-          },
-          {
-            name: "Lakshya Mishra",
-            role: "COS",
-            image: {
-              url: "/lakshya.jpg",
-              alt: "Lakshya Mishra",
-            },
-          },
-        ]}
+        members={teamData.data}
       />
-      <BrandsSection />
+      <BrandsSection
+        clientsLogoList={home.data.clientsLogoList}
+        clientsSectionHeading={home.data.clientsSectionHeading}
+        variant="v1" // or "v2" depending on your needs
+      />
+      <ContactSection />
       {/* <BlogSection /> */}
     </>
   );

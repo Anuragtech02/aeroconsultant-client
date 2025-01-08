@@ -1,6 +1,7 @@
 // src/api/services.ts
 import { StrapiCommonResponse, StrapiHomeResponse } from "@/types/strapi";
 import { apiFetch } from "./apiConfig";
+import { ServiceResponse } from "@/types/services";
 
 export async function getCommonData() {
   const populateFields = [
@@ -29,7 +30,32 @@ export async function getHomePage() {
     .map((field, index) => `populate[${index}]=${field}`)
     .join("&");
 
-  console.log(populateFields);
-
   return apiFetch<StrapiHomeResponse>(`/home?${populateFields}`);
+}
+
+export async function getTeamMembers() {
+  const populateFields = ["image"]
+    .map((field, index) => `populate[${index}]=${field}`)
+    .join("&");
+
+  return apiFetch<StrapiHomeResponse>(`/team-members?${populateFields}`);
+}
+
+export async function getServices() {
+  const populateFields = ["highlightImage", "icon", "tableOfContent"]
+    .map((field, index) => `populate[${index}]=${field}`)
+    .join("&");
+
+  return apiFetch<ServiceResponse>(`/services?${populateFields}`);
+}
+
+export async function getServicePage() {
+  const populateFields = ["clientsLogoList"]
+    .map((field, index) => `populate[${index}]=${field}`)
+    .join("&");
+
+  return apiFetch<{
+    clientsLogoList: StrapiHomeResponse["data"]["clientsLogoList"];
+    clientsSectionHeading: string;
+  }>(`/service-page?${populateFields}`);
 }
