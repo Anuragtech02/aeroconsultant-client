@@ -207,6 +207,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Aeroconsultant | Aviation made seamless</title>
+        <meta
+          name="description"
+          content="Global Transition, Expert CAMO & Next-Gen Digital solutions"
+        />
+        <link rel="icon" href="https://aeroconultant.fr/logo-small.png" />
+      </head>
       <body
         className={`${proximaNova.variable} ${helveticaNow.variable} ${montserrat.variable} font-body antialiased`}
       >
