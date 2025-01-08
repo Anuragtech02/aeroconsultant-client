@@ -215,7 +215,7 @@ export default function RootLayout({
           name="description"
           content="Global Transition, Expert CAMO & Next-Gen Digital solutions"
         />
-        <link rel="icon" href="https://aeroconultant.fr/logo-small.png" />
+        <link rel="icon" href="/logo-small.png" />
       </head>
       <body
         className={`${proximaNova.variable} ${helveticaNow.variable} ${montserrat.variable} font-body antialiased`}
