@@ -142,7 +142,11 @@ export function Header({ logo, menu }: HeaderProps) {
             </NavigationMenu>
 
             <Link href={loginUrl} target="_blank" rel="noopener noreferrer">
-              <Button title="Login" variant="primary" className="text-black">
+              <Button
+                title="Login"
+                variant="primary"
+                className="w-full bg-black [&>span]:text-white"
+              >
                 Login
               </Button>
             </Link>
