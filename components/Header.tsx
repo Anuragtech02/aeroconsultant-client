@@ -145,7 +145,7 @@ export function Header({ logo, menu }: HeaderProps) {
               <Button
                 title="Login"
                 variant="primary"
-                className="w-full bg-black [&>span]:text-white"
+                className="w-full !bg-black [&>span]:text-white"
               >
                 Login
               </Button>
