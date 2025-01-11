@@ -73,7 +73,7 @@ export function Header({ logo, menu }: HeaderProps) {
           </Link>
 
           {/* Desktop Navigation and Login */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-6">
             <NavigationMenu>
               <NavigationMenuList className="gap-2">
                 {menu.items.map((item) => (
@@ -92,7 +92,7 @@ export function Header({ logo, menu }: HeaderProps) {
                           {item.title}
                         </NavigationMenuTrigger>
                         <NavigationMenuContent>
-                          <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 bg-white shadow-lg rounded-md">
+                          <ul className="grid w-[400px] gap-3 p-4 lg:w-[500px] lg:grid-cols-2 bg-white shadow-lg rounded-md">
                             {item.children.map((subItem) => (
                               <li key={subItem.id}>
                                 <NavigationMenuLink asChild>
@@ -150,7 +150,7 @@ export function Header({ logo, menu }: HeaderProps) {
               <button
                 title="Menu"
                 className={cn(
-                  "md:hidden p-2 rounded-full transition-colors",
+                  "lg:hidden p-2 rounded-full transition-colors",
                   isScrolled || !isHomePage
                     ? "text-gray-900 hover:bg-gray-100"
                     : "text-white hover:bg-white/10"
