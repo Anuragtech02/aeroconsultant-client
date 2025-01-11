@@ -1,4 +1,4 @@
-// app/services/[slug]/page.tsx
+export const dynamic = "force-dynamic";
 import React from "react";
 import { getServicePage, getServices } from "@/lib/services";
 import ServicesLayout from "@/components/Services/ServicesLayout";

@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import BannerSection from "@/components/Product/BannerSectionn";
 import ProductsSupportSection from "@/components/Product/SupportSection";
 import ServicesSection from "@/components/Home/ServicesSection";

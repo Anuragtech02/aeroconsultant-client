@@ -98,16 +98,18 @@ const Footer = ({
                     >
                       <div
                         className={`w-6 flex items-center justify-center ${
-                          contact.title.includes(",") ? "mt-1" : ""
+                          contact.title.includes("<br>") ? "mt-1" : ""
                         }`}
                       >
-                        <Image
-                          src={contact.icon.url}
-                          alt={contact.icon.name}
-                          width={contact.icon.width}
-                          height={contact.icon.height}
-                          className="w-5 h-5"
-                        />
+                        {contact.icon && (
+                          <Image
+                            src={contact.icon.url}
+                            alt={contact.icon.name}
+                            width={contact.icon.width}
+                            height={contact.icon.height}
+                            className="w-5 h-5"
+                          />
+                        )}
                       </div>
                       {contact.link.startsWith("mailto:") ? (
                         <div className="flex flex-col space-y-1">
