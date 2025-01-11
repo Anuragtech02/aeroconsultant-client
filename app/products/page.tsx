@@ -1,14 +1,10 @@
 export const dynamic = "force-dynamic";
 import BannerSection from "@/components/Product/BannerSectionn";
 import ProductsSupportSection from "@/components/Product/SupportSection";
-import ServicesSection from "@/components/Home/ServicesSection";
-import { getServices } from "@/lib/services";
 import React from "react";
 import BlogSection from "@/components/BlogsSection";
 
 export default async function Product() {
-  const services = await getServices();
-
   return (
     <>
       {/* <ServicesSection
