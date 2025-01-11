@@ -46,7 +46,7 @@ export default function ServicesHero({ services }: ServicesHeroProps) {
             <div className="absolute inset-0" />
 
             <div className="relative grid grid-rows-3 h-full">
-              {services.map((service) => (
+              {[services[2], services[0], services[1]].map((service) => (
                 <Link
                   key={service.id}
                   href={`/services/${service.slug}`}

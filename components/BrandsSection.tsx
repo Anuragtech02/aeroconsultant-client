@@ -53,7 +53,7 @@ const BrandsSection = ({
                     alt={logo.alternativeText || logo.name}
                     width={logo.width}
                     height={logo.height}
-                    className="w-auto h-8 md:h-10 object-contain transition-opacity hover:opacity-80"
+                    className="w-auto h-8 md:h-14 object-contain transition-opacity hover:opacity-80"
                   />
                 </div>
               ))}

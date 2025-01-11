@@ -40,7 +40,7 @@ const ServicesLayout = ({ services }: ServicesLayoutProps) => {
       {/* Left Sidebar */}
       <div className="w-full md:w-80 bg-gray-200 p-6">
         <nav className="space-y-6">
-          {services.map((service) => (
+          {[services[2], services[0]].map((service) => (
             <div key={service.id} className="space-y-2">
               <Link
                 href={`/services/${service.slug}`}
@@ -72,7 +72,7 @@ const ServicesLayout = ({ services }: ServicesLayoutProps) => {
 
       {/* Right Content */}
       <div className="flex-1 p-8">
-        {services.map((service) => (
+        {[services[2], services[0]].map((service) => (
           <div
             key={service.id}
             id={service.slug}

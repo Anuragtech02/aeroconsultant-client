@@ -11,6 +11,7 @@ const ServicesSection = ({
   services,
 }: ServicesSectionProps) => {
   const headingParts = heading.split(/<span>|<\/span>/);
+  console.log({ services });
   return (
     <section
       className={cn("relative w-full border border-black/30", className)}
@@ -38,7 +39,7 @@ const ServicesSection = ({
         {/* Right Column - Service Cards Grid */}
         <div className="flex-1">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
+            {[services[2], services[0], services[1]].map((service) => (
               <ServiceCard
                 key={service.id}
                 title={service.title}
