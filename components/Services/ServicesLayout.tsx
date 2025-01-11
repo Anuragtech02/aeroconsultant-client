@@ -95,18 +95,6 @@ const ServicesLayout = ({ services }: ServicesLayoutProps) => {
               className="prose max-w-none mt-8"
               dangerouslySetInnerHTML={{ __html: service.htmlDescription }}
             />
-
-            {service.highlightImage && (
-              <div className="mt-8">
-                <Image
-                  src={service.highlightImage.url}
-                  alt={service.highlightImage.alternativeText || service.title}
-                  width={service.highlightImage.width}
-                  height={service.highlightImage.height}
-                  className="w-full rounded-lg object-cover aspect-video"
-                />
-              </div>
-            )}
           </div>
         ))}
       </div>

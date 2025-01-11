@@ -17,7 +17,10 @@ const AboutSection = ({
   aboutSectionImage,
 }: AboutSectionProps) => {
   return (
-    <section className={cn("relative w-full", className)} id="about">
+    <section
+      className={cn("relative w-full scroll-mt-20", className)}
+      id="about"
+    >
       <div className="flex flex-col lg:flex-row">
         {/* Left Column - Image with gradient overlay */}
         <div className="relative w-full lg:w-[40%] aspect-[4/3]">
@@ -50,7 +53,7 @@ const AboutSection = ({
 
             {/* Watermark text */}
             <div className="absolute bottom-0 left-0 select-none pointer-events-none">
-              <span className="font-heading font-bold text-[60px] sm:text-[80px] md:text-[120px] lg:text-[180px] text-gray-100 leading-none whitespace-nowrap block">
+              <span className="font-heading font-bold text-[60px] sm:text-[80px] md:text-[120px] lg:text-[180px] text-gray-200 leading-none whitespace-nowrap block">
                 About us
               </span>
             </div>

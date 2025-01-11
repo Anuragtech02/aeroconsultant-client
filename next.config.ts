@@ -4,12 +4,12 @@ const nextConfig: NextConfig = {
   /* config options here */
   output: "standalone",
   images: {
-    domains: ["aero-cms.s3.ap-south-1.amazonaws.com"],
+    domains: ["hmweb-dev-bucket.s3.us-west-2.amazonaws.com"],
   },
   remotePatterns: [
     {
       protocol: "https",
-      hostname: "aero-cms.s3.ap-south-1.amazonaws.com",
+      hostname: "hmweb-dev-bucket.s3.us-west-2.amazonaws.com",
     },
   ],
 };
