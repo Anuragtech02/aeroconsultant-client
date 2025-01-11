@@ -1,49 +1,26 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import type { Logo, Menu } from "@/types/common";
-import type { IconPosition, ButtonVariant } from "@/types/button";
+import type { FooterMenu } from "@/types/common";
+import { ContactLink, StrapiImage } from "@/types/strapi";
 
 interface FooterProps {
-  logo: Logo;
+  logo: StrapiImage;
   description: string;
   heading: string;
-  menu: Menu;
-  contactList: Array<{
-    title: string;
-    link?: string;
-    icon?: {
-      data: {
-        attributes: {
-          url: string;
-          width: number;
-          height: number;
-          alt: string;
-        };
-      };
-    } | null;
-    iconPosition?: IconPosition;
-    variant?: ButtonVariant;
-  }>;
-  socialLinks: Array<{
-    title: string;
-    link?: string;
-    icon?: {
-      data: {
-        attributes: {
-          url: string;
-          width: number;
-          height: number;
-          alt: string;
-        };
-      };
-    } | null;
-    iconPosition?: IconPosition;
-    variant?: ButtonVariant;
-  }>;
+  menu: FooterMenu;
+  contactList: ContactLink[];
+  socialLinks: ContactLink[];
 }
 
-const Footer = ({ logo, description, menu, socialLinks }: FooterProps) => {
+const Footer = ({
+  logo,
+  description,
+  heading,
+  menu,
+  contactList,
+  socialLinks,
+}: FooterProps) => {
   return (
     <footer className="bg-white py-16">
       <div className="container mx-auto px-4">
@@ -52,40 +29,39 @@ const Footer = ({ logo, description, menu, socialLinks }: FooterProps) => {
           <div>
             <Link href="/" className="inline-block mb-8">
               <Image
-                src={logo.data.attributes.url}
-                alt={logo.data.attributes.alt}
-                width={logo.data.attributes.width}
-                height={logo.data.attributes.height}
+                src={logo.url}
+                alt={logo.alternativeText || logo.name}
+                width={logo.width}
+                height={logo.height}
                 className="w-auto h-12 object-contain"
               />
             </Link>
             <p className="text-gray-500 text-base leading-relaxed max-w-md mb-8">
               {description}
             </p>
-            {/* Social Link */}
-            <Link
-              href="https://linkedin.com"
-              className="inline-block"
-              aria-label="LinkedIn"
-            >
-              {socialLinks[0].icon && (
+            {/* Social Links */}
+            {socialLinks.map((social) => (
+              <Link
+                key={social.id}
+                href={social.link}
+                className="inline-block mr-4"
+                aria-label={social.title}
+              >
                 <Image
-                  src={socialLinks[0].icon.data.attributes.url}
-                  alt={socialLinks[0].icon.data.attributes.alt}
-                  width={socialLinks[0].icon.data.attributes.width}
-                  height={socialLinks[0].icon.data.attributes.height}
+                  src={social.icon.url}
+                  alt={`${social.title} Icon`}
+                  width={24}
+                  height={24}
                   className="w-6 h-6"
                 />
-              )}
-            </Link>
+              </Link>
+            ))}
           </div>
 
           {/* Right Column - Heading and Two-Column Layout */}
           <div>
             {/* Heading */}
-            <h2 className="font-normal text-gray-900 mb-16">
-              Committed to your success
-            </h2>
+            <h2 className="font-normal text-gray-900 mb-16">{heading}</h2>
 
             {/* Two-Column Layout for Menu and Contact */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -93,10 +69,10 @@ const Footer = ({ logo, description, menu, socialLinks }: FooterProps) => {
               <div>
                 <nav>
                   <ul className="space-y-4">
-                    {menu.data.attributes.items.map((item) => (
+                    {menu.items.map((item) => (
                       <li key={item.title}>
                         <Link
-                          href={item.href || "#"}
+                          href={item.url || "#"}
                           className="text-gray-500 hover:text-gray-900 text-base transition-colors"
                         >
                           {item.title}
@@ -113,64 +89,53 @@ const Footer = ({ logo, description, menu, socialLinks }: FooterProps) => {
                   Contact
                 </h3>
                 <div className="space-y-4">
-                  {/* Phone */}
-                  <div className="flex items-center space-x-3 text-gray-500">
-                    <div className="w-6 flex items-center justify-center">
-                      <Image
-                        src="/CallIcon.svg"
-                        alt="Phone Icon"
-                        width={24}
-                        height={24}
-                        className="w-5 h-5"
-                      />
-                    </div>
-                    <span>(+33) 67836684</span>
-                  </div>
-
-                  {/* Email */}
-                  <div className="flex items-start space-x-3 text-gray-500">
-                    <div className="w-6 flex items-center justify-center mt-1">
-                      <Image
-                        src="/EmailIcon.svg"
-                        alt="Email Icon"
-                        width={24}
-                        height={24}
-                        className="w-5 h-5"
-                      />
-                    </div>
-                    <div className="flex flex-col space-y-1">
-                      <Link
-                        href="mailto:sales@aeroconsultant.fr"
-                        className="hover:text-gray-900 transition-colors"
+                  {contactList.map((contact) => (
+                    <div
+                      key={contact.id}
+                      className={`flex items-${
+                        contact.title.includes("<br>") ? "start" : "center"
+                      } space-x-3 text-gray-500`}
+                    >
+                      <div
+                        className={`w-6 flex items-center justify-center ${
+                          contact.title.includes(",") ? "mt-1" : ""
+                        }`}
                       >
-                        sales@aeroconsultant.fr
-                      </Link>
-                      <Link
-                        href="mailto:consultant@aeroconsultant.fr"
-                        className="hover:text-gray-900 transition-colors"
-                      >
-                        consultant@aeroconsultant.fr
-                      </Link>
+                        <Image
+                          src={contact.icon.url}
+                          alt={contact.icon.name}
+                          width={contact.icon.width}
+                          height={contact.icon.height}
+                          className="w-5 h-5"
+                        />
+                      </div>
+                      {contact.link.startsWith("mailto:") ? (
+                        <div className="flex flex-col space-y-1">
+                          {contact.title.split("<br>").map((email, index) => (
+                            <Link
+                              key={index}
+                              href={`mailto:${email.trim()}`}
+                              className="hover:text-gray-900 transition-colors"
+                            >
+                              {email.trim()}
+                            </Link>
+                          ))}
+                        </div>
+                      ) : (
+                        <div>
+                          {contact.title.split("<br>").map((line, index) => (
+                            <React.Fragment key={index}>
+                              {line.trim()}
+                              {index <
+                                contact.title.split("<br>").length - 1 && (
+                                <br />
+                              )}
+                            </React.Fragment>
+                          ))}
+                        </div>
+                      )}
                     </div>
-                  </div>
-
-                  {/* Address */}
-                  <div className="flex items-start space-x-3 text-gray-500">
-                    <div className="w-6 flex items-center justify-center mt-1">
-                      <Image
-                        src="/PinIcon.svg"
-                        alt="Location Icon"
-                        width={24}
-                        height={24}
-                        className="w-5 h-5"
-                      />
-                    </div>
-                    <div>
-                      16 Avenue Du Parc, 31700,
-                      <br />
-                      Blagnac, France
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>

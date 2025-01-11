@@ -22,14 +22,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import type { Logo, Menu as MenuType } from "@/types/common";
+import { HeaderProps } from "@/types/common";
 
 const loginUrl = process.env.NEXT_PUBLIC_LOGIN_URL as string;
-
-interface HeaderProps {
-  logo: Logo;
-  menu: MenuType;
-}
 
 export function Header({ logo, menu }: HeaderProps) {
   const pathname = usePathname();
@@ -65,10 +60,10 @@ export function Header({ logo, menu }: HeaderProps) {
           {/* Logo */}
           <Link href="/" className="relative z-10">
             <Image
-              src={logo.data.attributes.url}
-              alt={logo.data.attributes.alt}
-              width={logo.data.attributes.width}
-              height={logo.data.attributes.height}
+              src={logo.url}
+              alt={logo.alternativeText || logo.name}
+              width={logo.width}
+              height={logo.height}
               className={cn(
                 "w-auto h-10 object-contain",
                 isScrolled ? "invert" : ""
@@ -81,9 +76,9 @@ export function Header({ logo, menu }: HeaderProps) {
           <div className="hidden md:flex items-center gap-6">
             <NavigationMenu>
               <NavigationMenuList className="gap-2">
-                {menu.data.attributes.items.map((item) => (
-                  <NavigationMenuItem key={item.title}>
-                    {item.items ? (
+                {menu.items.map((item) => (
+                  <NavigationMenuItem key={item.id}>
+                    {item.children?.length > 0 ? (
                       <>
                         <NavigationMenuTrigger
                           className={cn(
@@ -98,19 +93,16 @@ export function Header({ logo, menu }: HeaderProps) {
                         </NavigationMenuTrigger>
                         <NavigationMenuContent>
                           <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 bg-white shadow-lg rounded-md">
-                            {item.items.map((subItem) => (
-                              <li key={subItem.title}>
+                            {item.children.map((subItem) => (
+                              <li key={subItem.id}>
                                 <NavigationMenuLink asChild>
                                   <Link
-                                    href={subItem.href}
+                                    href={subItem.url}
                                     className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-100"
                                   >
                                     <div className="text-base font-medium leading-none text-gray-900 mb-2">
                                       {subItem.title}
                                     </div>
-                                    <p className="line-clamp-2 text-sm leading-snug text-gray-600">
-                                      {subItem.description}
-                                    </p>
                                   </Link>
                                 </NavigationMenuLink>
                               </li>
@@ -120,13 +112,13 @@ export function Header({ logo, menu }: HeaderProps) {
                       </>
                     ) : (
                       <Link
-                        href={item.href || "#"}
+                        href={item.url}
                         className={cn(
                           "text-base transition-all duration-200 px-4 py-2 block rounded-full",
                           isScrolled || !isHomePage
                             ? "text-gray-900 hover:text-gray-900 hover:bg-gray-100"
                             : "text-white hover:text-white hover:bg-white/10",
-                          pathname === item.href
+                          pathname === item.url
                             ? isHomePage && !isScrolled
                               ? "text-white font-medium"
                               : "text-primary font-medium"
@@ -156,6 +148,7 @@ export function Header({ logo, menu }: HeaderProps) {
           <Sheet>
             <SheetTrigger asChild>
               <button
+                title="Menu"
                 className={cn(
                   "md:hidden p-2 rounded-full transition-colors",
                   isScrolled || !isHomePage
@@ -174,10 +167,10 @@ export function Header({ logo, menu }: HeaderProps) {
                 <div className="p-6 border-b border-gray-800">
                   <Link href="/" className="block mb-6">
                     <Image
-                      src={logo.data.attributes.url}
-                      alt={logo.data.attributes.alt}
-                      width={logo.data.attributes.width}
-                      height={logo.data.attributes.height}
+                      src={logo.url}
+                      alt={logo.alternativeText || logo.name}
+                      width={logo.width}
+                      height={logo.height}
                       className="w-auto h-8 object-contain"
                       priority
                     />
@@ -186,27 +179,24 @@ export function Header({ logo, menu }: HeaderProps) {
                 <div className="flex-1 overflow-y-auto">
                   <nav className="p-6">
                     <Accordion type="single" collapsible className="w-full">
-                      {menu.data.attributes.items.map((item, index) => (
-                        <AccordionItem value={`item-${index}`} key={item.title}>
-                          {item.items ? (
+                      {menu.items.map((item, index) => (
+                        <AccordionItem value={`item-${index}`} key={item.id}>
+                          {item.children?.length > 0 ? (
                             <>
                               <AccordionTrigger className="text-base py-4 text-gray-100 hover:text-white">
                                 {item.title}
                               </AccordionTrigger>
                               <AccordionContent>
                                 <div className="pl-4 pb-4">
-                                  {item.items.map((subItem) => (
+                                  {item.children.map((subItem) => (
                                     <Link
-                                      key={subItem.title}
-                                      href={subItem.href}
+                                      key={subItem.id}
+                                      href={subItem.url}
                                       className="block py-3 text-gray-300 hover:text-white transition-colors"
                                     >
                                       <div className="font-medium mb-1">
                                         {subItem.title}
                                       </div>
-                                      <p className="text-sm text-gray-400">
-                                        {subItem.description}
-                                      </p>
                                     </Link>
                                   ))}
                                 </div>
@@ -214,10 +204,10 @@ export function Header({ logo, menu }: HeaderProps) {
                             </>
                           ) : (
                             <Link
-                              href={item.href || "#"}
+                              href={item.url}
                               className={cn(
                                 "flex items-center py-4 text-base transition-colors",
-                                pathname === item.href
+                                pathname === item.url
                                   ? "text-white font-medium"
                                   : "text-gray-300 hover:text-white"
                               )}

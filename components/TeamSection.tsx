@@ -1,67 +1,8 @@
 import React from "react";
 import Image from "next/image";
+import type { TeamSectionProps } from "@/types/team";
 
-interface TeamMember {
-  name: string;
-  role: string;
-  image: {
-    url: string;
-    alt: string;
-  };
-}
-
-interface TeamSectionProps {
-  title: string;
-  description: string;
-  members: TeamMember[];
-}
-
-const TeamSection = ({
-  title = "Meet our Team",
-  description = "Bringing together a diverse set of voices with new technology, we collaborate closely, ideate freely and swiftly apply breakthrough innovations that drive big impact.",
-  members = [
-    {
-      name: "Neha Mishra",
-      role: "CEO/CTO",
-      image: {
-        url: "/neha.jpg",
-        alt: "Neha Mishra",
-      },
-    },
-    {
-      name: "Rohit Kumar",
-      role: "CCO",
-      image: {
-        url: "/rohit.jpg",
-        alt: "Rohit Kumar",
-      },
-    },
-    {
-      name: "Kunal Sabharwal",
-      role: "COO",
-      image: {
-        url: "/kunal.jpg",
-        alt: "Kunal Sabharwal",
-      },
-    },
-    {
-      name: "Akash Mishra",
-      role: "CMO",
-      image: {
-        url: "/akash.jpg",
-        alt: "Akash Mishra",
-      },
-    },
-    {
-      name: "Lakshya Mishra",
-      role: "COS",
-      image: {
-        url: "/lakshya.jpg",
-        alt: "Lakshya Mishra",
-      },
-    },
-  ],
-}: TeamSectionProps) => {
+const TeamSection = ({ title, description, members }: TeamSectionProps) => {
   return (
     <section className="pt-24 bg-white" id="team">
       <div className="container mx-auto px-4 mb-16">
@@ -77,12 +18,12 @@ const TeamSection = ({
       {/* Team Members Grid - Full width */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         {members.map((member) => (
-          <div key={member.name} className="group relative overflow-hidden">
+          <div key={member.id} className="group relative overflow-hidden">
             {/* Image Container */}
             <div className="aspect-square sm:aspect-[4/5] relative overflow-hidden bg-gray-100">
               <Image
                 src={member.image.url}
-                alt={member.image.alt}
+                alt={member.image.alternativeText || member.name}
                 fill
                 className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
               />
@@ -95,7 +36,7 @@ const TeamSection = ({
               <h3 className="text-xl font-semibold text-white mb-1">
                 {member.name}
               </h3>
-              <p className="text-white/80 text-sm">{member.role}</p>
+              <p className="text-white/80 text-sm">{member.designation}</p>
             </div>
           </div>
         ))}

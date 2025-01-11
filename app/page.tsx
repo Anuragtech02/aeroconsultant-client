@@ -1,8 +1,5 @@
-// app/page.tsx
 import React from "react";
-import { HeroSection } from "@/types/home";
-import Hero from "@/components/Home/Hero";
-import { homeData } from "@/mocks/homeData";
+import { Hero } from "@/components/Home/Hero";
 import Stats from "@/components/Home/Stats";
 import AboutSection from "@/components/Home/AboutSection";
 import ServicesSection from "@/components/Home/ServicesSection";
@@ -10,76 +7,49 @@ import SupportSection from "@/components/Home/SupportServicesSection";
 import SliderSection from "@/components/Home/SliderSection";
 import TeamSection from "@/components/TeamSection";
 import BrandsSection from "@/components/BrandsSection";
-// import BlogSection from "@/components/BlogsSection";
-
-// async function getHomeData() {
-//   // Fetch from Strapi
-//   const response = await fetch(
-//     `${process.env.STRAPI_URL}/api/home?populate=deep`
-//   );
-//   const data = await response.json();
-//   return data;
-// }
+import { getHomePage, getServices, getTeamMembers } from "@/lib/services";
+import ContactSection from "@/components/Home/ContactSection";
 
 export default async function HomePage() {
-  // @ts-expect-error - data is not defined
-  const hero: HeroSection = homeData.data.attributes.hero;
+  const home = await getHomePage();
+  const teamData = await getTeamMembers();
+  const servicesData = await getServices();
 
   return (
     <>
-      <Hero data={hero} />
-      <Stats />
-      <AboutSection />
-      <ServicesSection />
+      <Hero
+        heroHeading={home.data.heroHeading}
+        heroDescription={home.data.heroDescription}
+        heroBGVideo={home.data.heroBGVideo}
+        heroCTAList={home.data.heroCTAList}
+      />
+      <Stats statisticsCounters={home.data.statisticsCounters} />
+      <AboutSection
+        aboutSectionHeading={home.data.aboutSectionHeading}
+        aboutSectionDescription={home.data.aboutSectionDescription}
+        aboutSectionImage={home.data.aboutSectionImage}
+      />
+      <ServicesSection
+        services={servicesData.data}
+        heading={home.data.serviceSectionHeading}
+        description={home.data.teamSectionDescription}
+      />
       <SupportSection />
-      <SliderSection />
+      <SliderSection
+        sliderSectionTitle={home.data.sliderSectionTitle}
+        sliderTabs={home.data.sliderTabs}
+      />
       <TeamSection
         title="Meet our Team"
         description="Bringing together a diverse set of voices with new technology, we collaborate closely, ideate freely and swiftly apply breakthrough innovations that drive big impact."
-        members={[
-          {
-            name: "Neha Mishra",
-            role: "CEO/CTO",
-            image: {
-              url: "/neha.jpg",
-              alt: "Neha Mishra",
-            },
-          },
-          {
-            name: "Rohit Kumar",
-            role: "CCO",
-            image: {
-              url: "/rohit.jpg",
-              alt: "Rohit Kumar",
-            },
-          },
-          {
-            name: "Kunal Sabharwal",
-            role: "COO",
-            image: {
-              url: "/kunal.jpg",
-              alt: "Kunal Sabharwal",
-            },
-          },
-          {
-            name: "Akash Mishra",
-            role: "CMO",
-            image: {
-              url: "/akash.jpg",
-              alt: "Akash Mishra",
-            },
-          },
-          {
-            name: "Lakshya Mishra",
-            role: "COS",
-            image: {
-              url: "/lakshya.jpg",
-              alt: "Lakshya Mishra",
-            },
-          },
-        ]}
+        members={teamData.data}
       />
-      <BrandsSection />
+      <BrandsSection
+        clientsLogoList={home.data.clientsLogoList}
+        clientsSectionHeading={home.data.clientsSectionHeading}
+        variant="v1" // or "v2" depending on your needs
+      />
+      <ContactSection />
       {/* <BlogSection /> */}
     </>
   );

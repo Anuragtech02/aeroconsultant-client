@@ -2,61 +2,70 @@
 import React from "react";
 import CountUp from "react-countup";
 
-interface StatCardProps {
-  number: string;
-  label: string;
+interface StatsProps {
+  className?: string;
+  statisticsCounters: Array<{
+    id: number;
+    title: string;
+    countStart: number;
+    countEnd: number;
+    symbol: string;
+    symbolPosition: "left" | "right";
+  }>;
 }
 
-const StatCard = ({ number, label }: StatCardProps) => {
-  // Extract the numeric value and the plus sign
-  const numericValue = parseInt(number.replace(/\D/g, ""));
+interface StatCardProps {
+  countStart: number;
+  countEnd: number;
+  symbol: string;
+  symbolPosition: "left" | "right";
+  title: string;
+}
 
+const StatCard = ({
+  countStart,
+  countEnd,
+  symbol,
+  symbolPosition,
+  title,
+}: StatCardProps) => {
   return (
     <div className="text-white">
       <div className="text-5xl sm:text-7xl font-bold mb-2">
+        {symbolPosition === "left" && symbol}
         <CountUp
-          end={numericValue}
+          start={countStart}
+          end={countEnd}
           duration={2.5}
           separator=","
-          suffix="+"
+          suffix={symbolPosition === "right" ? symbol : ""}
+          prefix={symbolPosition === "left" ? symbol : ""}
           enableScrollSpy
           scrollSpyOnce
         />
       </div>
       <div className="text-xl sm:text-2xl uppercase tracking-wider">
-        {label}
+        {title}
       </div>
     </div>
   );
 };
 
-interface StatsProps {
-  className?: string;
-}
-
-const Stats = ({ className }: StatsProps) => {
-  const stats = [
-    {
-      number: "3700+",
-      label: "Consultants",
-    },
-    {
-      number: "155+",
-      label: "Countries Present",
-    },
-    {
-      number: "50+",
-      label: "Projects Across Countries",
-    },
-  ];
-
+const Stats = ({ className, statisticsCounters }: StatsProps) => {
   return (
     <div className={`bg-purple-900 py-16 ${className}`}>
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-8 items-center">
           {/* Stats */}
-          {stats.map((stat, index) => (
-            <StatCard key={index} number={stat.number} label={stat.label} />
+          {statisticsCounters.map((counter) => (
+            <StatCard
+              key={counter.id}
+              countStart={counter.countStart}
+              countEnd={counter.countEnd}
+              symbol={counter.symbol}
+              symbolPosition={counter.symbolPosition}
+              title={counter.title}
+            />
           ))}
 
           {/* Heading */}

@@ -1,12 +1,16 @@
+// components/sections/ServicesSection.tsx
 import React from "react";
 import { cn } from "@/lib/utils";
 import ServiceCard from "../ServiceCard";
+import { ServicesSectionProps } from "@/types/services";
 
-interface ServicesSectionProps {
-  className?: string;
-}
-
-const ServicesSection = ({ className }: ServicesSectionProps) => {
+const ServicesSection = ({
+  className,
+  heading,
+  description,
+  services,
+}: ServicesSectionProps) => {
+  const headingParts = heading.split(/<span>|<\/span>/);
   return (
     <section
       className={cn("relative w-full border border-black/30", className)}
@@ -15,35 +19,34 @@ const ServicesSection = ({ className }: ServicesSectionProps) => {
         {/* Left Column - Title and Description */}
         <div className="w-full lg:w-[40%] p-4 sm:p-8 flex flex-col justify-end">
           <h2 className="font-normal mb-8">
-            We manage your
-            <br />
-            <span className="font-bold">Aircraft Assets</span>
+            {headingParts.map((part, index) =>
+              index % 2 === 0 ? (
+                <>
+                  {" "}
+                  <span key={index}>{part}</span> <br />
+                </>
+              ) : (
+                <span key={index} className="font-bold block md:inline">
+                  {part}
+                </span>
+              )
+            )}
           </h2>
-          <p className="text-gray-600 text-lg">
-            Comprehensive aviation services, including aircraft transitions,
-            CAMO support, and innovative digital tailored solutions. Trust us to
-            deliver excellence in every aspect of aviation
-          </p>
+          <p className="text-gray-600 text-lg">{description}</p>
         </div>
 
         {/* Right Column - Service Cards Grid */}
         <div className="flex-1">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <ServiceCard
-              title="Aircraft Transition"
-              href="/services/transition"
-              imageUrl="/services/service-1.jpg"
-            />
-            <ServiceCard
-              title="Aircraft CAMO"
-              href="/services/camo"
-              imageUrl="/services/service-2.jpg"
-            />
-            <ServiceCard
-              title="Aircraft Digital Services"
-              href="/services/digital"
-              imageUrl="/services/service-3.jpg"
-            />
+            {services.map((service) => (
+              <ServiceCard
+                key={service.id}
+                title={service.title}
+                href={`/services/${service.documentId}`}
+                imageUrl={service.highlightImage.url}
+                className="border-l border-black/30 border-b border-black/30"
+              />
+            ))}
           </div>
         </div>
       </div>
