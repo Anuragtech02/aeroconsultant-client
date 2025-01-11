@@ -5,12 +5,7 @@ import ServicesLayout from "@/components/Services/ServicesLayout";
 import BrandsSection from "@/components/BrandsSection";
 import ServicesHero from "@/components/Services/ServicesHero";
 
-interface ServicePageProps {
-  params: {
-    slug: string;
-  };
-}
-export default async function ServicePage({ params }: ServicePageProps) {
+export default async function ServicePage() {
   const services = await getServices();
   const servicePage = await getServicePage();
 

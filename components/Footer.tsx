@@ -72,7 +72,7 @@ const Footer = ({
                     {menu.items.map((item) => (
                       <li key={item.title}>
                         <Link
-                          href={item.href || "#"}
+                          href={item.url || "#"}
                           className="text-gray-500 hover:text-gray-900 text-base transition-colors"
                         >
                           {item.title}

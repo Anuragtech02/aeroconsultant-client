@@ -100,6 +100,7 @@ export default function ContactSection() {
       setSubmitStatus("success");
       setFormData({ name: "", email: "", mobile: "", message: "" });
     } catch (error) {
+      console.log("Error sending message", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -116,8 +117,8 @@ export default function ContactSection() {
         <div className="max-w-2xl mx-auto text-center mb-16">
           <h2 className="mb-4">Get in Touch</h2>
           <p className="text-gray-600">
-            Have questions? We're here to help. Send us a message and we'll get
-            back to you shortly.
+            Have questions? We&apos;re here to help. Send us a message and
+            we&apos;ll get back to you shortly.
           </p>
         </div>
 
@@ -224,8 +225,8 @@ export default function ContactSection() {
                   <Check className="h-4 w-4 text-green-600" />
                   <AlertTitle className="text-green-800">Success!</AlertTitle>
                   <AlertDescription className="text-green-700">
-                    Thank you! Your message has been sent successfully. We'll
-                    get back to you soon.
+                    Thank you! Your message has been sent successfully.
+                    We&apos;ll get back to you soon.
                   </AlertDescription>
                 </Alert>
               )}

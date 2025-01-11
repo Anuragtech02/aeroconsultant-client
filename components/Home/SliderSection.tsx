@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "../Button";
 
-interface SliderTab {
+export interface SliderTab {
   id: number;
   tabTitle: string;
   heading: string;

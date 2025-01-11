@@ -134,7 +134,11 @@ export function Header({ logo, menu }: HeaderProps) {
             </NavigationMenu>
 
             <Link href={loginUrl} target="_blank" rel="noopener noreferrer">
-              <Button title="Login" variant="primary" className="text-black">
+              <Button
+                title="Login"
+                variant="primary"
+                className="text-black  !outline !outline-black"
+              >
                 Login
               </Button>
             </Link>
@@ -144,6 +148,7 @@ export function Header({ logo, menu }: HeaderProps) {
           <Sheet>
             <SheetTrigger asChild>
               <button
+                title="Menu"
                 className={cn(
                   "md:hidden p-2 rounded-full transition-colors",
                   isScrolled || !isHomePage

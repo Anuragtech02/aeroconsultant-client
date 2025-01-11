@@ -1,8 +1,5 @@
-// app/page.tsx
 import React from "react";
-import { HeroSection } from "@/types/home";
 import { Hero } from "@/components/Home/Hero";
-import { homeData } from "@/mocks/homeData";
 import Stats from "@/components/Home/Stats";
 import AboutSection from "@/components/Home/AboutSection";
 import ServicesSection from "@/components/Home/ServicesSection";
@@ -12,23 +9,11 @@ import TeamSection from "@/components/TeamSection";
 import BrandsSection from "@/components/BrandsSection";
 import { getHomePage, getServices, getTeamMembers } from "@/lib/services";
 import ContactSection from "@/components/Home/ContactSection";
-// import BlogSection from "@/components/BlogsSection";
-
-// async function getHomeData() {
-//   // Fetch from Strapi
-//   const response = await fetch(
-//     `${process.env.STRAPI_URL}/api/home?populate=deep`
-//   );
-//   const data = await response.json();
-//   return data;
-// }
 
 export default async function HomePage() {
   const home = await getHomePage();
   const teamData = await getTeamMembers();
   const servicesData = await getServices();
-  // @ts-expect-error - data is not defined
-  const hero: HeroSection = homeData.data.attributes.hero;
 
   return (
     <>

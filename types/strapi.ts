@@ -1,3 +1,4 @@
+import { SliderTab } from "@/components/Home/SliderSection";
 import { Menu } from "./common";
 
 // src/types/image.ts
@@ -59,15 +60,11 @@ export interface StrapiCommonResponse {
     updatedAt: string;
     publishedAt: string;
     logoLarge: StrapiImage;
+    logoSmall: StrapiImage;
     headerMenu: Menu;
     footerMenu: Menu;
-    contactList: Array<{
-      id: number;
-      title: string;
-      link: string;
-      iconPosition: "left" | "right";
-      variant: "text" | "primary" | "secondary" | "outline";
-    }>;
+    contactList: ContactLink[];
+    socialLinks: ContactLink[];
   };
   meta: Record<string, unknown>;
 }
@@ -99,16 +96,15 @@ export interface StrapiHomeResponse {
       symbol: string;
       symbolPosition: "left" | "right";
     }>;
-    sliderTabs: Array<{
-      id: number;
-      title: string;
-      description: string;
-      image: StrapiImage;
-    }>;
+    sliderTabs: SliderTab[];
     aboutSectionHeading: string;
     aboutSectionDescription: string;
     aboutSectionImage: StrapiImage;
     clientsLogoList: Array<StrapiImage>;
+    serviceSectionHeading: string;
+    teamSectionDescription: string;
+    sliderSectionTitle: string;
+    clientsSectionHeading: string;
   };
   meta: Record<string, unknown>;
 }

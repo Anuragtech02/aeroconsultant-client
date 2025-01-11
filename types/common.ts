@@ -5,7 +5,7 @@ export interface MenuItem {
   url: string;
   title: string;
   target: string;
-  children: unknown[];
+  children: MenuItem[];
   isProtected: boolean;
   collapsed?: boolean;
 }

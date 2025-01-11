@@ -1,4 +1,5 @@
 import { StrapiImage } from "./strapi";
+import { TeamMember, TeamSectionProps } from "./team";
 
 export interface TableOfContentItem {
   id: number;
@@ -37,4 +38,8 @@ export interface ServicesSectionProps {
   heading: string; // Contains HTML
   description: string;
   services: Service[];
+}
+
+export interface TeamMembersResponse {
+  data: TeamSectionProps["members"];
 }
