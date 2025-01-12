@@ -7,13 +7,13 @@ const BlogSection = () => {
       id: 1,
       image: "plane-img.jpg",
       title:
-        "Lucrative programs offering a flexible pathway to a career in aviation consulting, allowing individuals to learn at their own pace while covering a comprehensive curriculum. These programs typically delve into aviation regulations, airport operations, airline management, and other crucial aspects of the industry.",
+        "Lucrative programs offering a flexible pathway to a career in aviation consulting, allowing individuals to learn at their own pace while covering a comprehensive curriculum.",
     },
     {
       id: 2,
       image: "plane-img.jpg",
       title:
-        "Top-notch online programs for aircraft physical inspections that equips individuals with the necessary knowledge and skills to perform thorough and accurate inspections on aircraft components. These programs typically cover essential topics such as aircraft maintenance procedures, safety regulations, and the identification and documentation of defects.",
+        "Top-notch online programs for aircraft physical inspections that equips individuals with the necessary knowledge and skills to perform thorough and accurate inspections on aircraft components.",
     },
   ];
 
