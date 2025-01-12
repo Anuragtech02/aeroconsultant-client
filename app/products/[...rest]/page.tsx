@@ -1,6 +1,6 @@
 export const dynamic = "force-dynamic";
 import BannerSection from "@/components/Product/BannerSectionn";
-import ProductsSupportSection from "@/components/Product/SupportSection";
+// import ProductsSupportSection from "@/components/Product/SupportSection";
 import React from "react";
 import BlogSection from "@/components/BlogsSection";
 
