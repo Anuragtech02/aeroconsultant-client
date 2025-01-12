@@ -29,6 +29,7 @@ const loginUrl = process.env.NEXT_PUBLIC_LOGIN_URL as string;
 export function Header({ logo, menu }: HeaderProps) {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const isHomePage = pathname === "/";
 
   useEffect(() => {
@@ -44,6 +45,23 @@ export function Header({ logo, menu }: HeaderProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile menu when pathname changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
+  // Wrapper component for Link that closes the menu
+  const MenuLink = ({ href, className, children, ...props }: any) => (
+    <Link
+      href={href}
+      className={className}
+      onClick={() => setIsOpen(false)}
+      {...props}
+    >
+      {children}
+    </Link>
+  );
+
   return (
     <header
       className={cn(
@@ -58,7 +76,7 @@ export function Header({ logo, menu }: HeaderProps) {
       <div className="container mx-auto px-4">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="relative z-10">
+          <MenuLink href="/" className="relative z-10">
             <Image
               src={logo.url}
               alt={logo.alternativeText || logo.name}
@@ -70,7 +88,7 @@ export function Header({ logo, menu }: HeaderProps) {
               )}
               priority
             />
-          </Link>
+          </MenuLink>
 
           {/* Desktop Navigation and Login */}
           <div className="hidden lg:flex items-center gap-6">
@@ -96,14 +114,14 @@ export function Header({ logo, menu }: HeaderProps) {
                             {item.children.map((subItem) => (
                               <li key={subItem.id}>
                                 <NavigationMenuLink asChild>
-                                  <Link
+                                  <MenuLink
                                     href={subItem.url}
                                     className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-100"
                                   >
                                     <div className="text-base font-medium leading-none text-gray-900 mb-2">
                                       {subItem.title}
                                     </div>
-                                  </Link>
+                                  </MenuLink>
                                 </NavigationMenuLink>
                               </li>
                             ))}
@@ -111,7 +129,7 @@ export function Header({ logo, menu }: HeaderProps) {
                         </NavigationMenuContent>
                       </>
                     ) : (
-                      <Link
+                      <MenuLink
                         href={item.url}
                         className={cn(
                           "text-base transition-all duration-200 px-4 py-2 block rounded-full",
@@ -126,7 +144,7 @@ export function Header({ logo, menu }: HeaderProps) {
                         )}
                       >
                         {item.title}
-                      </Link>
+                      </MenuLink>
                     )}
                   </NavigationMenuItem>
                 ))}
@@ -145,7 +163,7 @@ export function Header({ logo, menu }: HeaderProps) {
           </div>
 
           {/* Mobile Menu */}
-          <Sheet>
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <button
                 title="Menu"
@@ -165,7 +183,7 @@ export function Header({ logo, menu }: HeaderProps) {
             >
               <div className="flex flex-col h-full">
                 <div className="p-6 border-b border-gray-800">
-                  <Link href="/" className="block mb-6">
+                  <MenuLink href="/" className="block mb-6">
                     <Image
                       src={logo.url}
                       alt={logo.alternativeText || logo.name}
@@ -174,7 +192,7 @@ export function Header({ logo, menu }: HeaderProps) {
                       className="w-auto h-8 object-contain"
                       priority
                     />
-                  </Link>
+                  </MenuLink>
                 </div>
                 <div className="flex-1 overflow-y-auto">
                   <nav className="p-6">
@@ -189,7 +207,7 @@ export function Header({ logo, menu }: HeaderProps) {
                               <AccordionContent>
                                 <div className="pl-4 pb-4">
                                   {item.children.map((subItem) => (
-                                    <Link
+                                    <MenuLink
                                       key={subItem.id}
                                       href={subItem.url}
                                       className="block py-3 text-gray-300 hover:text-white transition-colors"
@@ -197,13 +215,13 @@ export function Header({ logo, menu }: HeaderProps) {
                                       <div className="font-medium mb-1">
                                         {subItem.title}
                                       </div>
-                                    </Link>
+                                    </MenuLink>
                                   ))}
                                 </div>
                               </AccordionContent>
                             </>
                           ) : (
-                            <Link
+                            <MenuLink
                               href={item.url}
                               className={cn(
                                 "flex items-center py-4 text-base transition-colors",
@@ -213,7 +231,7 @@ export function Header({ logo, menu }: HeaderProps) {
                               )}
                             >
                               {item.title}
-                            </Link>
+                            </MenuLink>
                           )}
                         </AccordionItem>
                       ))}
