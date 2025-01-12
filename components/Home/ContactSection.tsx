@@ -27,7 +27,7 @@ interface FormErrors {
 declare global {
   interface Window {
     turnstile: {
-      render: (container: string | HTMLElement, options: any) => string;
+      render: (container: string | HTMLElement, options: unknown) => string;
       reset: (widgetId: string) => void;
     };
   }
@@ -51,7 +51,7 @@ export default function ContactSection() {
 
   useEffect(() => {
     // Define the callback function that will be called when Turnstile is loaded
-    // @ts-ignore
+    // @ts-expect-error "not defined"
     window.onloadTurnstileCallback = function () {
       window.turnstile.render("#turnstile-container", {
         sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "",
@@ -82,7 +82,7 @@ export default function ContactSection() {
         window.turnstile.reset(turnstileWidgetId.current);
       }
       // Clean up the global callback
-      // @ts-ignore
+      // @ts-expect-error "not defined"
       delete window.onloadTurnstileCallback;
     };
   }, []);
