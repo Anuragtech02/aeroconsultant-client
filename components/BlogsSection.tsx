@@ -7,13 +7,13 @@ const BlogSection = () => {
       id: 1,
       image: "plane-img.jpg",
       title:
-        "Good afternoon. As we are due to meet next Tuesday afternoon, I thought it might be an idea to send over...",
+        "From aerial photography to drone racing, our experienced coaches will provide tailored instruction, hands-on practice, and invaluable tips to take your flying to new heights.",
     },
     {
       id: 2,
       image: "plane-img.jpg",
       title:
-        "Good afternoon. As we are due to meet next Tuesday afternoon, I thought it might be an idea to send over...",
+        "We bring together a diverse community of experts, enthusiasts, and professionals from a wide range of backgrounds, united by a shared passion for unmanned aerial vehicles.",
     },
   ];
 
@@ -36,11 +36,11 @@ const BlogSection = () => {
                 </h2>
                 <a
                   className="text-sm underline"
-                  href="https://aerotalks.com"
+                  href="https://aerotalks.fr/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Read full article at Aerotalks.com
+                  Coming soon at Aerotalks.fr
                 </a>
               </div>
             </div>
@@ -66,9 +66,9 @@ const BlogSection = () => {
                   </div>
                   <div>
                     <p className="text-base text-gray-900">{post.title}</p>
-                    <button className="text-sm mt-1 underline">
+                    {/* <button className="text-sm mt-1 underline">
                       read more
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               ))}
@@ -76,15 +76,20 @@ const BlogSection = () => {
 
             {/* AeroTalks Section - Exactly half height */}
             <div className="relative h-1/2">
-              <div className="absolute inset-0 w-[calc(100%+var(--max-layout-ml))] pr-[var(--max-layout-ml)] bg-purple-600 text-white p-8 flex justify-between items-end">
+              <a
+                href="https://aerotalks.fr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 w-[calc(100%+var(--max-layout-ml))] pr-[var(--max-layout-ml)] bg-purple-600 text-white p-8 flex justify-between items-end"
+              >
                 <div>
                   <span className="font-bold block text-6xl font-proxima">
                     AeroTalks
                   </span>
-                  <p className="text-lg mt-2">Read latest blogs & news</p>
+                  {/* <p className="text-lg mt-2">Read latest blogs & news</p> */}
                 </div>
                 <ArrowExternalIcon />
-              </div>
+              </a>
             </div>
           </div>
         </div>

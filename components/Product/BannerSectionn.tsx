@@ -60,14 +60,24 @@ const ProductDetailsSection = () => {
           {/* Bottom Content Row */}
           <div className="mt-8 bg-[#46739A] p-8 flex justify-between items-center">
             <p className="text-white text-lg max-w-xl">
-              Corem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-              vulputate libero et velit interdum, ac aliquet odio mattis
+              A global leader in storage and information management services and
+              trusted by more than 225,000 organizations around the world,
+              including approximately 95% of the Fortune 1000
             </p>
-            <h3 className="text-white font-bold">
+            {/* <h3 className="text-white font-bold">
               Content about
               <br />
               the Partnerships
-            </h3>
+            </h3> */}
+            <div className="h-full p-4 bg-white rounded-md">
+              <Image
+                src="/iron-mountain.png"
+                alt="Iron Mountain"
+                width={120}
+                height={40}
+                className="h-10 w-auto"
+              />
+            </div>
           </div>
         </div>
       </div>

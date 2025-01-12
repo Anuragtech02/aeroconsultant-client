@@ -46,38 +46,40 @@ export default function ServicesHero({ services }: ServicesHeroProps) {
             <div className="absolute inset-0" />
 
             <div className="relative grid grid-rows-3 h-full">
-              {[services[2], services[0], services[1]].map((service) => (
-                <Link
-                  key={service.id}
-                  href={`/services/${service.slug}`}
-                  className="relative bg-white hover:bg-gray-50 transition-colors"
-                >
-                  {/* Extended background */}
-                  <div className="absolute inset-0 bg-inherit border border-black/30" />
+              {services
+                .sort((a, b) => a.title.localeCompare(b.title))
+                .map((service) => (
+                  <Link
+                    key={service.id}
+                    href={`/services/${service.slug}`}
+                    className="relative bg-white hover:bg-gray-50 transition-colors"
+                  >
+                    {/* Extended background */}
+                    <div className="absolute inset-0 bg-inherit border border-black/30" />
 
-                  {/* Contained content */}
-                  <div className="relative h-full px-4">
-                    <div className="h-full p-6 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">
-                      <div className="flex flex-col gap-2">
-                        <Image
-                          src={service.icon.url}
-                          alt={service.icon.alternativeText || ""}
-                          width={service.icon.width}
-                          height={service.icon.height}
-                          className="w-12 h-12 object-contain"
-                        />
-                        <p className="text-txt-body">
-                          {service.shortDescription}
-                        </p>
+                    {/* Contained content */}
+                    <div className="relative h-full px-4">
+                      <div className="h-full p-6 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">
+                        <div className="flex flex-col gap-2">
+                          <Image
+                            src={service.icon.url}
+                            alt={service.icon.alternativeText || ""}
+                            width={service.icon.width}
+                            height={service.icon.height}
+                            className="w-12 h-12 object-contain"
+                          />
+                          <p className="text-txt-body">
+                            {service.shortDescription}
+                          </p>
+                        </div>
+
+                        <h3 className="font-normal underline text-purple-600 text-right">
+                          {service.title}
+                        </h3>
                       </div>
-
-                      <h3 className="font-normal underline text-purple-600 text-right">
-                        {service.title}
-                      </h3>
                     </div>
-                  </div>
-                </Link>
-              ))}
+                  </Link>
+                ))}
             </div>
           </div>
         </div>

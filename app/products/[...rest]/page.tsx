@@ -14,7 +14,7 @@ export default async function Product() {
       /> */}
       <BannerSection />
       <BlogSection />
-      <ProductsSupportSection />
+      {/* <ProductsSupportSection /> */}
     </>
   );
 }

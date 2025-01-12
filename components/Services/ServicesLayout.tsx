@@ -40,63 +40,69 @@ const ServicesLayout = ({ services }: ServicesLayoutProps) => {
       {/* Left Sidebar */}
       <div className="w-full md:w-80 bg-gray-200 p-6">
         <nav className="space-y-6">
-          {[services[2], services[0]].map((service) => (
-            <div key={service.id} className="space-y-2">
-              <Link
-                href={`/services/${service.slug}`}
-                className={`block text-lg font-bold ${
-                  activeService?.slug === service.slug
-                    ? "text-blue-600"
-                    : "text-gray-900"
-                }`}
-              >
-                {service.title}
-              </Link>
-              {service.tableOfContent && (
-                <div className="pl-4 space-y-2">
-                  {service.tableOfContent.map((item) => (
-                    <Link
-                      key={item.id}
-                      href={`/services/${service.slug}#${item.id}`}
-                      className="block text-gray-700"
-                    >
-                      {item.title}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
+          {services
+            .filter((service) => !service.title.startsWith("Record"))
+            .sort((a, b) => a.title.localeCompare(b.title))
+            .map((service) => (
+              <div key={service.id} className="space-y-2">
+                <Link
+                  href={`/services/${service.slug}`}
+                  className={`block text-lg font-bold ${
+                    activeService?.slug === service.slug
+                      ? "text-blue-600"
+                      : "text-gray-900"
+                  }`}
+                >
+                  {service.title}
+                </Link>
+                {service.tableOfContent && (
+                  <div className="pl-4 space-y-2">
+                    {service.tableOfContent.map((item) => (
+                      <Link
+                        key={item.id}
+                        href={`/services/${service.slug}#${item.id}`}
+                        className="block text-gray-700"
+                      >
+                        {item.title}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
         </nav>
       </div>
 
       {/* Right Content */}
       <div className="flex-1 p-8">
-        {[services[2], services[0]].map((service) => (
-          <div
-            key={service.id}
-            id={service.slug}
-            className={`mb-16 ${
-              activeService?.slug === service.slug ? "scroll-mt-16" : ""
-            }`}
-          >
-            <div className="flex items-center gap-4 mb-6">
-              <Image
-                src={service.icon.url}
-                alt={service.icon.alternativeText || service.title}
-                width={service.icon.width}
-                height={service.icon.height}
-                className="w-12 h-12 object-contain"
-              />
-              <h1 className="text-3xl font-bold">{service.title}</h1>
-            </div>
-            <p className="text-gray-700 mb-4">{service.shortDescription}</p>
+        {services
+          .filter((service) => !service.title.startsWith("Record"))
+          .sort((a, b) => a.title.localeCompare(b.title))
+          .map((service) => (
             <div
-              className="prose max-w-none mt-8"
-              dangerouslySetInnerHTML={{ __html: service.htmlDescription }}
-            />
-          </div>
-        ))}
+              key={service.id}
+              id={service.slug}
+              className={`mb-16 ${
+                activeService?.slug === service.slug ? "scroll-mt-16" : ""
+              }`}
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <Image
+                  src={service.icon.url}
+                  alt={service.icon.alternativeText || service.title}
+                  width={service.icon.width}
+                  height={service.icon.height}
+                  className="w-12 h-12 object-contain"
+                />
+                <h1 className="text-3xl font-bold">{service.title}</h1>
+              </div>
+              <p className="text-gray-700 mb-4">{service.shortDescription}</p>
+              <div
+                className="prose max-w-none mt-8"
+                dangerouslySetInnerHTML={{ __html: service.htmlDescription }}
+              />
+            </div>
+          ))}
       </div>
     </div>
   );

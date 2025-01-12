@@ -39,15 +39,17 @@ const ServicesSection = ({
         {/* Right Column - Service Cards Grid */}
         <div className="flex-1">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {[services[2], services[0], services[1]].map((service) => (
-              <ServiceCard
-                key={service.id}
-                title={service.title}
-                href={`/services/${service.documentId}`}
-                imageUrl={service.highlightImage.url}
-                className="border-l border-black/30 border-b border-black/30"
-              />
-            ))}
+            {services
+              .sort((a, b) => a.title.localeCompare(b.title))
+              .map((service) => (
+                <ServiceCard
+                  key={service.id}
+                  title={service.title}
+                  href={`/services/${service.documentId}`}
+                  imageUrl={service.highlightImage.url}
+                  className="border-l border-black/30 border-b"
+                />
+              ))}
           </div>
         </div>
       </div>
