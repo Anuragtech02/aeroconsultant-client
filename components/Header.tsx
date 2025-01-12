@@ -51,7 +51,16 @@ export function Header({ logo, menu }: HeaderProps) {
   }, [pathname]);
 
   // Wrapper component for Link that closes the menu
-  const MenuLink = ({ href, className, children, ...props }: any) => (
+  const MenuLink = ({
+    href,
+    className,
+    children,
+    ...props
+  }: {
+    href: string;
+    className: string;
+    children: React.ReactNode;
+  }) => (
     <Link
       href={href}
       className={className}
