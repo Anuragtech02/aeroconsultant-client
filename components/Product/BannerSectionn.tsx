@@ -29,7 +29,7 @@ const ProductDetailsSection = () => {
         {/* Main Card */}
         <div className="mt-10 bg-gray-100 rounded-3xl overflow-hidden">
           {/* Single Row Layout */}
-          <div className="p-8 flex items-center justify-between">
+          <div className="p-8 flex flex-col gap-4 sm:gap-0 sm:flex-row items-center justify-between">
             {/* Left Side: Title */}
             <h2 className="font-bold text-purple-900">
               Logistics &<br />
@@ -58,7 +58,7 @@ const ProductDetailsSection = () => {
           </div>
 
           {/* Bottom Content Row */}
-          <div className="mt-8 bg-[#46739A] p-8 flex justify-between items-center">
+          <div className="mt-8 bg-[#46739A] p-8 flex gap-4 flex-col sm:flex-row justify-between items-center">
             <p className="text-white text-lg max-w-xl">
               A global leader in storage and information management services and
               trusted by more than 225,000 organizations around the world,
@@ -69,7 +69,7 @@ const ProductDetailsSection = () => {
               <br />
               the Partnerships
             </h3> */}
-            <div className="h-full p-4 bg-white rounded-md">
+            <div className="h-full p-4 w-full sm:w-auto bg-white rounded-md">
               <Image
                 src="/iron-mountain.png"
                 alt="Iron Mountain"

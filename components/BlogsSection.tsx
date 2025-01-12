@@ -7,23 +7,23 @@ const BlogSection = () => {
       id: 1,
       image: "plane-img.jpg",
       title:
-        "From aerial photography to drone racing, our experienced coaches will provide tailored instruction, hands-on practice, and invaluable tips to take your flying to new heights.",
+        "Lucrative programs offering a flexible pathway to a career in aviation consulting, allowing individuals to learn at their own pace while covering a comprehensive curriculum. These programs typically delve into aviation regulations, airport operations, airline management, and other crucial aspects of the industry.",
     },
     {
       id: 2,
       image: "plane-img.jpg",
       title:
-        "We bring together a diverse community of experts, enthusiasts, and professionals from a wide range of backgrounds, united by a shared passion for unmanned aerial vehicles.",
+        "Top-notch online programs for aircraft physical inspections that equips individuals with the necessary knowledge and skills to perform thorough and accurate inspections on aircraft components. These programs typically cover essential topics such as aircraft maintenance procedures, safety regulations, and the identification and documentation of defects.",
     },
   ];
 
   return (
     <section className="w-full border-y border-black/30">
       <div className="max-w-7xl mx-auto relative">
-        <div className="grid grid-cols-12 h-[700px]">
+        <div className="grid grid-cols-1 sm:grid-cols-12 sm:h-[700px]">
           {/* Left Column - Featured Blog */}
-          <div className="col-span-7 relative h-full">
-            <div className="absolute top-0 right-0 h-full w-[calc(100%+var(--max-layout-ml))] -left-[var(--max-layout-ml)]">
+          <div className="sm:col-span-7 relative h-full">
+            <div className="absolute top-0 right-0 h-[500px] sm:h-full w-full sm:w-[calc(100%+var(--max-layout-ml))] left-0 sm:-left-[var(--max-layout-ml)]">
               <img
                 src="/aero-inside.jpg"
                 alt="Aircraft cockpit"
@@ -47,15 +47,15 @@ const BlogSection = () => {
           </div>
 
           {/* Right Column */}
-          <div className="col-span-5 h-full flex flex-col">
+          <div className="sm:col-span-5 mt-[500px] sm:mt-0 sm:h-full flex flex-col">
             {/* Blog Posts Preview - Exactly half height */}
-            <div className="h-1/2">
+            <div className="h-[400px] sm:h-1/2">
               {blogPosts.map((post) => (
                 <div
                   key={post.id}
-                  className="relative h-1/2 flex items-center pl-16"
+                  className="relative h-1/2 flex items-center pl-24 pr-4 sm:pr-0 sm:pl-16"
                 >
-                  <div className="absolute -left-8 top-1/2 -translate-y-1/2 w-20 h-20">
+                  <div className="absolute left-2 sm:-left-8 top-1/2 -translate-y-1/2 w-20 h-20">
                     <div className="absolute inset-0 rounded-full border-2 border-white bg-white overflow-hidden ring-2 ring-white">
                       <img
                         src={post.image}
@@ -75,12 +75,12 @@ const BlogSection = () => {
             </div>
 
             {/* AeroTalks Section - Exactly half height */}
-            <div className="relative h-1/2">
+            <div className="relative h-[200px] sm:h-1/2">
               <a
                 href="https://aerotalks.fr/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="absolute inset-0 w-[calc(100%+var(--max-layout-ml))] pr-[var(--max-layout-ml)] bg-purple-600 text-white p-8 flex justify-between items-end"
+                className="absolute inset-0 w-full sm:w-[calc(100%+var(--max-layout-ml))] pr-[var(--max-layout-ml)] bg-purple-600 text-white p-8 flex justify-between items-end"
               >
                 <div>
                   <span className="font-bold block text-6xl font-proxima">
