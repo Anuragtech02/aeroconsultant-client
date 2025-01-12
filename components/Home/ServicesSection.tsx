@@ -11,7 +11,6 @@ const ServicesSection = ({
   services,
 }: ServicesSectionProps) => {
   const headingParts = heading.split(/<span>|<\/span>/);
-  console.log({ services });
   return (
     <section
       className={cn("relative w-full border border-black/30", className)}
