@@ -20,7 +20,7 @@ const ServiceCard = ({
     <Link
       href={"#"}
       className={cn(
-        "group relative aspect-square sm:aspect-[3/4] overflow-hidden",
+        `group relative aspect-square sm:aspect-[3/4] overflow-hidden ${href}`,
         className
       )}
     >
