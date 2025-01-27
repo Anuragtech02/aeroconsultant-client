@@ -14,6 +14,7 @@ const ServicesSection = ({
   return (
     <section
       className={cn("relative w-full border border-black/30", className)}
+      id="services"
     >
       <div className="flex flex-col lg:flex-row">
         {/* Left Column - Title and Description */}
