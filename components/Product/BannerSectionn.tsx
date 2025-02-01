@@ -31,7 +31,7 @@ const ProductDetailsSection = () => {
           {/* Single Row Layout */}
           <div className="p-8 flex flex-col gap-4 sm:gap-0 sm:flex-row items-center justify-between">
             {/* Left Side: Title */}
-            <h2 className="font-bold text-purple-900">
+            <h2 className="font-bold text-aero-primary">
               Logistics &<br />
               Digitization
             </h2>

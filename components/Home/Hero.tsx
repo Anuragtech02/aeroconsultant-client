@@ -1,15 +1,16 @@
-// components/hero.tsx
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { Button } from "../Button";
 import Link from "next/link";
+import Image from "next/image";
 
-// components/sections/Hero.tsx
 interface HeroProps {
   heroHeading: string;
   heroDescription: string;
-  heroBGVideo: {
+  heroImages: Array<{
     url: string;
-  };
+    alt?: string;
+  }>;
   heroCTAList: Array<{
     id: number;
     title: string;
@@ -22,22 +23,42 @@ interface HeroProps {
 export function Hero({
   heroHeading,
   heroDescription,
-  heroBGVideo,
+  heroImages,
   heroCTAList,
 }: HeroProps) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const headingParts = heroHeading.split(/<span>|<\/span>/);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
+
   return (
-    <section className="relative min-h-screen flex items-center">
-      {/* Background Video */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src={heroBGVideo.url} type="video/mp4" />
-      </video>
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Background Images */}
+      {heroImages.map((image, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
+            index === currentImageIndex ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <Image
+            src={image.url}
+            alt={image.alt || "Hero background"}
+            fill
+            className="object-cover"
+            priority={index === 0}
+            sizes="100vw"
+          />
+        </div>
+      ))}
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40" />
@@ -61,11 +82,6 @@ export function Hero({
               )
             )}
           </h1>
-          {/* <h1 className="text-h1 text-white mb-6">
-            <span className="font-normal">Aviation made</span>
-            <br />
-            <span className="font-bold">Seamless</span>
-          </h1> */}
           <p className="text-xl text-white/90 mb-8">{heroDescription}</p>
           <div className="flex flex-wrap gap-4">
             {heroCTAList.map((cta) => (

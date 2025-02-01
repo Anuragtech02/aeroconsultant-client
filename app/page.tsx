@@ -21,7 +21,16 @@ export default async function HomePage() {
       <Hero
         heroHeading={home.data.heroHeading}
         heroDescription={home.data.heroDescription}
-        heroBGVideo={home.data.heroBGVideo}
+        heroImages={[
+          {
+            url: "https://images.pexels.com/photos/66997/pexels-photo-66997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            alt: "Text",
+          },
+          {
+            url: "https://images.pexels.com/photos/36744/agriculture-arable-clouds-countryside.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            alt: "image",
+          },
+        ]}
         heroCTAList={home.data.heroCTAList}
       />
       <Stats statisticsCounters={home.data.statisticsCounters} />

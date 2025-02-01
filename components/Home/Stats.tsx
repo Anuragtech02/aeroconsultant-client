@@ -53,7 +53,7 @@ const StatCard = ({
 
 const Stats = ({ className, statisticsCounters }: StatsProps) => {
   return (
-    <div className={`bg-purple-900 py-16 ${className}`}>
+    <div className={`bg-aero-primary py-16 ${className}`}>
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-8 items-center">
           {/* Stats */}

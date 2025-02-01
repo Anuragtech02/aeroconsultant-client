@@ -73,8 +73,8 @@ const SliderSection = ({
                   className={cn(
                     "py-2 px-8 rounded-full text-lg font-medium transition-all",
                     currentSlide === index
-                      ? "bg-purple-900 text-white"
-                      : "text-gray-600 hover:text-white hover:bg-purple-900"
+                      ? "bg-aero-primary text-white"
+                      : "text-gray-600 hover:text-white hover:bg-aero-primary"
                   )}
                 >
                   {slide.tabTitle}
@@ -110,7 +110,7 @@ const SliderSection = ({
           >
             {sliderTabs.map((slide) => (
               <div key={slide.id} className="w-full flex-shrink-0 sm:pr-8">
-                <div className="flex flex-col sm:flex-row rounded-3xl overflow-hidden border border-purple-900">
+                <div className="flex flex-col sm:flex-row rounded-3xl overflow-hidden border border-aero-primary">
                   {/* Content */}
                   <div className="w-full sm:w-1/2 p-6 sm:p-16">
                     <h2 className="font-bold mb-8">{slide.heading}</h2>
@@ -121,7 +121,7 @@ const SliderSection = ({
                     <Button
                       variant="primary"
                       title="Know More"
-                      className="mt-8 !bg-purple-900 [&>span]:!text-white"
+                      className="mt-8 !bg-aero-primary [&>span]:!text-white"
                     />
                   </div>
                   {/* Image */}

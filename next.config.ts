@@ -4,7 +4,10 @@ const nextConfig: NextConfig = {
   /* config options here */
   output: "standalone",
   images: {
-    domains: ["hmweb-dev-bucket.s3.us-west-2.amazonaws.com"],
+    domains: [
+      "hmweb-dev-bucket.s3.us-west-2.amazonaws.com",
+      "images.pexels.com",
+    ],
   },
   remotePatterns: [
     {
