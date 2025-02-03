@@ -14,6 +14,10 @@ const nextConfig: NextConfig = {
       protocol: "https",
       hostname: "hmweb-dev-bucket.s3.us-west-2.amazonaws.com",
     },
+    {
+      protocol: "https",
+      hostname: "images.pexels.com",
+    },
   ],
 };
 
