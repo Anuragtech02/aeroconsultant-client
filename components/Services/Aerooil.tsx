@@ -58,7 +58,7 @@ const Aerooil = () => {
             <img
               src="/slide-img-aero.jpg"
               alt="CAMO Approvals"
-              className="h-full max-w-[400px] rounded-t-[50px] object-cover"
+              className="h-full lg:max-w-[400px] rounded-t-[50px] object-cover"
             />
           </div>
         </div>

@@ -37,7 +37,7 @@ const Aerobox = () => {
             <img
               src="/slide-img-aero.jpg"
               alt="CAMO Approvals"
-              className="h-[400px] max-w-[400px] rounded-t-[50px] object-cover"
+              className="h-[400px] lg:max-w-[400px] rounded-t-[50px] object-cover"
             />
           </div>
           <div className="flex flex-col gap-4">

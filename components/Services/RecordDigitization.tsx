@@ -14,7 +14,7 @@ const RecordDigitization = () => {
             <img
               src="/slide-img-aero.jpg"
               alt="CAMO Approvals"
-              className="h-full max-w-[400px] rounded-t-[50px] object-cover"
+              className="h-full lg:max-w-[400px] rounded-t-[50px] object-cover"
             />
           </div>
         </div>
@@ -32,7 +32,7 @@ const RecordDigitization = () => {
             <img
               src="/slide-img-aero.jpg"
               alt="CAMO Approvals"
-              className="h-[400px] max-w-[400px] rounded-t-[50px] object-cover"
+              className="h-[400px] lg:max-w-[400px] rounded-t-[50px] object-cover"
             />
           </div>
           <div className="flex flex-col gap-8">
@@ -44,7 +44,7 @@ const RecordDigitization = () => {
               <li>Tailored Solutions for Lessors and Operators</li>
               <li>Partnership with Iron Mountain</li>
             </ul>
-            <div className="flex justify-between items-center gap-4 p-4 rounded-xl border border-black">
+            <div className="flex justify-between flex-wrap items-center gap-4 p-4 rounded-xl border border-black">
               <img
                 src="/easa-logo.png"
                 alt="easa"
