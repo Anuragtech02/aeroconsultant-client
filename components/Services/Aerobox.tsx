@@ -2,11 +2,13 @@ import React from "react";
 
 const Aerobox = () => {
   return (
-    <section>
+    <section id="aerobox">
       <div className="bg-aero-primary">
         <div className="container mx-auto flex flex-col sm:flex-row justify-between items-stretch gap-8">
-          <div className="text-white flex-1 py-28">
-            <h2 className="text-6xl max-w-[450px] font-bold">Aerobox</h2>
+          <div className="text-white flex-1 py-8 lg:py-28">
+            <h2 className="text-4xl xl:text-6xl max-w-[450px] font-bold">
+              Aerobox
+            </h2>
             <p className="text-xl text-justify max-w-[600px] mt-4">
               Empowers lessors, operators, and asset owners to streamline their
               records management processes with a secure, user-friendly, and
@@ -30,7 +32,7 @@ const Aerobox = () => {
         </div>
       </div>
       <div className="pt-8 container mx-auto text-gray-600">
-        <div className="pt-10 [&>div]:flex-1 flex flex-col sm:flex-row gap-12 justify-between items-start">
+        <div className="pt-10 pb-10 lg:pb-0 [&>div]:flex-1 flex flex-col sm:flex-row gap-12 justify-between items-start">
           <div>
             <img
               src="/slide-img-aero.jpg"

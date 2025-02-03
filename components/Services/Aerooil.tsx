@@ -2,11 +2,11 @@ import React from "react";
 
 const Aerooil = () => {
   return (
-    <section>
+    <section className="pb-8" id="aerooil">
       <div className="bg-aero-primary">
         <div className="container mx-auto flex flex-col sm:flex-row justify-between items-stretch gap-8">
           <div className="flex-1 flex justify-start pt-10">
-            <div className="h-full max-w-[400px] flex flex-col items-start gap-4 justify-center rounded-t-[50px] bg-white p-4">
+            <div className="h-full lg:max-w-[400px] flex flex-col items-start gap-4 justify-center rounded-t-[50px] bg-white p-4">
               <img
                 src="/aerooil-logo.png"
                 alt="aerooil"
@@ -18,8 +18,8 @@ const Aerooil = () => {
               </h3>
             </div>
           </div>
-          <div className="text-white flex-1 py-28 flex justify-end">
-            <h2 className="text-6xl max-w-[300px] font-bold">
+          <div className="text-white flex-1 py-8 lg:py-28 flex lg:justify-end">
+            <h2 className="text-4xl xl:text-6xl lg:max-w-[300px] font-bold">
               AeroOIL: Lease Transition Communication Platform
             </h2>
           </div>

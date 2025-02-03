@@ -2,11 +2,11 @@ import React from "react";
 
 const RecordReviewSupport = () => {
   return (
-    <section>
+    <section id="record-review-support">
       <div className="bg-aero-primary">
-        <div className="container mx-auto h-[450px] flex flex-col sm:flex-row justify-between items-center gap-8">
+        <div className="container pt-8 lg:pt-0 mx-auto h-[450px] flex flex-col sm:flex-row justify-between items-center gap-8">
           <div className="text-white flex-1">
-            <h2 className="text-6xl max-w-[450px] font-bold">
+            <h2 className="text-4xl xl:text-6xl max-w-[450px] font-bold">
               Record Review Support
             </h2>
             <p className="text-xl max-w-[350px] mt-4">

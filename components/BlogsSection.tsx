@@ -83,7 +83,7 @@ const BlogSection = () => {
                 className="absolute inset-0 w-full sm:w-[calc(100%+var(--max-layout-ml))] pr-[var(--max-layout-ml)] bg-purple-600 text-white p-8 flex justify-between items-end"
               >
                 <div>
-                  <span className="font-bold block text-6xl font-proxima">
+                  <span className="font-bold block text-4xl xl:text-6xl font-proxima">
                     AeroTalks
                   </span>
                   {/* <p className="text-lg mt-2">Read latest blogs & news</p> */}

@@ -22,7 +22,7 @@ const Footer = ({
   socialLinks,
 }: FooterProps) => {
   return (
-    <footer className="bg-white py-16">
+    <footer className="bg-gray-100 py-16">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Left Column - Logo, Description, Social */}

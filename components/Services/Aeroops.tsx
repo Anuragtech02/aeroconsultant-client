@@ -2,7 +2,7 @@ import React from "react";
 
 const Aeroops = () => {
   return (
-    <section>
+    <section id="aeroops">
       <div className="bg-aero-primary">
         <div className="container mx-auto flex flex-col sm:flex-row justify-between items-stretch gap-8">
           <div className="flex-1 flex justify-start pt-10">
@@ -18,15 +18,15 @@ const Aeroops = () => {
               </h3>
             </div>
           </div>
-          <div className="text-white flex-1 py-28 flex justify-end">
-            <h2 className="text-6xl max-w-[300px] font-bold">
+          <div className="text-white flex-1 py-8 lg:py-28 flex justify-end">
+            <h2 className="text-4xl xl:text-6xl lg:max-w-[300px] font-bold">
               AeroOPS: Airworthiness Management Platform
             </h2>
           </div>
         </div>
       </div>
       <div className="pt-8 container mx-auto text-gray-600">
-        <div className="pt-10 [&>div]:flex-1 flex flex-col sm:flex-row gap-12 justify-between items-start">
+        <div className="pt-10 pb-10 lg:pb-0 [&>div]:flex-1 flex flex-col sm:flex-row gap-12 justify-between items-start">
           <div className="flex flex-col gap-4">
             <p className="text-xl">
               <span className="text-black font-bold">

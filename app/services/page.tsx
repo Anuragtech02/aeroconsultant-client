@@ -47,26 +47,26 @@ export default async function ServicePage() {
     },
     {
       id: 5,
-      logoUrl: "/logo-large.png",
+      logoUrl: "/aerobox-logo.png",
       title: "AeroBox",
-      link: "/products/aerobox",
+      link: "/services#aerobox",
     },
     {
       id: 6,
-      logoUrl: "/logo-large.png",
+      logoUrl: "/aerooil-logo.png",
       title: "AeroOIL",
-      link: "/products/aerooil",
+      link: "/services#aerooil",
     },
     {
       id: 7,
-      logoUrl: "/logo-large.png",
+      logoUrl: "/aeroops-logo.png",
       title: "AeroOPS",
-      link: "/products/aeroops",
+      link: "/services#aeroops",
     },
     {
       id: 8,
       ctaText: "Contact Sales Now",
-      link: "/contact",
+      link: "/#contact",
       icon: {
         url: "/ArrowExternalIcon.svg",
         width: 40,

@@ -5,31 +5,33 @@ import { Button } from "../Button";
 const CamoServices = () => {
   return (
     <section id="camo-services">
-      <div className="py-24 bg-aero-primary">
+      <div className="py-10 lg:py-24 bg-aero-primary">
         <div className="container mx-auto flex flex-col sm:flex-row justify-between items-start gap-8">
           <div className="text-white">
-            <h2 className="text-6xl max-w-[250px] font-bold">CAMO Services</h2>
+            <h2 className="text-4xl xl:text-6xl lg:max-w-[250px] font-bold">
+              CAMO Services
+            </h2>
             <p className="text-xl max-w-[200px] mt-4">
               Ensure airplane airworthiness during transitions
             </p>
           </div>
-          <div className="flex flex-col items-end gap-2">
+          <div className="flex flex-col lg:items-end gap-2">
             <p className="text-gray-200 text-xl">Approvals Available for</p>
-            <div className="flex items-center justify-betweeen gap-8 bg-white rounded-lg max-w-[300px] p-4">
+            <div className="flex items-center justify-betweeen gap-8 bg-white rounded-xl max-w-[300px] p-4">
               <Image
-                src="/camo-service.png"
+                src="/easa-logo.png"
                 alt="CAMO Approvals"
                 width={500}
                 height={500}
                 className="object-cover"
               />
-              {/* <Image
-              src="/camo-service.png"
-              alt="CAMO Approvals"
-              width={500}
-              height={500}
-              className="object-cover"
-            /> */}
+              <Image
+                src="/caa-logo.png"
+                alt="CAMO Approvals"
+                width={500}
+                height={500}
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
@@ -44,7 +46,7 @@ const CamoServices = () => {
           review certificate (ARC) recommendations for any aircraft under its
           scope.
         </p>
-        <div className="pt-10 [&>div]:flex-1 flex flex-col sm:flex-row gap-12 justify-between items-start">
+        <div className="pt-10 pb-10 lg:pb-0 [&>div]:flex-1 flex flex-col sm:flex-row gap-12 justify-between items-start">
           <div>
             <img
               src="/slide-img-aero.jpg"

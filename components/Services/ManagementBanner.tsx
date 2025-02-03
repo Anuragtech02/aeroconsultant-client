@@ -9,7 +9,7 @@ const ManagementBanner = () => {
           Aircraft Asset Management Service
         </h2>
         <Image
-          src="/aero-inside.jpg"
+          src="/aeroplane.png"
           alt="Aircraft cockpit"
           width={500}
           height={500}
