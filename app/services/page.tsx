@@ -1,7 +1,6 @@
 export const dynamic = "force-dynamic";
 import React from "react";
-import { getServicePage, getServices } from "@/lib/services";
-import ServicesLayout from "@/components/Services/ServicesLayout";
+import { getServicePage } from "@/lib/services";
 import BrandsSection from "@/components/BrandsSection";
 import ServicesHero from "@/components/Services/ServicesHero";
 import ManagementBanner from "@/components/Services/ManagementBanner";
@@ -15,7 +14,7 @@ import Aeroops from "@/components/Services/Aeroops";
 import Aerooil from "@/components/Services/Aerooil";
 
 export default async function ServicePage() {
-  const services = await getServices();
+  // const services = await getServices();
   const servicePage = await getServicePage();
   const home = await getHomePage();
 

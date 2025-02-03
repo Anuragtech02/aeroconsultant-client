@@ -92,24 +92,25 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-interface ServiceItem {
-  id: number;
-  title: string;
-  link?: string;
-  isHighlighted?: boolean;
-  icon?: {
-    url: string;
-    width: number;
-    height: number;
-    alt: string;
-  };
-  ctaText?: string;
-  buttonText?: string;
-  logoUrl?: string;
-}
+// interface ServiceItem {
+//   id: number;
+//   title: string;
+//   link?: string;
+//   isHighlighted?: boolean;
+//   icon?: {
+//     url: string;
+//     width: number;
+//     height: number;
+//     alt: string;
+//   };
+//   ctaText?: string;
+//   buttonText?: string;
+//   logoUrl?: string;
+// }
 
 interface ServicesGridProps {
-  services: ServiceItem[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  services: any[];
 }
 
 const ServicesGrid = ({ services }: ServicesGridProps) => {
