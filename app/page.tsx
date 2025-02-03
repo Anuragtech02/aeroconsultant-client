@@ -23,11 +23,11 @@ export default async function HomePage() {
         heroDescription={home.data.heroDescription}
         heroImages={[
           {
-            url: "https://images.pexels.com/photos/66997/pexels-photo-66997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            url: "/home/hero-1.webp",
             alt: "Text",
           },
           {
-            url: "https://images.pexels.com/photos/36744/agriculture-arable-clouds-countryside.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            url: "/home/hero-2.webp",
             alt: "image",
           },
         ]}

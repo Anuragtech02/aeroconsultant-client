@@ -4,19 +4,12 @@ const nextConfig: NextConfig = {
   /* config options here */
   output: "standalone",
   images: {
-    domains: [
-      "hmweb-dev-bucket.s3.us-west-2.amazonaws.com",
-      "images.pexels.com",
-    ],
+    domains: ["hmweb-dev-bucket.s3.us-west-2.amazonaws.com"],
   },
   remotePatterns: [
     {
       protocol: "https",
       hostname: "hmweb-dev-bucket.s3.us-west-2.amazonaws.com",
-    },
-    {
-      protocol: "https",
-      hostname: "images.pexels.com",
     },
   ],
 };
