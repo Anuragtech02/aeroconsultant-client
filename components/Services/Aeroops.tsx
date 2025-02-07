@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "../Button";
 
 const Aeroops = () => {
   return (
@@ -55,12 +56,20 @@ const Aeroops = () => {
               Optimize planning, scheduling, and resource allocation with
               Digital Fleet Planning tools.
             </p>
+            <div className="pb-2">
+              <Button
+                type="button"
+                title="Contact Sales Now"
+                variant="secondary"
+                className="[&>span]:text-black max-w-[250px] mt-4"
+              />
+            </div>
           </div>
-          <div>
+          <div className="flex justify-center sm:justify-end">
             <img
-              src="/slide-img-aero.jpg"
-              alt="CAMO Approvals"
-              className="h-[400px] lg:max-w-[400px] rounded-t-[50px] object-cover"
+              src="/services/aerops.webp"
+              alt="Aeroops"
+              className="h-[400px] lg:max-w-[400px] w-full rounded-[50px] object-cover"
             />
           </div>
         </div>

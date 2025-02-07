@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "../Button";
 
 const RecordReviewSupport = () => {
   return (
@@ -16,7 +17,7 @@ const RecordReviewSupport = () => {
           </div>
           <div className="flex-1 h-full">
             <img
-              src="/slide-img-aero.jpg"
+              src="/services/record-review-support.webp"
               alt="CAMO Approvals"
               className="h-full object-cover"
             />
@@ -34,7 +35,7 @@ const RecordReviewSupport = () => {
         <div className="pt-10 [&>div]:flex-1 flex flex-col sm:flex-row gap-12 justify-between items-start">
           <div>
             <img
-              src="/slide-img-aero.jpg"
+              src="/services/record-review-support-2.webp"
               alt="CAMO Approvals"
               className="h-[300px] object-cover"
             />
@@ -48,6 +49,14 @@ const RecordReviewSupport = () => {
               <li>Gap Analysis & Reduction</li>
               <li>Tailored Solution</li>
             </ul>
+            <div className="pb-2">
+              <Button
+                type="button"
+                title="Contact Sales Now"
+                variant="secondary"
+                className="[&>span]:text-black max-w-[250px] mt-4"
+              />
+            </div>
           </div>
         </div>
       </div>

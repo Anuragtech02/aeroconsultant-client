@@ -1,27 +1,23 @@
 import React from "react";
 import { Button } from "../Button";
 
-const Aerooil = () => {
+const EngineStandLeasing = () => {
   return (
-    <section className="pb-8" id="aerooil">
+    <section className="pb-8" id="engine-stand-leasing">
       <div className="bg-aero-primary">
         <div className="container mx-auto flex flex-col sm:flex-row justify-between items-stretch gap-8">
           <div className="flex-1 flex justify-start pt-10">
-            <div className="h-full lg:max-w-[400px] flex flex-col items-start gap-4 justify-center rounded-t-[50px] bg-white p-4">
+            <div className="h-full lg:max-w-[400px] flex flex-col items-start gap-4 justify-center rounded-t-[50px] bg-white">
               <img
-                src="/aerooil-logo.png"
+                src="/home/hero-1.webp"
                 alt="aerooil"
-                className="object-cover"
+                className="object-cover w-full h-full"
               />
-              <h3 className="font-bold">
-                The ultimate tool for managing the airworthiness of fleets of
-                all sizes
-              </h3>
             </div>
           </div>
           <div className="text-white flex-1 py-8 lg:py-28 flex lg:justify-end">
             <h2 className="text-4xl xl:text-6xl lg:max-w-[300px] font-bold">
-              AeroOIL: Lease Transition Communication Platform
+              Engine Stand Leasing
             </h2>
           </div>
         </div>
@@ -76,4 +72,4 @@ const Aerooil = () => {
   );
 };
 
-export default Aerooil;
+export default EngineStandLeasing;

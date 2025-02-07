@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "../Button";
 
 const RecordDigitization = () => {
   return (
@@ -7,12 +8,12 @@ const RecordDigitization = () => {
         <div className="container mx-auto flex flex-col sm:flex-row justify-between items-stretch gap-8">
           <div className="text-white flex-1 py-8 lg:py-28">
             <h2 className="text-4xl xl:text-6xl max-w-[450px] font-bold">
-              Record Digitalization & Management
+              Record Digitization & Management
             </h2>
           </div>
           <div className="flex-1 flex justify-center pt-10">
             <img
-              src="/slide-img-aero.jpg"
+              src="/services/record-digitization.webp"
               alt="CAMO Approvals"
               className="h-full lg:max-w-[400px] rounded-t-[50px] object-cover"
             />
@@ -30,7 +31,7 @@ const RecordDigitization = () => {
         <div className="pt-10 pb-10 lg:pb-0 [&>div]:flex-1 flex flex-col lg:flex-row gap-12 justify-between items-start">
           <div>
             <img
-              src="/slide-img-aero.jpg"
+              src="/services/record-digitization-2.webp"
               alt="CAMO Approvals"
               className="h-[400px] lg:max-w-[400px] rounded-t-[50px] object-cover"
             />
@@ -44,21 +45,19 @@ const RecordDigitization = () => {
               <li>Tailored Solutions for Lessors and Operators</li>
               <li>Partnership with Iron Mountain</li>
             </ul>
-            <div className="flex justify-between flex-wrap items-center gap-4 p-4 rounded-xl border border-black">
-              <img
-                src="/easa-logo.png"
-                alt="easa"
-                className="h-[40px] xl:h-[60px]"
-              />
-              <img
-                src="/caa-logo.png"
-                alt="caa"
-                className="h-[40px] xl:h-[60px]"
-              />
+            <div className="flex justify-between flex-wrap w-[200px] items-center gap-4 p-4 rounded-xl border border-black">
               <img
                 src="/iron-mountain.png"
                 alt="iron-mountain"
                 className="h-[40px] xl:h-[60px]"
+              />
+            </div>
+            <div className="pb-2">
+              <Button
+                type="button"
+                title="Contact Sales Now"
+                variant="secondary"
+                className="[&>span]:text-black max-w-[250px] mt-4"
               />
             </div>
           </div>

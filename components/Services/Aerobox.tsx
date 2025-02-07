@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "../Button";
 
 const Aerobox = () => {
   return (
@@ -35,7 +36,7 @@ const Aerobox = () => {
         <div className="pt-10 pb-10 lg:pb-0 [&>div]:flex-1 flex flex-col sm:flex-row gap-12 justify-between items-start">
           <div>
             <img
-              src="/slide-img-aero.jpg"
+              src="/services/aerobox.webp"
               alt="CAMO Approvals"
               className="h-[400px] lg:max-w-[400px] rounded-t-[50px] object-cover"
             />
@@ -64,6 +65,14 @@ const Aerobox = () => {
                 histories with ease, saving time and ensuring consistency.
               </li>
             </ul>
+            <div className="pb-2">
+              <Button
+                type="button"
+                title="Contact Sales Now"
+                variant="secondary"
+                className="[&>span]:text-black max-w-[250px] mt-4"
+              />
+            </div>
           </div>
         </div>
       </div>

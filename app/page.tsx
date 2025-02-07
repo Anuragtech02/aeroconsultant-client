@@ -23,11 +23,23 @@ export default async function HomePage() {
         heroDescription={home.data.heroDescription}
         heroImages={[
           {
-            url: "/home/hero-1.webp",
+            url: "/home/slider/camo-services.webp",
             alt: "Text",
           },
           {
-            url: "/home/hero-2.webp",
+            url: "/home/slider/digital-solution.webp",
+            alt: "image",
+          },
+          {
+            url: "/home/slider/engine-stand.webp",
+            alt: "image",
+          },
+          {
+            url: "/home/slider/iron-mountain.webp",
+            alt: "image",
+          },
+          {
+            url: "/home/slider/transition-services.webp",
             alt: "image",
           },
         ]}

@@ -1,5 +1,5 @@
 import { StrapiImage } from "./strapi";
-import { TeamMember, TeamSectionProps } from "./team";
+import { TeamSectionProps } from "./team";
 
 export interface TableOfContentItem {
   id: number;
@@ -19,6 +19,9 @@ export interface Service {
   slug: string;
   highlightImage: StrapiImage;
   tableOfContent: TableOfContentItem[];
+  image?: {
+    url: string;
+  };
 }
 
 export interface ServiceResponse {

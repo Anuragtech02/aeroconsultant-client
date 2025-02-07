@@ -78,7 +78,7 @@ export function Header({ logo, menu }: HeaderProps) {
         isScrolled
           ? "bg-white/90 backdrop-blur-sm shadow-sm"
           : isHomePage
-          ? "bg-transparent"
+          ? "bg-white"
           : "bg-white"
       )}
     >
@@ -92,7 +92,7 @@ export function Header({ logo, menu }: HeaderProps) {
               width={logo.width}
               height={logo.height}
               className={cn(
-                "w-auto h-10 object-contain",
+                "w-auto h-10 object-contain invert",
                 isScrolled ? "invert" : ""
               )}
               priority
@@ -113,7 +113,7 @@ export function Header({ logo, menu }: HeaderProps) {
                             "px-4 py-2",
                             isScrolled || !isHomePage
                               ? "text-gray-900 hover:text-gray-900 hover:bg-gray-100"
-                              : "text-white hover:text-white hover:bg-white/10"
+                              : "text-grey-900 hover:text-grey-900 hover:bg-white/10"
                           )}
                         >
                           {item.title}
@@ -144,10 +144,10 @@ export function Header({ logo, menu }: HeaderProps) {
                           "text-base transition-all duration-200 px-4 py-2 block rounded-full",
                           isScrolled || !isHomePage
                             ? "text-gray-900 hover:text-gray-900 hover:bg-gray-100"
-                            : "text-white hover:text-white hover:bg-white/10",
+                            : "text-grey-900 hover:text-grey-900 hover:bg-white/10",
                           pathname === item.url
                             ? isHomePage && !isScrolled
-                              ? "text-white font-medium"
+                              ? "text-grey-900 font-medium"
                               : "text-primary font-medium"
                             : ""
                         )}
@@ -180,7 +180,7 @@ export function Header({ logo, menu }: HeaderProps) {
                   "lg:hidden p-2 rounded-full transition-colors",
                   isScrolled || !isHomePage
                     ? "text-gray-900 hover:bg-gray-100"
-                    : "text-white hover:bg-white/10"
+                    : "text-grey-900 hover:bg-white/10"
                 )}
               >
                 <Menu className="h-6 w-6" />
@@ -188,7 +188,7 @@ export function Header({ logo, menu }: HeaderProps) {
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="w-full sm:w-[400px] p-0 bg-gray-900 border-gray-800 [&>button]:text-white [&>button:hover]:text-gray-200"
+              className="w-full sm:w-[400px] p-0 bg-gray-900 border-gray-800 [&>button]:text-grey-900 [&>button:hover]:text-gray-200"
             >
               <div className="flex flex-col h-full">
                 <div className="p-6 border-b border-gray-800">
@@ -210,7 +210,7 @@ export function Header({ logo, menu }: HeaderProps) {
                         <AccordionItem value={`item-${index}`} key={item.id}>
                           {item.children?.length > 0 ? (
                             <>
-                              <AccordionTrigger className="text-base py-4 text-gray-100 hover:text-white">
+                              <AccordionTrigger className="text-base py-4 text-gray-100 hover:text-grey-900">
                                 {item.title}
                               </AccordionTrigger>
                               <AccordionContent>
@@ -219,7 +219,7 @@ export function Header({ logo, menu }: HeaderProps) {
                                     <MenuLink
                                       key={subItem.id}
                                       href={subItem.url}
-                                      className="block py-3 text-gray-300 hover:text-white transition-colors"
+                                      className="block py-3 text-gray-300 hover:text-grey-900 transition-colors"
                                     >
                                       <div className="font-medium mb-1">
                                         {subItem.title}
@@ -235,8 +235,8 @@ export function Header({ logo, menu }: HeaderProps) {
                               className={cn(
                                 "flex items-center py-4 text-base transition-colors",
                                 pathname === item.url
-                                  ? "text-white font-medium"
-                                  : "text-gray-300 hover:text-white"
+                                  ? "text-grey-900 font-medium"
+                                  : "text-gray-300 hover:text-grey-900"
                               )}
                             >
                               {item.title}
