@@ -1,19 +1,20 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Service } from "@/types/services";
+// import { Service } from "@/types/services";
 
-interface ServicesHeroProps {
-  services: Service[];
-}
+// interface ServicesHeroProps {
+//   services: Service[];
+// }
 
-export default function ServicesHero({ services }: ServicesHeroProps) {
+export default function ServicesHero({ services }: any) {
   return (
     <div className="container mx-auto px-4 mt-24">
       {/* Grid of service cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {services.map((service) => (
+        {services.map((service: any) => (
           <Link
             key={service.id}
             href={`/services/${service.slug}`}

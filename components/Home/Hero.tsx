@@ -21,14 +21,8 @@ interface HeroProps {
   }>;
 }
 
-export function Hero({
-  heroHeading,
-  heroDescription,
-  heroImages,
-  heroCTAList,
-}: HeroProps) {
+export function Hero({ heroImages, heroCTAList }: HeroProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const headingParts = heroHeading.split(/<span>|<\/span>/);
 
   useEffect(() => {
     const interval = setInterval(() => {
