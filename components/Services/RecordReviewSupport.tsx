@@ -19,7 +19,7 @@ const RecordReviewSupport = () => {
             <img
               src="/services/record-review-support.webp"
               alt="CAMO Approvals"
-              className="h-full object-cover"
+              className="h-full max-h-[200px] md:max-h-full object-cover"
             />
           </div>
         </div>

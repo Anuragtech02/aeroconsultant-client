@@ -30,7 +30,7 @@ const CamoServices = () => {
           </div>
           <div className="flex flex-col lg:items-end gap-2">
             <p className="text-gray-200 text-xl">Approvals Available for</p>
-            <div className="flex items-center justify-betweeen gap-4 bg-white rounded-xl w-[450px] p-4">
+            <div className="flex items-center flex-wrap justify-betweeen gap-4 bg-white rounded-xl w-full sm:w-[450px] p-4">
               <img
                 src="/easa-logo.png"
                 alt="CAMO Approvals"
