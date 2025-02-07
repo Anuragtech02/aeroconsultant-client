@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "../Button";
 import Link from "next/link";
 import Image from "next/image";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi"; // Import icons
 
 interface HeroProps {
   heroHeading: string;
@@ -39,6 +40,18 @@ export function Hero({
     return () => clearInterval(interval);
   }, [heroImages.length]);
 
+  const goToPreviousImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? heroImages.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToNextImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Images */}
@@ -62,6 +75,26 @@ export function Hero({
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40" />
+
+      {/* Navigation Arrows */}
+      <div className="absolute hidden inset-y-0 left-0 z-20 sm:flex px-4 items-center justify-center">
+        <button
+          onClick={goToPreviousImage}
+          className="bg-black/50 hover:bg-black/70 text-white p-2 rounded-full focus:outline-none"
+          aria-label="Previous Slide"
+        >
+          <FiChevronLeft className="h-6 w-6" />
+        </button>
+      </div>
+      <div className="absolute hidden inset-y-0 right-0 z-20 px-4 sm:flex items-center justify-center">
+        <button
+          onClick={goToNextImage}
+          className="bg-black/50 hover:bg-black/70 text-white p-2 rounded-full focus:outline-none"
+          aria-label="Next Slide"
+        >
+          <FiChevronRight className="h-6 w-6" />
+        </button>
+      </div>
 
       {/* Content */}
       <div className="container relative z-10 mx-auto px-4">
