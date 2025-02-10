@@ -21,28 +21,7 @@ export default async function HomePage() {
       <Hero
         heroHeading={home.data.heroHeading}
         heroDescription={home.data.heroDescription}
-        heroImages={[
-          {
-            url: "/home/slider/camo-services.webp",
-            alt: "Text",
-          },
-          {
-            url: "/home/slider/digital-solution.webp",
-            alt: "image",
-          },
-          {
-            url: "/home/slider/engine-stand.webp",
-            alt: "image",
-          },
-          {
-            url: "/home/slider/iron-mountain.webp",
-            alt: "image",
-          },
-          {
-            url: "/home/slider/transition-services.webp",
-            alt: "image",
-          },
-        ]}
+        heroImages={home.data.heroBGSlider}
         heroCTAList={home.data.heroCTAList}
       />
       <Stats statisticsCounters={home.data.statisticsCounters} />

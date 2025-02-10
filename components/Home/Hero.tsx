@@ -4,13 +4,14 @@ import Image from "next/image";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi"; // Import icons
 import { Button } from "../Button";
 import Link from "next/link";
+import { StrapiImage } from "@/types/strapi";
 
 interface HeroProps {
   heroHeading: string;
   heroDescription: string;
   heroImages: Array<{
-    url: string;
-    alt?: string;
+    desktopImage: StrapiImage;
+    mobileImage: StrapiImage;
   }>;
   heroCTAList: Array<{
     id: number;
@@ -57,12 +58,21 @@ export function Hero({ heroImages, heroCTAList }: HeroProps) {
           }`}
         >
           <Image
-            src={image.url}
-            alt={image.alt || "Hero background"}
+            src={image.desktopImage.url}
+            alt={image.desktopImage.alternativeText || "Hero background"}
             fill
-            className="object-cover"
+            className="object-cover hidden sm:block"
             priority={index === 0}
-            // sizes="100vw"
+            sizes="100vw"
+          />
+          {/* Mobile Image */}
+          <Image
+            src={image.mobileImage.url}
+            alt={image.mobileImage.alternativeText || "Hero background"}
+            fill
+            className="object-cover block sm:hidden"
+            priority={index === 0}
+            sizes="100vw"
           />
         </div>
       ))}

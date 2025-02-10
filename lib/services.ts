@@ -20,7 +20,8 @@ export async function getCommonData() {
 
 export async function getHomePage() {
   const populateFields = [
-    "heroBGVideo",
+    "heroBGSlider.desktopImage",
+    "heroBGSlider.mobileImage",
     "heroCTAList",
     "statisticsCounters",
     "sliderTabs",

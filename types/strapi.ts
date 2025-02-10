@@ -75,9 +75,12 @@ export interface StrapiHomeResponse {
     documentId: string;
     heroHeading: string;
     heroDescription: string;
-    heroBGVideo: {
-      url: string;
-    };
+    heroBGSlider: [
+      {
+        desktopImage: StrapiImage;
+        mobileImage: StrapiImage;
+      }
+    ];
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
