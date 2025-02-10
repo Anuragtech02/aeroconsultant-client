@@ -111,3 +111,57 @@ export interface StrapiHomeResponse {
   };
   meta: Record<string, unknown>;
 }
+
+export interface IServicePageResponse {
+  data: {
+    clientsLogoList: StrapiImage[];
+    clientsSectionHeading: string;
+    slider: SliderTab[];
+    camoServices: {
+      title: string;
+      subTitle: string;
+      logoList: StrapiImage[];
+      upperDescription: string;
+      image: StrapiImage;
+      benefitsList: string;
+    };
+    recordReview: {
+      title: string;
+      subTitle: string;
+      highlightImage: StrapiImage;
+      leftImage: StrapiImage;
+      shortDescription: string;
+      helpPoints: string;
+    };
+    recordDigitization: {
+      title: string;
+      highlightImage: StrapiImage;
+      leftImage: StrapiImage;
+      logoList: StrapiImage[];
+      helpDescription: string;
+    };
+    aerobox: {
+      title: string;
+      leftImage: StrapiImage;
+      featurePoints: string;
+    };
+    aeroops: {
+      title: string;
+      subTitle: string;
+      rightImage: StrapiImage;
+      description: string;
+    };
+    aerooil: {
+      title: string;
+      subTitle: string;
+      rightImage: StrapiImage;
+      description: string;
+    };
+    engineStand: {
+      title: string;
+      subTitle: string;
+      rightImage: StrapiImage;
+      description: string;
+    };
+  };
+}

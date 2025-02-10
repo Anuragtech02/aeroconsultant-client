@@ -17,6 +17,7 @@ import EngineStandLeasing from "@/components/Services/EngineStandLeasing";
 export default async function ServicePage() {
   // const services = await getServices();
   const servicePage = await getServicePage();
+  console.log(servicePage);
   const home = await getHomePage();
 
   const servicesData = [
@@ -109,10 +110,10 @@ export default async function ServicePage() {
 
       <SliderSection
         sliderSectionTitle={home.data.sliderSectionTitle}
-        sliderTabs={home.data.sliderTabs}
+        sliderTabs={servicePage.data.slider}
       />
 
-      <CamoServices />
+      <CamoServices camoServices={servicePage.data.camoServices} />
       <RecordReviewSupport />
       <RecordDigitization />
       <Aerobox />

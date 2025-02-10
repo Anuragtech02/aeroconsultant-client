@@ -1,5 +1,9 @@
 // src/api/services.ts
-import { StrapiCommonResponse, StrapiHomeResponse } from "@/types/strapi";
+import {
+  IServicePageResponse,
+  StrapiCommonResponse,
+  StrapiHomeResponse,
+} from "@/types/strapi";
 import { apiFetch } from "./apiConfig";
 import { ServiceResponse, TeamMembersResponse } from "@/types/services";
 
@@ -51,14 +55,23 @@ export async function getServices() {
 }
 
 export async function getServicePage() {
-  const populateFields = ["clientsLogoList"]
+  const populateFields = [
+    "clientsLogoList",
+    "slider",
+    "camoServices.logoList",
+    "camoServices.image",
+    "recordReview.highlightImage",
+    "recordReview.leftImage",
+    "recordDigitization.highlightImage",
+    "recordDigitization.leftImage",
+    "recordDigitization.logoList",
+    "aerobox.leftImage",
+    "aeroops.rightImage",
+    "aerooil.rightImage",
+    "engineStand.rightImage",
+  ]
     .map((field, index) => `populate[${index}]=${field}`)
     .join("&");
 
-  return apiFetch<{
-    data: {
-      clientsLogoList: StrapiHomeResponse["data"]["clientsLogoList"];
-      clientsSectionHeading: string;
-    };
-  }>(`/service-page?${populateFields}`);
+  return apiFetch<IServicePageResponse>(`/service-page?${populateFields}`);
 }
