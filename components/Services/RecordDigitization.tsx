@@ -34,7 +34,12 @@ const RecordDigitization: React.FC<Props> = ({ recordDigitization }) => {
         </div>
       </div>
       <div className="pt-8 container mx-auto text-gray-600">
-        <p className="text-xl">{shortDescription}</p>
+        <p
+          className="text-xl"
+          dangerouslySetInnerHTML={{
+            __html: shortDescription,
+          }}
+        ></p>
         <div className="pt-10 pb-10 lg:pb-0 [&>div]:flex-1 flex flex-col lg:flex-row gap-12 justify-between items-start">
           <div>
             <img
