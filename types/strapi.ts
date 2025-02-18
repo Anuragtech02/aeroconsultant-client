@@ -139,9 +139,11 @@ export interface IServicePageResponse {
       leftImage: StrapiImage;
       logoList: StrapiImage[];
       helpDescription: string;
+      shortDescription: string;
     };
     aerobox: {
       title: string;
+      subTitle: string;
       leftImage: StrapiImage;
       featurePoints: string;
     };

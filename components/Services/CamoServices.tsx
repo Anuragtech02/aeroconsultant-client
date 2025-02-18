@@ -47,7 +47,7 @@ const CamoServices: React.FC<Props> = ({ camoServices }) => {
                 <img
                   key={logo.url}
                   src={logo.url}
-                  alt={logo.alternativeText}
+                  alt={logo.alternativeText || ""}
                   className="flex-1 max-w-[30%] w-full"
                 />
               ))}
@@ -64,7 +64,7 @@ const CamoServices: React.FC<Props> = ({ camoServices }) => {
           <div>
             <img
               src={image.url}
-              alt={image.alternativeText}
+              alt={image.alternativeText || ""}
               className="h-[500px] object-cover"
             />
           </div>

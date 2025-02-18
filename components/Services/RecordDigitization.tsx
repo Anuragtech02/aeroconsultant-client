@@ -1,50 +1,56 @@
 import React from "react";
 import { Button } from "../Button";
+import { IServicePageResponse } from "@/types/strapi";
 
-const RecordDigitization = () => {
+type Props = {
+  recordDigitization: IServicePageResponse["data"]["recordDigitization"];
+};
+
+const RecordDigitization: React.FC<Props> = ({ recordDigitization }) => {
+  const {
+    title,
+    highlightImage,
+    helpDescription,
+    shortDescription,
+    leftImage,
+  } = recordDigitization;
+
   return (
     <section id="record-digitalization">
       <div className="bg-aero-primary">
         <div className="container mx-auto flex flex-col sm:flex-row justify-between items-stretch gap-8">
           <div className="text-white flex-1 py-8 lg:py-28">
             <h2 className="text-4xl xl:text-6xl max-w-[450px] font-bold">
-              Record Digitization & Management
+              {title}
             </h2>
           </div>
           <div className="flex-1 flex justify-center pt-10">
             <img
-              src="/services/record-digitization.webp"
-              alt="CAMO Approvals"
+              src={highlightImage.url}
+              alt={highlightImage.alternativeText || "Record Digitization"}
               className="h-full lg:max-w-[400px] rounded-t-[50px] object-cover"
             />
           </div>
         </div>
       </div>
       <div className="pt-8 container mx-auto text-gray-600">
-        <p className="text-xl">
-          In the fast-paced aviation industry, efficient record management is
-          essential for operational efficiency, compliance, and asset value.
-          AeroConsultant provides advanced Record Digitization and Management
-          Support services to transform physical aircraft records into secure,
-          easily accessible digital formats.
-        </p>
+        <p className="text-xl">{shortDescription}</p>
         <div className="pt-10 pb-10 lg:pb-0 [&>div]:flex-1 flex flex-col lg:flex-row gap-12 justify-between items-start">
           <div>
             <img
-              src="/services/record-digitization-2.webp"
-              alt="CAMO Approvals"
-              className="h-[400px] lg:max-w-[400px] rounded-t-[50px] object-cover"
+              src={leftImage.url}
+              alt={leftImage.alternativeText || "Record Digitization"}
+              className="h-[400px] lg:max-w-[400px] rounded-[50px] object-cover"
             />
           </div>
           <div className="flex flex-col gap-8">
             <h4 className="font-bold text-black">How do we help?</h4>
-            <ul className="pl-8 list-disc text-xl">
-              <li>Comprehensive Digitization Services</li>
-              <li>Advanced Management Solutions</li>
-              <li>Regulatory Compliance and Accessibility</li>
-              <li>Tailored Solutions for Lessors and Operators</li>
-              <li>Partnership with Iron Mountain</li>
-            </ul>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: helpDescription,
+              }}
+              className="[&>ul]:pl-8 [&>ul]:list-disc [&>ul]:text-xl"
+            ></div>
             <div className="flex justify-between flex-wrap w-[200px] items-center gap-4 p-4 rounded-xl border border-black">
               <img
                 src="/iron-mountain.png"
@@ -55,7 +61,7 @@ const RecordDigitization = () => {
             <div className="pb-2">
               <Button
                 type="button"
-                title="Contact Sales Now"
+                title="Contact Now"
                 variant="secondary"
                 className="[&>span]:text-black max-w-[250px] mt-4"
               />

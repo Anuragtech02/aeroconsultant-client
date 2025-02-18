@@ -114,9 +114,11 @@ export default async function ServicePage() {
       />
 
       <CamoServices camoServices={servicePage.data.camoServices} />
-      <RecordReviewSupport />
-      <RecordDigitization />
-      <Aerobox />
+      <RecordReviewSupport recordReview={servicePage.data.recordReview} />
+      <RecordDigitization
+        recordDigitization={servicePage.data.recordDigitization}
+      />
+      <Aerobox aerobox={servicePage.data.aerobox} />
       <Aeroops />
       <Aerooil />
       <EngineStandLeasing />

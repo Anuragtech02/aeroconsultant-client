@@ -6,6 +6,7 @@ import {
 } from "@/types/strapi";
 import { apiFetch } from "./apiConfig";
 import { ServiceResponse, TeamMembersResponse } from "@/types/services";
+import { BlogListing, BlogListingResponse } from "@/types/blogs";
 
 export async function getCommonData() {
   const populateFields = [
@@ -74,4 +75,34 @@ export async function getServicePage() {
     .join("&");
 
   return apiFetch<IServicePageResponse>(`/service-page?${populateFields}`);
+}
+
+export async function getBlogsList() {
+  const populate = ["highlightImage"]
+    .map((field, index) => `populate[${index}]=${field}`)
+    .join("&");
+
+  return apiFetch<BlogListingResponse>(`/blogs?${populate}`);
+}
+
+export async function getBlogBySlug(slug: string): Promise<BlogListing | null> {
+  const populate = ["highlightImage"]
+    .map((field, index) => `populate[${index}]=${field}`)
+    .join("&");
+
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const response = await apiFetch<any>(
+      `/blogs?filters[slug]=${slug}&${populate}`
+    );
+
+    if (response.data && response.data.length > 0) {
+      return response.data[0];
+    }
+
+    return null;
+  } catch (error) {
+    console.error("Error fetching blog:", error);
+    return null;
+  }
 }

@@ -1,21 +1,24 @@
 import React from "react";
 import { Button } from "../Button";
+import { IServicePageResponse } from "@/types/strapi";
 
-const Aerobox = () => {
+type Props = {
+  aerobox: IServicePageResponse["data"]["aerobox"];
+};
+
+const Aerobox: React.FC<Props> = ({ aerobox }) => {
+  const { title, subTitle, leftImage, featurePoints } = aerobox;
+
   return (
     <section id="aerobox">
       <div className="bg-aero-primary">
         <div className="container mx-auto flex flex-col sm:flex-row justify-between items-stretch gap-8">
           <div className="text-white flex-1 py-8 lg:py-28">
             <h2 className="text-4xl xl:text-6xl max-w-[450px] font-bold">
-              Aerobox
+              {title}
             </h2>
             <p className="text-xl text-justify max-w-[600px] mt-4">
-              Empowers lessors, operators, and asset owners to streamline their
-              records management processes with a secure, user-friendly, and
-              highly efficient platform. By digitizing and organizing records in
-              compliance with industry standards, AeroBOX ensures smoother
-              transitions, faster audits, and better operational control.
+              {subTitle}
             </p>
           </div>
           <div className="flex-1 flex justify-center pt-10">
@@ -36,14 +39,18 @@ const Aerobox = () => {
         <div className="pt-10 pb-10 lg:pb-0 [&>div]:flex-1 flex flex-col sm:flex-row gap-12 justify-between items-start">
           <div>
             <img
-              src="/services/aerobox.webp"
-              alt="CAMO Approvals"
+              src={leftImage.url}
+              alt={leftImage.alternativeText || ""}
               className="h-[400px] lg:max-w-[400px] rounded-t-[50px] object-cover"
             />
           </div>
           <div className="flex flex-col gap-4">
             <p>Key Features of AeroBOX</p>
-            <ul className="pl-8 list-disc text-xl [&>li>span]:font-bold [&>li>span]:text-black">
+            <div
+              dangerouslySetInnerHTML={{ __html: featurePoints }}
+              className="[&>ul]:pl-8 [&>ul]:list-disc [&>ul]:text-xl [&>ul]:[&>li>span]:font-bold [&>ul]:[&>li>span]:text-black"
+            ></div>
+            {/* <ul className="pl-8 list-disc text-xl [&>li>span]:font-bold [&>li>span]:text-black">
               <li>
                 <span> IATA ABC Folder Structure:</span> Organizes records in
                 line with industry-standard IATA ABC folder structures, ensuring
@@ -64,7 +71,7 @@ const Aerobox = () => {
                 transition summaries, compliance reports, and maintenance
                 histories with ease, saving time and ensuring consistency.
               </li>
-            </ul>
+            </ul> */}
             <div className="pb-2">
               <Button
                 type="button"
