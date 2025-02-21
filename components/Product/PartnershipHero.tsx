@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { Button } from "../Button";
+import Link from "next/link";
 
 const PartnershipHero = () => {
   return (
@@ -14,8 +15,12 @@ const PartnershipHero = () => {
               Transforming Aviation Records with Digital Efficiency
             </h1>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button title="Let's Talk" />
-              <Button title="About Partnernship" variant="outline" />
+              <Link href="/#contact">
+                <Button title="Let's Talk" />
+              </Link>
+              <Link href="#about-partnership">
+                <Button title="About Partnernship" variant="outline" />
+              </Link>
             </div>
           </div>
 

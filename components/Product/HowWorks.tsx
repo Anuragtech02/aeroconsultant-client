@@ -2,7 +2,7 @@ import React from "react";
 
 const HowItWorks = () => {
   return (
-    <div className="w-full container py-16">
+    <div className="w-full container py-16" id="about-partnership">
       {/* Heading Section */}
       <h2 className="text-5xl font-semibold text-center mb-8">
         How does it work ?
