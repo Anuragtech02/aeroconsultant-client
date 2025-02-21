@@ -22,18 +22,16 @@ export default async function ServicePage() {
 
   const servicesData = [
     {
-      id: 1,
       title: "Aircraft Asset Management Service",
-      link: "/services/aircraft-asset-management",
+      id: "aircraft-asset-management",
       buttonText: "Know More",
       image: {
         url: "/services/camo.webp",
       },
     },
     {
-      id: 2,
       title: "CAMO Services",
-      link: "/services/camo",
+      id: "camo",
       isHighlighted: true,
       buttonText: "Know More",
       image: {
@@ -41,54 +39,48 @@ export default async function ServicePage() {
       },
     },
     {
-      id: 3,
       title: "Record Review Support ( In-house Team )",
-      link: "/services/record-review",
+      id: "record-review-support",
       buttonText: "Know More",
       image: {
         url: "/services/camo.webp",
       },
     },
     {
-      id: 4,
       title: "Record Digitalization & Management Setup",
-      link: "/services/record-digitalization",
+      id: "record-digitalization",
       buttonText: "Know More",
       image: {
         url: "/services/record-digitization.webp",
       },
     },
     {
-      id: 5,
       logoUrl: "/aerobox-logo.png",
       title: "AeroBox",
-      link: "/services#aerobox",
+      id: "aerobox",
       image: {
         url: "/services/aerobox.webp",
       },
     },
     {
-      id: 6,
       logoUrl: "/aerooil-logo.png",
       title: "AeroOIL",
-      link: "/services#aerooil",
+      id: "aerooil",
       image: {
         url: "/services/aerooil.webp",
       },
     },
     {
-      id: 7,
       logoUrl: "/aeroops-logo.png",
       title: "AeroOPS",
-      link: "/services#aeroops",
+      id: "aeroops",
       image: {
         url: "/services/aeroops.webp",
       },
     },
     {
-      id: 8,
       title: "Engine Stand Leasing",
-      link: "/#contact",
+      id: "engine-stand-leasing",
       image: {
         url: "/ArrowExternalIcon.svg",
       },
@@ -108,10 +100,12 @@ export default async function ServicePage() {
 
       <ManagementBanner />
 
-      <SliderSection
-        sliderSectionTitle={home.data.sliderSectionTitle}
-        sliderTabs={servicePage.data.slider}
-      />
+      <section id="aircraft-asset-management">
+        <SliderSection
+          sliderSectionTitle={home.data.sliderSectionTitle}
+          sliderTabs={servicePage.data.slider}
+        />
+      </section>
 
       <CamoServices camoServices={servicePage.data.camoServices} />
       <RecordReviewSupport recordReview={servicePage.data.recordReview} />

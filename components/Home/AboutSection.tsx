@@ -53,7 +53,7 @@ const AboutSection = ({
 
             {/* Watermark text */}
             <div className="absolute bottom-0 left-0 select-none pointer-events-none">
-              <span className="font-heading font-bold text-[60px] sm:text-[80px] md:text-[120px] lg:text-[180px] text-gray-200 leading-none whitespace-nowrap block">
+              <span className="font-heading font-bold text-[60px] sm:text-[80px] md:text-[120px] lg:text-[180px] text-gray-100 leading-none whitespace-nowrap block">
                 About us
               </span>
             </div>

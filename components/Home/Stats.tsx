@@ -33,7 +33,7 @@ const StatCard = ({
     <div className="text-white">
       <div className="text-5xl sm:text-7xl font-bold mb-2">
         {symbolPosition === "left" && symbol}
-        <CountUp
+        {/* <CountUp
           start={countStart}
           end={countEnd}
           duration={2.5}
@@ -42,7 +42,7 @@ const StatCard = ({
           prefix={symbolPosition === "left" ? symbol : ""}
           enableScrollSpy
           scrollSpyOnce
-        />
+        /> */}
       </div>
       <div className="text-xl sm:text-2xl uppercase tracking-wider">
         {title}
@@ -55,7 +55,7 @@ const Stats = ({ className, statisticsCounters }: StatsProps) => {
   return (
     <div className={`bg-aero-primary py-16 ${className}`}>
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-8 items-start">
           {/* Stats */}
           {statisticsCounters.map((counter) => (
             <StatCard

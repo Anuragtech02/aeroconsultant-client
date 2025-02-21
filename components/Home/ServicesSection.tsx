@@ -22,10 +22,9 @@ const ServicesSection = ({
           <h2 className="font-normal mb-8">
             {headingParts.map((part, index) =>
               index % 2 === 0 ? (
-                <>
-                  {" "}
-                  <span key={index}>{part}</span> <br />
-                </>
+                <span key={index}>
+                  {part} <br />
+                </span>
               ) : (
                 <span key={index} className="font-bold block md:inline">
                   {part}

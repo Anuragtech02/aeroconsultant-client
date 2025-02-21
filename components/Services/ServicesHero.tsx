@@ -17,7 +17,7 @@ export default function ServicesHero({ services }: any) {
         {services.map((service: any) => (
           <Link
             key={service.id}
-            href={`/services/${service.slug}`}
+            href={`/services#${service.id}`}
             className="relative group overflow-hidden rounded-3xl hover:rounded-3xl aspect-[4/3]"
           >
             {/* Background Image */}

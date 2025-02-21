@@ -10,7 +10,7 @@ const CamoServices: React.FC<Props> = ({ camoServices }) => {
 
   const servicesList = subTitle.split(",").map((service) => service.trim());
   return (
-    <section id="camo-services">
+    <section id="camo">
       <div className="py-10 lg:py-24 bg-aero-primary">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-start gap-8">
           <div className="text-white">
