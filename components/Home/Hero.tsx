@@ -65,7 +65,7 @@ export function Hero({ heroImages, heroCTAList }: HeroProps) {
               width={1920}
               height={1080}
               className="w-full h-auto"
-              priority={index === 0}
+              priority
               sizes="100vw"
             />
           </div>
@@ -77,7 +77,7 @@ export function Hero({ heroImages, heroCTAList }: HeroProps) {
               width={640}
               height={480}
               className="w-full h-auto"
-              priority={index === 0}
+              priority
               sizes="100vw"
             />
           </div>
