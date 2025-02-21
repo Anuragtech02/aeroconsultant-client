@@ -15,44 +15,44 @@ const BrandsSection = ({
 }: BrandsSectionProps) => {
   const headingParts = clientsSectionHeading.split(/<span>|<\/span>/);
 
-  if (variant === "v2") {
-    const logosToDisplay = clientsLogoList.slice(0, 4);
-    return (
-      <section className="py-24 bg-white" id="clients">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-16">
-            <h2 className="text-3xl font-normal text-center sm:text-left">
-              {headingParts.map((part, index) =>
-                index % 2 === 0 ? (
-                  <span key={index}>{part}</span>
-                ) : (
-                  <span key={index} className="font-bold block md:inline">
-                    {part}
-                  </span>
-                )
-              )}
-            </h2>
-            <div className="flex flex-wrap justify-center md:justify-end items-center gap-8 md:gap-12 flex-grow">
-              {logosToDisplay.map((logo) => (
-                <div
-                  key={logo.id}
-                  className="flex items-center justify-center w-32 md:w-36"
-                >
-                  <Image
-                    src={logo.url}
-                    alt={logo.alternativeText || logo.name}
-                    width={logo.width}
-                    height={logo.height}
-                    className="w-auto h-8 md:h-14 object-contain transition-opacity hover:opacity-80"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
+  // if (variant === "v2") {
+  //   const logosToDisplay = clientsLogoList.slice(0, 4);
+  //   return (
+  //     <section className="py-24 bg-white" id="clients">
+  //       <div className="container mx-auto px-4">
+  //         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-16">
+  //           <h2 className="text-3xl font-normal text-center sm:text-left">
+  //             {headingParts.map((part, index) =>
+  //               index % 2 === 0 ? (
+  //                 <span key={index}>{part}</span>
+  //               ) : (
+  //                 <span key={index} className="font-bold block md:inline">
+  //                   {part}
+  //                 </span>
+  //               )
+  //             )}
+  //           </h2>
+  //           <div className="flex flex-wrap justify-center md:justify-end items-center gap-8 md:gap-12 flex-grow">
+  //             {logosToDisplay.map((logo) => (
+  //               <div
+  //                 key={logo.id}
+  //                 className="flex items-center justify-center w-32 md:w-36"
+  //               >
+  //                 <Image
+  //                   src={logo.url}
+  //                   alt={logo.alternativeText || logo.name}
+  //                   width={logo.width}
+  //                   height={logo.height}
+  //                   className="w-auto h-8 md:h-14 object-contain transition-opacity hover:opacity-80"
+  //                 />
+  //               </div>
+  //             ))}
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </section>
+  //   );
+  // }
 
   // Split logos into two groups for different sliders
   const midPoint = Math.ceil(clientsLogoList.length / 2);
@@ -96,6 +96,7 @@ const BrandsSection = ({
       </div>
 
       {/* Second slider - moves right to left */}
+      {/* {variant !== "v2" && ( */}
       <div className="w-full overflow-hidden">
         <div className="animate-scroll-left flex gap-16 items-center">
           {secondRow.map((logo, index) => (
@@ -110,6 +111,7 @@ const BrandsSection = ({
           ))}
         </div>
       </div>
+      {/* )} */}
     </section>
   );
 };
