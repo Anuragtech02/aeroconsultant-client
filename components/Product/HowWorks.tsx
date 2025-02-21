@@ -10,10 +10,10 @@ const HowItWorks = () => {
 
       {/* Description Text */}
       <p className="text-xl text-center max-w-5xl mx-auto mb-16 leading-relaxed">
-        Iron Mountain's secure digitization combined with AeroConsultant's
-        aviation expertise means: Faster aircraft transitions; 99.9% accuracy in
-        document scanning & classification; Reduced risk of losing critical
-        records
+        Iron Mountain&apos;s secure digitization combined with
+        AeroConsultant&apos;s aviation expertise means: Faster aircraft
+        transitions; 99.9% accuracy in document scanning & classification;
+        Reduced risk of losing critical records
       </p>
 
       {/* Cards Grid */}
