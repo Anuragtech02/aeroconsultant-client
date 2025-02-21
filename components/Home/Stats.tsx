@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
 
 interface StatsProps {
   className?: string;
@@ -29,20 +30,24 @@ const StatCard = ({
   symbolPosition,
   title,
 }: StatCardProps) => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+  });
+
   return (
     <div className="text-white">
-      <div className="text-5xl sm:text-7xl font-bold mb-2">
+      <div className="text-5xl sm:text-7xl font-bold mb-2" ref={ref}>
         {symbolPosition === "left" && symbol}
-        {/* <CountUp
-          start={countStart}
-          end={countEnd}
+        <CountUp
+          start={inView ? countStart : 0}
+          end={inView ? countEnd : 0}
           duration={2.5}
           separator=","
           suffix={symbolPosition === "right" ? symbol : ""}
           prefix={symbolPosition === "left" ? symbol : ""}
-          enableScrollSpy
           scrollSpyOnce
-        /> */}
+          scrollSpyDelay={800}
+        />
       </div>
       <div className="text-xl sm:text-2xl uppercase tracking-wider">
         {title}
