@@ -48,46 +48,44 @@ export function Hero({ heroImages, heroCTAList }: HeroProps) {
   };
 
   return (
-    <section className="relative w-full mt-24">
+    <section className="relative w-full mt-24 xl:mt-20">
       {/* Background Images */}
-      <div className="relative w-full">
-        {heroImages.map((image, index) => (
-          <div
-            key={index}
-            className={`w-full transition-opacity duration-1000 ease-in-out ${
-              index === currentImageIndex
-                ? "opacity-100"
-                : "opacity-0 absolute inset-0"
-            }`}
-          >
-            {/* Desktop Image */}
-            <div className="relative w-full hidden sm:block aspect-[16/9]">
-              <Image
-                src={image.desktopImage.url}
-                alt={image.desktopImage.alternativeText || "Hero background"}
-                fill
-                className="object-contain"
-                priority={index === 0}
-                sizes="100vw"
-              />
-            </div>
-            {/* Mobile Image */}
-            <div className="relative w-full block sm:hidden aspect-[4/3]">
-              <Image
-                src={image.mobileImage.url}
-                alt={image.mobileImage.alternativeText || "Hero background"}
-                fill
-                className="object-contain"
-                priority={index === 0}
-                sizes="100vw"
-              />
-            </div>
+      {heroImages.map((image, index) => (
+        <div
+          key={index}
+          className={`w-full transition-opacity duration-1000 ease-in-out ${
+            index === currentImageIndex ? "block" : "hidden"
+          }`}
+        >
+          {/* Desktop Image */}
+          <div className="relative w-full hidden sm:block">
+            <Image
+              src={image.desktopImage.url}
+              alt={image.desktopImage.alternativeText || "Hero background"}
+              width={1920}
+              height={1080}
+              className="w-full h-auto"
+              priority={index === 0}
+              sizes="100vw"
+            />
           </div>
-        ))}
-      </div>
+          {/* Mobile Image */}
+          <div className="relative w-full block sm:hidden">
+            <Image
+              src={image.mobileImage.url}
+              alt={image.mobileImage.alternativeText || "Hero background"}
+              width={640}
+              height={480}
+              className="w-full h-auto"
+              priority={index === 0}
+              sizes="100vw"
+            />
+          </div>
+        </div>
+      ))}
 
       {/* Navigation Arrows */}
-      <div className="absolute hidden inset-y-0 left-0 z-20 sm:flex px-4 items-center justify-center">
+      <div className="absolute  inset-y-0 left-0 z-20 flex px-4 items-center justify-center">
         <button
           onClick={goToPreviousImage}
           className="bg-black/50 hover:bg-black/70 text-white p-2 rounded-full focus:outline-none"
@@ -96,7 +94,7 @@ export function Hero({ heroImages, heroCTAList }: HeroProps) {
           <FiChevronLeft className="h-6 w-6" />
         </button>
       </div>
-      <div className="absolute hidden inset-y-0 right-0 z-20 px-4 sm:flex items-center justify-center">
+      <div className="absolute  inset-y-0 right-0 z-20 px-4 flex items-center justify-center">
         <button
           onClick={goToNextImage}
           className="bg-black/50 hover:bg-black/70 text-white p-2 rounded-full focus:outline-none"
@@ -107,7 +105,7 @@ export function Hero({ heroImages, heroCTAList }: HeroProps) {
       </div>
 
       {/* Content */}
-      <div className="absolute bottom-20 sm:bottom-44 left-1/2 -translate-x-1/2 z-10 w-full px-4">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 w-full px-4">
         <div className="max-w-3xl mx-auto text-center">
           <div className="flex justify-center gap-4">
             {heroCTAList.map((cta) => (
