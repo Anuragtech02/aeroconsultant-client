@@ -107,7 +107,7 @@ export function Hero({ heroImages, heroCTAList }: HeroProps) {
       </div>
 
       {/* Content */}
-      <div className="absolute bottom-44 left-1/2 -translate-x-1/2 z-10 w-full px-4">
+      <div className="absolute bottom-20 sm:bottom-44 left-1/2 -translate-x-1/2 z-10 w-full px-4">
         <div className="max-w-3xl mx-auto text-center">
           <div className="flex justify-center gap-4">
             {heroCTAList.map((cta) => (
