@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi"; // Import icons
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Button } from "../Button";
 import Link from "next/link";
 import { StrapiImage } from "@/types/strapi";
@@ -30,7 +30,7 @@ export function Hero({ heroImages, heroCTAList }: HeroProps) {
       setCurrentImageIndex((prevIndex) =>
         prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
       );
-    }, 5000); // Change image every 5 seconds
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [heroImages.length]);
@@ -48,37 +48,43 @@ export function Hero({ heroImages, heroCTAList }: HeroProps) {
   };
 
   return (
-    <section className="relative flex w-full h-[720px] items-center overflow-hidden">
+    <section className="relative w-full mt-24">
       {/* Background Images */}
-      {heroImages.map((image, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 w-full transition-opacity duration-1000 ease-in-out ${
-            index === currentImageIndex ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <Image
-            src={image.desktopImage.url}
-            alt={image.desktopImage.alternativeText || "Hero background"}
-            fill
-            className="object-cover hidden sm:block"
-            priority={index === 0}
-            sizes="100vw"
-          />
-          {/* Mobile Image */}
-          <Image
-            src={image.mobileImage.url}
-            alt={image.mobileImage.alternativeText || "Hero background"}
-            fill
-            className="object-cover block sm:hidden"
-            priority={index === 0}
-            sizes="100vw"
-          />
-        </div>
-      ))}
-
-      {/* Overlay */}
-      {/* <div className="absolute inset-0 bg-black/40" /> */}
+      <div className="relative w-full">
+        {heroImages.map((image, index) => (
+          <div
+            key={index}
+            className={`w-full transition-opacity duration-1000 ease-in-out ${
+              index === currentImageIndex
+                ? "opacity-100"
+                : "opacity-0 absolute inset-0"
+            }`}
+          >
+            {/* Desktop Image */}
+            <div className="relative w-full hidden sm:block aspect-[16/9]">
+              <Image
+                src={image.desktopImage.url}
+                alt={image.desktopImage.alternativeText || "Hero background"}
+                fill
+                className="object-contain"
+                priority={index === 0}
+                sizes="100vw"
+              />
+            </div>
+            {/* Mobile Image */}
+            <div className="relative w-full block sm:hidden aspect-[4/3]">
+              <Image
+                src={image.mobileImage.url}
+                alt={image.mobileImage.alternativeText || "Hero background"}
+                fill
+                className="object-contain"
+                priority={index === 0}
+                sizes="100vw"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
 
       {/* Navigation Arrows */}
       <div className="absolute hidden inset-y-0 left-0 z-20 sm:flex px-4 items-center justify-center">
@@ -101,25 +107,8 @@ export function Hero({ heroImages, heroCTAList }: HeroProps) {
       </div>
 
       {/* Content */}
-      <div className="container absolute bottom-16 left-1/2 -translate-x-1/2  z-10  px-4">
+      <div className="absolute bottom-44 left-1/2 -translate-x-1/2 z-10 w-full px-4">
         <div className="max-w-3xl mx-auto text-center">
-          {/* <h1 className="text-h1 text-white mb-6">
-            {headingParts.map((part, index) =>
-              index % 2 === 0 ? (
-                <span key={index} className="font-normal">
-                  {part}
-                </span>
-              ) : (
-                <>
-                  <span key={index} className="font-bold">
-                    {part}
-                  </span>
-                  <br />
-                </>
-              )
-            )}
-          </h1> */}
-          {/* <p className="text-xl text-white/90 mb-8">{heroDescription}</p> */}
           <div className="flex justify-center gap-4">
             {heroCTAList.map((cta) => (
               <Link key={cta.id} href={cta.link}>

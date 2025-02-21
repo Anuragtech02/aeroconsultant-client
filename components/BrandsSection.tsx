@@ -9,7 +9,7 @@ interface BrandsSectionProps {
 }
 
 const BrandsSection = ({
-  variant = "v1",
+  // variant = "v1",
   clientsLogoList,
   clientsSectionHeading,
 }: BrandsSectionProps) => {
@@ -64,7 +64,7 @@ const BrandsSection = ({
   const secondRow = [...secondHalfLogos, ...secondHalfLogos];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-white" id="clients">
       <div className="text-center mb-16 px-4">
         <h2 className="font-normal mb-2">
           {headingParts.map((part, index) =>
