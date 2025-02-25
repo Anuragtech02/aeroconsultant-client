@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "../Button";
+import Link from "next/link";
 
 const Aeroops = () => {
   return (
@@ -57,12 +58,14 @@ const Aeroops = () => {
               Digital Fleet Planning tools.
             </p>
             <div className="pb-2">
-              <Button
-                type="button"
-                title="Contact Sales Now"
-                variant="secondary"
-                className="[&>span]:text-black max-w-[250px] mt-4"
-              />
+              <Link href="/#contact">
+                <Button
+                  type="button"
+                  title="Contact Now"
+                  variant="secondary"
+                  className="[&>span]:text-black max-w-[250px] mt-4"
+                />
+              </Link>
             </div>
           </div>
           <div className="flex justify-center sm:justify-end">

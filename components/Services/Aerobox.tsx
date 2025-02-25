@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../Button";
 import { IServicePageResponse } from "@/types/strapi";
+import Link from "next/link";
 
 type Props = {
   aerobox: IServicePageResponse["data"]["aerobox"];
@@ -73,12 +74,14 @@ const Aerobox: React.FC<Props> = ({ aerobox }) => {
               </li>
             </ul> */}
             <div className="pb-2">
-              <Button
-                type="button"
-                title="Contact Sales Now"
-                variant="secondary"
-                className="[&>span]:text-black max-w-[250px] mt-4"
-              />
+              <Link href="/#contact">
+                <Button
+                  type="button"
+                  title="Contact Now"
+                  variant="secondary"
+                  className="[&>span]:text-black max-w-[250px] mt-4"
+                />
+              </Link>
             </div>
           </div>
         </div>

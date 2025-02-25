@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../Button";
 import { IServicePageResponse } from "@/types/strapi";
+import Link from "next/link";
 
 type Props = { camoServices: IServicePageResponse["data"]["camoServices"] };
 
@@ -75,12 +76,14 @@ const CamoServices: React.FC<Props> = ({ camoServices }) => {
               dangerouslySetInnerHTML={{ __html: benefitsList }}
             ></div>
             <div className="pb-2">
-              <Button
-                type="button"
-                title="Contact Now"
-                variant="secondary"
-                className="[&>span]:text-black max-w-[250px] mt-4"
-              />
+              <Link href="/#contact">
+                <Button
+                  type="button"
+                  title="Contact Now"
+                  variant="secondary"
+                  className="[&>span]:text-black max-w-[250px] mt-4"
+                />
+              </Link>
             </div>
           </div>
         </div>

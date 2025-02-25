@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "../Button";
+import Link from "next/link";
 
 const Aerooil = () => {
   return (
@@ -55,12 +56,14 @@ const Aerooil = () => {
               faster task management.
             </p>
             <div className="pb-2">
-              <Button
-                type="button"
-                title="Contact Sales Now"
-                variant="secondary"
-                className="[&>span]:text-black max-w-[250px] mt-4"
-              />
+              <Link href="/#contact">
+                <Button
+                  type="button"
+                  title="Contact Now"
+                  variant="secondary"
+                  className="[&>span]:text-black max-w-[250px] mt-4"
+                />
+              </Link>
             </div>
           </div>
           <div className="flex sm:justify-end">
