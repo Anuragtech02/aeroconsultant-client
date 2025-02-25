@@ -24,7 +24,7 @@ const EngineStandLeasing = () => {
         </div>
       </div>
       <div className="pt-8 container mx-auto text-gray-600">
-        <div className="pt-10 [&>div]:flex-1 flex flex-col sm:flex-row gap-12 justify-between items-stretch">
+        <div className="pt-10 [&>div]:flex-1 flex flex-col-reverse sm:flex-row gap-12 justify-between items-stretch">
           <div className="flex flex-col gap-4">
             <p className="text-xl">
               Real-Time Monitoring: Dynamic dashboard for tracking open items,
@@ -66,7 +66,7 @@ const EngineStandLeasing = () => {
             <img
               src="/services/aerooil.webp"
               alt="CAMO Approvals"
-              className="h-full lg:max-w-[400px] w-full rounded-t-[50px] object-cover"
+              className="h-full lg:max-w-[400px] w-full rounded-xl sm:rounded-t-[50px] object-cover"
             />
           </div>
         </div>
