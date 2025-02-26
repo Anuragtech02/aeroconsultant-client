@@ -9,6 +9,14 @@ export interface SliderTab {
   tabTitle: string;
   heading: string;
   description: string; // This contains HTML string with <ul><li> elements
+  image: {
+    url: string;
+    formats: {
+      [key: string]: {
+        url: string;
+      };
+    };
+  };
 }
 
 interface SliderSectionProps {
@@ -110,7 +118,7 @@ const SliderSection = ({
           >
             {sliderTabs.map((slide) => (
               <div key={slide.id} className="w-full flex-shrink-0 sm:pr-8">
-                <div className="flex flex-col sm:flex-row rounded-3xl overflow-hidden border border-aero-primary">
+                <div className="flex flex-col sm:flex-row rounded-3xl h-[600px] overflow-hidden border border-aero-primary">
                   {/* Content */}
                   <div className="w-full sm:w-1/2 p-6 sm:p-16">
                     <h2 className="font-bold mb-8">{slide.heading}</h2>
@@ -125,9 +133,11 @@ const SliderSection = ({
                     />
                   </div>
                   {/* Image */}
-                  <div className="w-full sm:w-1/2">
+                  <div className="w-full sm:w-1/2 h-full">
                     <img
-                      src="/slide-img-aero.jpg" // You might want to add this to Strapi
+                      src={
+                        slide.image?.formats?.medium?.url || slide.image?.url
+                      }
                       alt={`${slide.tabTitle} screenshot`}
                       className="w-full h-full object-cover"
                     />

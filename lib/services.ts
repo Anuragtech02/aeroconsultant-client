@@ -29,7 +29,7 @@ export async function getHomePage() {
     "heroBGSlider.mobileImage",
     "heroCTAList",
     "statisticsCounters",
-    "sliderTabs",
+    "sliderTabs.image",
     "aboutSectionImage",
     "clientsLogoList",
   ]
@@ -58,7 +58,7 @@ export async function getServices() {
 export async function getServicePage() {
   const populateFields = [
     "clientsLogoList",
-    "slider",
+    "slider.image",
     "camoServices.logoList",
     "camoServices.image",
     "recordReview.highlightImage",
