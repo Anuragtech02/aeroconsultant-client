@@ -18,7 +18,7 @@ const ServiceCard = ({
 }: ServiceCardProps) => {
   return (
     <Link
-      href={"#"}
+      href={href}
       className={cn(
         `group relative aspect-square sm:aspect-[3/4] overflow-hidden ${href}`,
         className

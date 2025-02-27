@@ -36,10 +36,12 @@ export default async function HomePage() {
         description={home.data.teamSectionDescription}
       />
       <SupportSection />
-      <SliderSection
-        sliderSectionTitle={home.data.sliderSectionTitle}
-        sliderTabs={home.data.sliderTabs}
-      />
+      <section id="digital-solutions">
+        <SliderSection
+          sliderSectionTitle={home.data.sliderSectionTitle}
+          sliderTabs={home.data.sliderTabs}
+        />
+      </section>
       <TeamSection
         title="Meet our Team"
         description="Bringing together a diverse set of voices with new technology, we collaborate closely, ideate freely and swiftly apply breakthrough innovations that drive big impact."

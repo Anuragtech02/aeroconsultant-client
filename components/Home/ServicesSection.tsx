@@ -11,6 +11,21 @@ const ServicesSection = ({
   services,
 }: ServicesSectionProps) => {
   const headingParts = heading.split(/<span>|<\/span>/);
+
+  function getServiceLink(title: string) {
+    const lCase = title?.toLowerCase();
+    if (lCase?.includes("aero")) {
+      return "/services";
+    }
+    if (lCase?.includes("digital")) {
+      return "/#digital-solutions";
+    }
+    if (lCase?.includes("digitisation")) {
+      return "/partnerships";
+    }
+
+    return "/services";
+  }
   return (
     <section
       className={cn("relative w-full border border-black/30", className)}
@@ -44,7 +59,7 @@ const ServicesSection = ({
                 <ServiceCard
                   key={service.id}
                   title={service.title}
-                  href={`/services/${service.documentId}`}
+                  href={getServiceLink(service.title)}
                   imageUrl={service.highlightImage.url}
                   className="border-l border-black/30 border-b"
                 />
