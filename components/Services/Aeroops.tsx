@@ -36,6 +36,7 @@ const Aeroops: React.FC<Props> = ({ aeroops }) => {
               dangerouslySetInnerHTML={{
                 __html: aeroops?.description,
               }}
+              className="custom-render"
             ></div>
             <div className="pb-2">
               <Link href="/#contact">

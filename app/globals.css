@@ -157,8 +157,10 @@
   }
 
   /* Link styles */
-  a {
-    font-size: var(--font-size-body);
+  a,
+  p {
+    @apply font-body !important;
+    font-size: var(--font-size-body) !important;
   }
 }
 
@@ -200,4 +202,19 @@
 .fade-exit-active {
   opacity: 0;
   transition: opacity 1000ms ease-in-out;
+}
+
+.custom-render ul,
+.custom-render ol,
+.custom-render li,
+.custom-render span {
+  @apply font-body;
+  font-size: var(--font-size-body) !important;
+}
+
+/* [&>ul]:pl-8 [&>ul]:list-disc [&>ul]:text-xl [&>ul]:[&>li>span]:font-bold [&>ul]:[&>li>span]:text-black */
+
+.custom-render ul,
+.custom-render ol {
+  @apply pl-8 list-disc text-xl font-bold text-black;
 }

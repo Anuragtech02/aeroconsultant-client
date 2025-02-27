@@ -36,6 +36,7 @@ const Aerooil: React.FC<Props> = ({ aerooil }) => {
               dangerouslySetInnerHTML={{
                 __html: aerooil?.description,
               }}
+              className="custom-render"
             ></div>
             <div className="pb-2">
               <Link href="/#contact">

@@ -49,7 +49,7 @@ const Aerobox: React.FC<Props> = ({ aerobox }) => {
             <p>Key Features of AeroBOX</p>
             <div
               dangerouslySetInnerHTML={{ __html: featurePoints }}
-              className="[&>ul]:pl-8 [&>ul]:list-disc [&>ul]:text-xl [&>ul]:[&>li>span]:font-bold [&>ul]:[&>li>span]:text-black"
+              className="custom-render"
             ></div>
             {/* <ul className="pl-8 list-disc text-xl [&>li>span]:font-bold [&>li>span]:text-black">
               <li>

@@ -32,33 +32,14 @@ const EngineStandLeasing: React.FC<Props> = ({ engineStand }) => {
         </div>
       </div>
       <div className="pt-8 container mx-auto text-gray-600">
-        <div className="pt-10 [&>div]:flex-1 flex flex-col-reverse sm:flex-row gap-12 justify-between items-stretch">
+        <div className="pt-10 [&>div]:flex-1 flex flex-col-reverse sm:flex-row gap-12 justify-between items-start">
           <div className="flex flex-col gap-4">
-            <p className="text-xl">
-              Real-Time Monitoring: Dynamic dashboard for tracking open items,
-              pending tasks, and progress during lease transitions. <br />
-              <br /> Daily Activity Tracking: Stay updated on task statuses to
-              meet timelines and avoid oversights. <br />
-              <br />
-              Traceability: Track user activities and comments for
-              accountability and issue resolution. <br />
-              <br />
-              Open Item Alerts: Receive real-time notifications for critical
-              tasks requiring immediate action. <br />
-              <br />
-              Linked Photos/Docs: Attach relevant files to open items for
-              efficient issue resolution. <br />
-              <br />
-              AeroBOX Integration: Seamlessly connect with AeroBOX for enhanced
-              workflows and data sharing.
-              <br />
-              <br /> Granular Access Control: Manage user permissions for secure
-              data handling and task delegation.
-              <br />
-              <br />
-              Intuitive Dashboard: Simplified interface for easy navigation and
-              faster task management.
-            </p>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: engineStand?.description,
+              }}
+              className="custom-render"
+            ></div>
             <div className="pb-2">
               <Link href="/#contact">
                 <Button
@@ -77,7 +58,7 @@ const EngineStandLeasing: React.FC<Props> = ({ engineStand }) => {
                 engineStand?.rightImage?.url
               }
               alt="Engine Stand Leasing"
-              className="h-full lg:max-w-[400px] w-full rounded-xl sm:rounded-t-[50px] object-cover"
+              className="h-auto lg:max-w-[400px] w-full rounded-xl sm:rounded-t-[50px] object-contain"
             />
           </div>
         </div>
