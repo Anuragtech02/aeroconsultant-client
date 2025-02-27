@@ -104,6 +104,7 @@ export default async function ServicePage() {
         <SliderSection
           sliderSectionTitle={home.data.sliderSectionTitle}
           sliderTabs={servicePage.data.slider}
+          showHeader={false}
         />
       </section>
 

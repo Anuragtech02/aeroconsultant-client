@@ -13,6 +13,7 @@ const RecordDigitization: React.FC<Props> = ({ recordDigitization }) => {
     helpDescription,
     shortDescription,
     leftImage,
+    logoList,
   } = recordDigitization;
 
   return (
@@ -57,11 +58,19 @@ const RecordDigitization: React.FC<Props> = ({ recordDigitization }) => {
               className="[&>ul]:pl-8 [&>ul]:list-disc [&>ul]:text-xl"
             ></div>
             <div className="flex justify-between flex-wrap w-[200px] items-center gap-4 p-4 rounded-xl border border-black">
-              <img
+              {/* <img
                 src="/iron-mountain.png"
                 alt="iron-mountain"
                 className="h-[40px] xl:h-[60px]"
-              />
+              /> */}
+              {logoList.map((logo) => (
+                <img
+                  key={logo.id}
+                  src={logo.url}
+                  alt={logo.alternativeText || "logo"}
+                  className="max-w-full"
+                />
+              ))}
             </div>
             <div className="pb-2">
               <Button

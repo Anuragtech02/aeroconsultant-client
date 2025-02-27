@@ -22,11 +22,13 @@ export interface SliderTab {
 interface SliderSectionProps {
   sliderSectionTitle: string;
   sliderTabs: SliderTab[];
+  showHeader?: boolean;
 }
 
 const SliderSection = ({
   sliderSectionTitle,
   sliderTabs,
+  showHeader = true,
 }: SliderSectionProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -46,30 +48,32 @@ const SliderSection = ({
   return (
     <div className="w-full border-b border-black/30">
       {/* Top Heading Section */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="flex items-center justify-between flex-wrap gap-6">
-          <h2 className="font-normal max-w-2xl whitespace-break-spaces">
-            {titleParts.map((part, index) =>
-              index % 2 === 0 ? (
-                <span key={index}>{part}</span>
-              ) : (
-                <span key={index} className="font-bold">
-                  {part}
-                </span>
-              )
-            )}
-          </h2>
-          <Button
-            variant="outline"
-            title="Get Your Demo Now"
-            link="/contact"
-            className="[&>span]:!text-gray-900 !border-black"
-          />
+      {showHeader && (
+        <div className="container mx-auto px-4 pt-16 pb-8">
+          <div className="flex items-center justify-between flex-wrap gap-6">
+            <h2 className="font-normal max-w-2xl whitespace-break-spaces">
+              {titleParts.map((part, index) =>
+                index % 2 === 0 ? (
+                  <span key={index}>{part}</span>
+                ) : (
+                  <span key={index} className="font-bold">
+                    {part}
+                  </span>
+                )
+              )}
+            </h2>
+            <Button
+              variant="outline"
+              title="Get Your Demo Now"
+              link="/contact"
+              className="[&>span]:!text-gray-900 !border-black"
+            />
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Slider Section */}
-      <div className="container mx-auto px-4 pb-16">
+      <div className="container mx-auto px-4 pb-16 mt-8">
         <div className="flex items-center">
           <div className="flex items-center justify-start w-full flex-wrap gap-6">
             {/* Tab Buttons */}
