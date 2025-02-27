@@ -17,7 +17,7 @@ import EngineStandLeasing from "@/components/Services/EngineStandLeasing";
 export default async function ServicePage() {
   // const services = await getServices();
   const servicePage = await getServicePage();
-  console.log(servicePage);
+
   const home = await getHomePage();
 
   const servicesData = [

@@ -70,6 +70,7 @@ export async function getServicePage() {
     "aeroops.rightImage",
     "aerooil.rightImage",
     "engineStand.rightImage",
+    "engineStand.leftImage",
   ]
     .map((field, index) => `populate[${index}]=${field}`)
     .join("&");
