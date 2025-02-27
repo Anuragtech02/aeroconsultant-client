@@ -216,5 +216,5 @@
 
 .custom-render ul,
 .custom-render ol {
-  @apply pl-8 list-disc text-xl font-bold text-black;
+  @apply pl-8 list-disc text-xl text-black;
 }
