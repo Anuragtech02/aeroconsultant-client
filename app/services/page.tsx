@@ -113,9 +113,9 @@ export default async function ServicePage() {
         recordDigitization={servicePage.data.recordDigitization}
       />
       <Aerobox aerobox={servicePage.data.aerobox} />
-      <Aeroops />
-      <Aerooil />
-      <EngineStandLeasing />
+      <Aeroops aeroops={servicePage.data.aeroops} />
+      <Aerooil aerooil={servicePage.data.aerooil} />
+      <EngineStandLeasing engineStand={servicePage.data.engineStand} />
 
       {/* Main services content with sidebar */}
       {/* <ServicesLayout services={services.data} /> */}

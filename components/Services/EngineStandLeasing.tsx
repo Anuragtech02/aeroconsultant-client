@@ -1,8 +1,13 @@
 import React from "react";
 import { Button } from "../Button";
 import Link from "next/link";
+import { IServicePageResponse } from "@/types/strapi";
 
-const EngineStandLeasing = () => {
+type Props = {
+  engineStand: IServicePageResponse["data"]["engineStand"];
+};
+
+const EngineStandLeasing: React.FC<Props> = ({ engineStand }) => {
   return (
     <section className="pb-8" id="engine-stand-leasing">
       <div className="bg-aero-primary">
@@ -10,15 +15,18 @@ const EngineStandLeasing = () => {
           <div className="flex-1 flex justify-start pt-10">
             <div className="h-full lg:max-w-[400px] flex flex-col items-start gap-4 justify-center rounded-t-[50px] bg-white">
               <img
-                src="/home/hero-1.webp"
-                alt="aerooil"
+                src={
+                  engineStand?.leftImage?.formats?.medium?.url ||
+                  engineStand?.leftImage?.url
+                }
+                alt="engine-stand"
                 className="object-cover w-full h-full"
               />
             </div>
           </div>
           <div className="text-white flex-1 py-8 lg:py-28 flex lg:justify-end">
             <h2 className="text-4xl xl:text-6xl lg:max-w-[300px] font-bold">
-              Engine Stand Leasing
+              {engineStand?.title}
             </h2>
           </div>
         </div>
@@ -64,8 +72,11 @@ const EngineStandLeasing = () => {
           </div>
           <div className="flex sm:justify-end">
             <img
-              src="/services/aerooil.webp"
-              alt="CAMO Approvals"
+              src={
+                engineStand?.rightImage?.formats?.medium?.url ||
+                engineStand?.rightImage?.url
+              }
+              alt="Engine Stand Leasing"
               className="h-full lg:max-w-[400px] w-full rounded-xl sm:rounded-t-[50px] object-cover"
             />
           </div>

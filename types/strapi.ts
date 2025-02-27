@@ -162,6 +162,7 @@ export interface IServicePageResponse {
     engineStand: {
       title: string;
       subTitle: string;
+      leftImage: StrapiImage;
       rightImage: StrapiImage;
       description: string;
     };
