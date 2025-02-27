@@ -57,7 +57,7 @@ const RecordDigitization: React.FC<Props> = ({ recordDigitization }) => {
               }}
               className="[&>ul]:pl-8 [&>ul]:list-disc [&>ul]:text-xl"
             ></div>
-            <div className="flex justify-between flex-wrap w-[200px] items-center gap-4 p-4 rounded-xl border border-black">
+            <div className="flex justify-start flex-wrap w-max items-center gap-4 p-4 rounded-xl border border-black">
               {/* <img
                 src="/iron-mountain.png"
                 alt="iron-mountain"
@@ -68,7 +68,7 @@ const RecordDigitization: React.FC<Props> = ({ recordDigitization }) => {
                   key={logo.id}
                   src={logo.url}
                   alt={logo.alternativeText || "logo"}
-                  className="max-w-full"
+                  className="max-w-[100px]"
                 />
               ))}
             </div>
