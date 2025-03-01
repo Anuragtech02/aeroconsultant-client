@@ -65,7 +65,7 @@ const SliderSection = ({
             <Button
               variant="outline"
               title="Get Your Demo Now"
-              link="/contact"
+              link="/#contact"
               className="[&>span]:!text-gray-900 !border-black"
             />
           </div>
