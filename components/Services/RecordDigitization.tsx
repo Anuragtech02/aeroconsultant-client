@@ -75,7 +75,7 @@ const RecordDigitization: React.FC<Props> = ({ recordDigitization }) => {
             <div className="pb-2">
               <Button
                 type="button"
-                title="Contact Now"
+                title="Contact Us Now"
                 variant="secondary"
                 className="[&>span]:text-black max-w-[250px] mt-4"
               />
