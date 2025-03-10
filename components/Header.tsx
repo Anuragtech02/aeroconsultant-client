@@ -92,8 +92,8 @@ export function Header({ logo, menu }: HeaderProps) {
               width={logo.width}
               height={logo.height}
               className={cn(
-                "w-auto h-10 object-contain invert",
-                isScrolled ? "invert" : ""
+                "w-auto h-10 object-contain"
+                // isScrolled ? "invert" : ""
               )}
               priority
             />

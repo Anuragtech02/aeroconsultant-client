@@ -33,7 +33,7 @@ const Footer = ({
                 alt={logo.alternativeText || logo.name}
                 width={logo.width}
                 height={logo.height}
-                className="w-auto h-12 object-contain"
+                className="w-auto h-14 object-contain"
               />
             </Link>
             <p className="text-gray-500 text-base leading-relaxed max-w-md mb-8">
@@ -44,6 +44,7 @@ const Footer = ({
               <Link
                 key={social.id}
                 href={social.link}
+                target="_blank"
                 className="inline-block mr-4"
                 aria-label={social.title}
               >
