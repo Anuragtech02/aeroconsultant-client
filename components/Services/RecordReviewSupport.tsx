@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../Button";
 import { IServicePageResponse } from "@/types/strapi";
+import Link from "next/link";
 
 type Props = {
   recordReview: IServicePageResponse["data"]["recordReview"];
@@ -64,12 +65,14 @@ const RecordReviewSupport: React.FC<Props> = ({ recordReview }) => {
               className="[&>ul]:pl-8 [&>ul]:list-disc [&>ul]:text-xl"
             ></div>
             <div className="pb-2">
-              <Button
-                type="button"
-                title="Contact Us Now"
-                variant="secondary"
-                className="[&>span]:text-black max-w-[250px] mt-4"
-              />
+              <Link href="/#contact">
+                <Button
+                  type="button"
+                  title="Contact Us Now"
+                  variant="secondary"
+                  className="[&>span]:text-black max-w-[250px] mt-4"
+                />
+              </Link>
             </div>
           </div>
         </div>
