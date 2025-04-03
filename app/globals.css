@@ -162,6 +162,9 @@
     @apply font-body !important;
     font-size: var(--font-size-body) !important;
   }
+  p span {
+    @apply font-body !important;
+  }
 }
 
 /* Utility classes for font sizes */
@@ -208,7 +211,7 @@
 .custom-render ol,
 .custom-render li,
 .custom-render span {
-  @apply font-body;
+  @apply font-body !important;
   font-size: var(--font-size-body) !important;
 }
 
@@ -216,5 +219,6 @@
 
 .custom-render ul,
 .custom-render ol {
-  @apply pl-8 list-disc text-xl text-black;
+  @apply text-xl;
+  @apply !pl-8 !list-disc !text-black;
 }

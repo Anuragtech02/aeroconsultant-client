@@ -72,7 +72,7 @@ const CamoServices: React.FC<Props> = ({ camoServices }) => {
           <div className="flex flex-col gap-4">
             <h4 className="font-bold text-black">CAMO Services Benefits</h4>
             <div
-              className="[&>ul]:pl-8 [&>ul]:list-disc [&>ul]:text-xl"
+              className="[&>ul]:pl-8 [&>ul]:list-disc [&>ul]:text-xl custom-render"
               dangerouslySetInnerHTML={{ __html: benefitsList }}
             ></div>
             <div className="pb-2">

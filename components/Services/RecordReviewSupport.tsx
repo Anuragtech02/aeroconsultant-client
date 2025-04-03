@@ -38,7 +38,7 @@ const RecordReviewSupport: React.FC<Props> = ({ recordReview }) => {
       </div>
       <div className="pt-8 container mx-auto text-gray-600">
         <p
-          className="text-xl"
+          className="custom-render text-xl"
           dangerouslySetInnerHTML={{ __html: shortDescription }}
         ></p>
         <div className="pt-10 [&>div]:flex-1 flex flex-col sm:flex-row gap-12 justify-between items-start">
@@ -62,7 +62,7 @@ const RecordReviewSupport: React.FC<Props> = ({ recordReview }) => {
               dangerouslySetInnerHTML={{
                 __html: helpPoints,
               }}
-              className="[&>ul]:pl-8 [&>ul]:list-disc [&>ul]:text-xl"
+              className="custom-render [&>ul]:pl-8 [&>ul]:list-disc [&>ul]:text-xl"
             ></div>
             <div className="pb-2">
               <Link href="/#contact">

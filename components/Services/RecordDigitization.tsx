@@ -37,7 +37,7 @@ const RecordDigitization: React.FC<Props> = ({ recordDigitization }) => {
       </div>
       <div className="pt-8 container mx-auto text-gray-600">
         <p
-          className="text-xl"
+          className="custom-render text-xl"
           dangerouslySetInnerHTML={{
             __html: shortDescription,
           }}
@@ -56,7 +56,7 @@ const RecordDigitization: React.FC<Props> = ({ recordDigitization }) => {
               dangerouslySetInnerHTML={{
                 __html: helpDescription,
               }}
-              className="[&>ul]:pl-8 [&>ul]:list-disc [&>ul]:text-xl"
+              className="custom-render [&>ul]:pl-8 [&>ul]:list-disc [&>ul]:text-xl"
             ></div>
             <div className="flex justify-start flex-wrap w-max items-center gap-4 p-4 rounded-xl border border-black">
               {/* <img
