@@ -79,7 +79,7 @@ export interface StrapiHomeResponse {
       {
         desktopImage: StrapiImage;
         mobileImage: StrapiImage;
-      }
+      },
     ];
     createdAt: string;
     updatedAt: string;
@@ -146,6 +146,7 @@ export interface IServicePageResponse {
       subTitle: string;
       leftImage: StrapiImage;
       featurePoints: string;
+      subHeading: string;
     };
     aeroops: {
       title: string;

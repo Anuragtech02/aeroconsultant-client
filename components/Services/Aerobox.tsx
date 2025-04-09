@@ -8,7 +8,7 @@ type Props = {
 };
 
 const Aerobox: React.FC<Props> = ({ aerobox }) => {
-  const { title, subTitle, leftImage, featurePoints } = aerobox;
+  const { title, subTitle, leftImage, featurePoints, subHeading } = aerobox;
 
   return (
     <section id="aerobox">
@@ -29,9 +29,7 @@ const Aerobox: React.FC<Props> = ({ aerobox }) => {
                 alt="aerobox"
                 className="object-cover"
               />
-              <h3 className="font-bold">
-                Transform your record management with
-              </h3>
+              <h3 className="font-bold">{subHeading}</h3>
             </div>
           </div>
         </div>

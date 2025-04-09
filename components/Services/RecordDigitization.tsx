@@ -42,7 +42,7 @@ const RecordDigitization: React.FC<Props> = ({ recordDigitization }) => {
             __html: shortDescription,
           }}
         ></p>
-        <div className="pt-10 pb-10 lg:pb-0 [&>div]:flex-1 flex flex-col lg:flex-row gap-12 justify-between items-start">
+        <div className="pt-10 pb-10 lg:pb-4 [&>div]:flex-1 flex flex-col lg:flex-row gap-12 justify-between items-start">
           <div>
             <img
               src={leftImage.url}
