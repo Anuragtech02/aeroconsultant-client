@@ -1,26 +1,8 @@
-import { getBlogBySlug } from "@/lib/services";
-import { notFound } from "next/navigation";
 import React from "react";
+import { BlogListing } from "@/types/blogs";
 
 interface Props {
-  params: {
-    slug: string;
-  };
-}
-
-export async function generateMetadata({ params }: Props) {
-  const blog = await getBlogBySlug(params.slug);
-
-  if (!blog) {
-    return {
-      title: "Blog Not Found",
-    };
-  }
-
-  return {
-    title: blog.title,
-    description: blog.description.replace(/<[^>]*>/g, "").slice(0, 160),
-  };
+  blog: BlogListing;
 }
 
 const formatDate = (dateString: string) => {
@@ -31,15 +13,7 @@ const formatDate = (dateString: string) => {
   });
 };
 
-const BlogDetail = async ({ params }: Props) => {
-  // Fetch blog data using the slug
-  const blog = await getBlogBySlug(params.slug);
-
-  // Handle case where blog is not found
-  if (!blog) {
-    notFound();
-  }
-
+const BlogDetail = ({ blog }: Props) => {
   return (
     <>
       {/* Hero Section */}

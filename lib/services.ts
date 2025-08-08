@@ -83,7 +83,29 @@ export async function getBlogsList() {
     .map((field, index) => `populate[${index}]=${field}`)
     .join("&");
 
-  return apiFetch<BlogListingResponse>(`/blogs?${populate}`);
+  // Add caching configuration for Next.js
+  const response = await fetch(
+    `${
+      process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://127.0.0.1:1337/api"
+    }/blogs?${populate}`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN || ""}`,
+      },
+      next: {
+        revalidate: 3600, // Cache for 1 hour
+        tags: ["blogs"], // Add cache tags for targeted revalidation
+      },
+    }
+  );
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error?.message || "An error occurred while fetching blogs");
+  }
+
+  return response.json() as Promise<BlogListingResponse>;
 }
 
 export async function getBlogBySlug(slug: string): Promise<BlogListing | null> {
@@ -92,13 +114,34 @@ export async function getBlogBySlug(slug: string): Promise<BlogListing | null> {
     .join("&");
 
   try {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const response = await apiFetch<any>(
-      `/blogs?filters[slug]=${slug}&${populate}`
+    // Add caching configuration for Next.js
+    const response = await fetch(
+      `${
+        process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://127.0.0.1:1337/api"
+      }/blogs?filters[slug]=${slug}&${populate}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN || ""}`,
+        },
+        next: {
+          revalidate: 3600, // Cache for 1 hour
+          tags: ["blog", `blog-${slug}`], // Add cache tags for targeted revalidation
+        },
+      }
     );
 
-    if (response.data && response.data.length > 0) {
-      return response.data[0];
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(
+        error?.message || "An error occurred while fetching blog"
+      );
+    }
+
+    const data = await response.json();
+
+    if (data.data && data.data.length > 0) {
+      return data.data[0];
     }
 
     return null;

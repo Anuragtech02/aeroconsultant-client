@@ -1,21 +1,42 @@
-import React from "react";
-import { Button } from "../Button";
-import { getBlogsList } from "@/lib/services";
+"use client";
 
-const BlogListingPage = async () => {
-  const { data: blogs } = await getBlogsList();
+import React, { useState } from "react";
+import { Button } from "../Button";
+import { BlogListing } from "@/types/blogs";
+
+interface BlogListingPageProps {
+  blogs: BlogListing[];
+}
+
+const BlogListingPage = ({ blogs }: BlogListingPageProps) => {
+  const [showAll, setShowAll] = useState(false);
+
+  // Sort blogs in descending order by creation date (newest first)
+  const sortedBlogs = React.useMemo(() => {
+    return [...blogs].sort(
+      (a, b) =>
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    );
+  }, [blogs]);
 
   // Helper function to get featured blog (first blog)
-  const getFeaturedBlog = () => blogs[0];
+  const getFeaturedBlog = () => sortedBlogs[0];
 
   // Helper function to get grid blogs (next 3 blogs)
-  const getGridBlogs = () => blogs.slice(1, 4);
+  const getGridBlogs = () => sortedBlogs.slice(1, 4);
 
   // Helper function to get large blog (5th and 6th blogs)
-  const getLargeBlog = () => blogs[4];
+  const getLargeBlog = () => sortedBlogs[4];
 
   // Helper function to get remaining blogs (after 6th blog)
-  const getRemainingBlogs = () => blogs.slice(6);
+  const getRemainingBlogs = () => {
+    if (showAll) {
+      return sortedBlogs.slice(6); // Show all remaining blogs
+    }
+    return sortedBlogs.slice(6, 12); // Show only next 6 blogs initially
+  };
+
+  const hasMoreBlogs = sortedBlogs.length > 12;
 
   // Format date helper
   const formatDate = (dateString: string) => {
@@ -48,11 +69,11 @@ const BlogListingPage = async () => {
 
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Featured Blog Post */}
-        {blogs.length > 0 && (
+        {sortedBlogs.length > 0 && (
           <div className="mb-12">
             <div className="bg-indigo-900 rounded-lg overflow-hidden">
-              <div className="grid md:grid-cols-2 items-center">
-                <div className="p-8 text-white">
+              <div className="grid md:grid-cols-2 items-stretch h-[400px]">
+                <div className="p-8 text-white flex flex-col justify-center">
                   <h2 className="text-3xl font-bold mb-4">
                     {getFeaturedBlog().title}
                   </h2>
@@ -67,14 +88,14 @@ const BlogListingPage = async () => {
                     </a>
                   </div>
                 </div>
-                <div className="h-64 md:h-full">
+                <div className="h-full">
                   <img
                     src={
                       getFeaturedBlog().highlightImage?.url ||
                       "/aero-background-blog.png"
                     }
                     alt={getFeaturedBlog().title}
-                    className="w-full h-full max-h-[250px] object-cover"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </div>
@@ -83,7 +104,7 @@ const BlogListingPage = async () => {
         )}
 
         {/* Blog Grid */}
-        {blogs.length > 1 && (
+        {sortedBlogs.length > 1 && (
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {getGridBlogs().map((post) => (
               <div
@@ -120,7 +141,7 @@ const BlogListingPage = async () => {
         )}
 
         {/* Large Blog Post */}
-        {blogs.length > 4 && getLargeBlog() && (
+        {sortedBlogs.length > 4 && getLargeBlog() && (
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div className="bg-blue-50 p-8 rounded-lg">
               <h2 className="text-3xl font-bold text-indigo-900 mb-4">
@@ -202,12 +223,25 @@ const BlogListingPage = async () => {
         )}
 
         {/* See More Button */}
-        {blogs.length > 6 && (
+        {hasMoreBlogs && !showAll && (
           <div className="text-center">
             <Button
               title="See More"
               variant="primary"
               className="!bg-aero-primary [&>span]:!text-white"
+              onClick={() => setShowAll(true)}
+            />
+          </div>
+        )}
+
+        {/* Show Less Button - appears when all blogs are shown */}
+        {showAll && hasMoreBlogs && (
+          <div className="text-center mt-6">
+            <Button
+              title="Show Less"
+              variant="secondary"
+              className="!bg-gray-200 [&>span]:!text-gray-700"
+              onClick={() => setShowAll(false)}
             />
           </div>
         )}
