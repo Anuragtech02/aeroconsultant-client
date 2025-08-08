@@ -10,13 +10,14 @@ export const revalidate = 3600;
 export const dynamic = "force-static";
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: Props) {
-  const blog = await getBlogBySlug(params.slug);
+  const resolvedParams = await params;
+  const blog = await getBlogBySlug(resolvedParams.slug);
 
   if (!blog) {
     return {
@@ -32,8 +33,11 @@ export async function generateMetadata({ params }: Props) {
 
 const BlogDetails: React.FC<Props> = async ({ params }) => {
   try {
+    // Await params since it's a Promise in Next.js 15
+    const resolvedParams = await params;
+
     // Fetch blog data at the page level with caching
-    const blog = await getBlogBySlug(params.slug);
+    const blog = await getBlogBySlug(resolvedParams.slug);
 
     // Handle case where blog is not found
     if (!blog) {
