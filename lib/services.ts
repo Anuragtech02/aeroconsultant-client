@@ -83,7 +83,7 @@ export async function getBlogsList() {
     .map((field, index) => `populate[${index}]=${field}`)
     .join("&");
 
-  // Add caching configuration for Next.js
+  // Fetch fresh data - no caching
   const response = await fetch(
     `${
       process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://127.0.0.1:1337/api"
@@ -93,10 +93,7 @@ export async function getBlogsList() {
         "Content-Type": "application/json",
         Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN || ""}`,
       },
-      next: {
-        revalidate: 3600, // Cache for 1 hour
-        tags: ["blogs"], // Add cache tags for targeted revalidation
-      },
+      cache: "no-store",
     }
   );
 
