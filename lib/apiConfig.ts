@@ -1,7 +1,7 @@
 // src/api/apiConfig.ts
 
 const API_BASE_URL: string =
-  process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://127.0.0.1:1337/api";
+  process.env.STRAPI_API_URL || "http://127.0.0.1:1337/api";
 
 interface FetchOptions extends RequestInit {
   headers?: Record<string, string>;
@@ -13,7 +13,7 @@ export async function apiFetch<T>(
 ): Promise<T> {
   const headers: Record<string, string> = {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN || ""}`,
+    Authorization: `Bearer ${process.env.STRAPI_TOKEN || ""}`,
     ...options.headers,
   };
 

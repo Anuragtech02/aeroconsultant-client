@@ -38,7 +38,7 @@ export async function POST(request: Request) {
 
     // Submit to Strapi
     const strapiResponse = await fetch(
-      `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/form-submissions`,
+      `${process.env.STRAPI_API_URL}/form-submissions`,
       {
         method: "POST",
         headers: {

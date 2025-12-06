@@ -86,12 +86,12 @@ export async function getBlogsList() {
   // Fetch fresh data - no caching
   const response = await fetch(
     `${
-      process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://127.0.0.1:1337/api"
+      process.env.STRAPI_API_URL || "http://127.0.0.1:1337/api"
     }/blogs?${populate}`,
     {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN || ""}`,
+        Authorization: `Bearer ${process.env.STRAPI_TOKEN || ""}`,
       },
       cache: "no-store",
     }
@@ -114,12 +114,12 @@ export async function getBlogBySlug(slug: string): Promise<BlogListing | null> {
     // Add caching configuration for Next.js
     const response = await fetch(
       `${
-        process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://127.0.0.1:1337/api"
+        process.env.STRAPI_API_URL || "http://127.0.0.1:1337/api"
       }/blogs?filters[slug]=${slug}&${populate}`,
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN || ""}`,
+          Authorization: `Bearer ${process.env.STRAPI_TOKEN || ""}`,
         },
         next: {
           revalidate: 3600, // Cache for 1 hour
