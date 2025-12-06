@@ -6,6 +6,9 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 import { getCommonData } from "@/lib/services";
 
+// Prevent static generation - fetch data at runtime
+export const dynamic = "force-dynamic";
+
 // Proxima Nova for headings
 const proximaNova = localFont({
   src: [
