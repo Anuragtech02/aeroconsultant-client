@@ -1,4 +1,3 @@
-export const dynamic = "force-dynamic";
 import React from "react";
 import { Hero } from "@/components/Home/Hero";
 import Stats from "@/components/Home/Stats";

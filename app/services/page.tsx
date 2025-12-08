@@ -1,4 +1,3 @@
-export const dynamic = "force-dynamic";
 import React from "react";
 import { getServicePage } from "@/lib/services";
 import BrandsSection from "@/components/BrandsSection";

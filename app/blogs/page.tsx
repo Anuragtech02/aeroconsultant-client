@@ -1,9 +1,6 @@
 import BlogListing from "@/components/Blogs/BlogListing";
 import { getBlogsList } from "@/lib/services";
 
-// Fetch fresh data on every request
-export const dynamic = "force-dynamic";
-
 export default async function BlogsPage() {
   try {
     // Fetch blogs data at the page level with caching

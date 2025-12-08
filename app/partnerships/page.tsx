@@ -1,4 +1,3 @@
-export const dynamic = "force-dynamic";
 // import { Button } from "@/components/Button";
 // import BannerSection from "@/components/Product/BannerSectionn";
 import PartnershipHero from "@/components/Product/PartnershipHero";
