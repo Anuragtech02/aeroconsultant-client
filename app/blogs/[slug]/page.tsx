@@ -3,12 +3,6 @@ import { getBlogBySlug } from "@/lib/services";
 import { notFound } from "next/navigation";
 import React from "react";
 
-// Enable ISR with 1 hour revalidation (3600 seconds)
-export const revalidate = 3600;
-
-// This allows the page to be statically generated but revalidated
-export const dynamic = "force-static";
-
 interface Props {
   params: Promise<{
     slug: string;
